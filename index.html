@@ -612,43 +612,67 @@
       animation: floatY 4s infinite ease-in-out;
     }
 
-    /* Simple app showcase grid */
-    main .app-grid-section {
+    /* Follow-up proof section */
+    main .followup-proof-section {
       max-width: none !important;
-      padding: 60px 0 !important;
+      padding: 80px 24px !important;
       background: #0a1628;
     }
-    .app-grid-inner {
-      max-width: 760px;
+    .followup-proof-inner {
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0;
     }
-    .app-grid-heading {
+    .followup-proof-heading {
       color: #ffffff;
       text-align: center;
-      font-size: 1.5rem;
+      font-size: 2rem;
       font-weight: 700;
       margin-bottom: 1.1rem;
     }
-    .app-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+    .followup-proof-row {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 4%;
     }
-    .app-grid img {
-      width: 100%;
-      height: 380px;
+    .followup-proof-row img {
+      width: 48%;
+      height: 360px;
       object-fit: cover;
       object-position: top;
       border-radius: 12px;
       display: block;
     }
-    .app-grid-item p {
-      font-size: 13px;
-      color: #8aacbb;
+
+    /* Customer offer section */
+    main .customer-offer-section {
+      max-width: none !important;
+      background: #0d1f35;
+      padding: 80px 24px !important;
+    }
+    .customer-offer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
       text-align: center;
-      margin-top: 8px;
-      line-height: 1.4;
+    }
+    .customer-offer-title {
+      color: #ffffff;
+      font-size: clamp(1.7rem, 4vw, 2.3rem);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+    .customer-offer-sub {
+      color: #8aacbb;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    .customer-offer-image {
+      width: 100%;
+      max-width: 320px;
+      margin: 24px auto 0;
+      border-radius: 16px;
+      display: block;
     }
 
     /* Features */
@@ -954,8 +978,12 @@
       .showcase-section--elevated .showcase-inner > :not(.showcase-visual) {
         order: 1;
       }
-      .app-grid {
-        grid-template-columns: 1fr;
+      .followup-proof-row {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .followup-proof-row img {
+        width: 100%;
       }
       .price-objection-image {
         max-width: 320px;
@@ -1120,27 +1148,21 @@
       </div>
     </section>
 
-    <section class="app-grid-section reveal" aria-labelledby="app-grid-heading">
-      <div class="app-grid-inner">
-        <h2 id="app-grid-heading" class="app-grid-heading">Mere end bare tilbud</h2>
-        <div class="app-grid">
-          <div class="app-grid-item">
-            <img src="./public/screen-4-opfolg-kritisk.png" alt="" loading="lazy" decoding="async" />
-            <p>Automatisk opfølgning</p>
-          </div>
-          <div class="app-grid-item">
-            <img src="./public/kundes-tilbud.png" alt="" loading="lazy" decoding="async" />
-            <p>Sådan ser tilbuddet ud for kunden</p>
-          </div>
-          <div class="app-grid-item">
-            <img src="./public/screen-6-genaktiver.png" alt="" loading="lazy" decoding="async" />
-            <p>Genaktiver gamle kunder</p>
-          </div>
-          <div class="app-grid-item">
-            <img src="./public/kundes-tilbud-neders.png" alt="" loading="lazy" decoding="async" />
-            <p>Kunden accepterer med ét tryk</p>
-          </div>
+    <section class="followup-proof-section reveal" aria-labelledby="followup-proof-heading">
+      <div class="followup-proof-inner">
+        <h2 id="followup-proof-heading" class="followup-proof-heading">Opfølgning der virker</h2>
+        <div class="followup-proof-row">
+          <img src="./public/screen-4-opfolg-kritisk.png" alt="Automatisk opfølgning dag 4 og dag 8" loading="lazy" decoding="async" />
+          <img src="./public/screen-6-genaktiver.png" alt="Genaktivering af gamle kunder" loading="lazy" decoding="async" />
         </div>
+      </div>
+    </section>
+
+    <section class="customer-offer-section reveal" aria-labelledby="customer-offer-heading">
+      <div class="customer-offer-inner">
+        <h2 id="customer-offer-heading" class="customer-offer-title">Kunden åbner et link — og accepterer med ét tryk</h2>
+        <p class="customer-offer-sub">Ingen app. Ingen login. Ingen forvirring.</p>
+        <img class="customer-offer-image" src="./public/lang-tilbud-kunde.png" alt="Tilbud vist til kunden" loading="lazy" decoding="async" />
       </div>
     </section>
 
@@ -1204,16 +1226,6 @@
       </div>
     </section>
 
-    <section class="lead-capture-section reveal" aria-label="Ring mig op">
-      <div class="lead-capture-inner">
-        <h2 class="lead-capture-title">Vil du se det før du beslutter dig?</h2>
-        <p class="lead-capture-sub">Skriv dit nummer. Mathias ringer dig op — ingen salgssnak, bare en kort gennemgang.</p>
-        <input id="lead-phone" class="lead-capture-input" type="tel" placeholder="Dit mobilnummer" />
-        <button type="button" class="lead-capture-button" onclick="sendLeadPhone()">Ring mig op</button>
-        <p class="lead-capture-note">Vi ringer normalt tilbage samme dag</p>
-      </div>
-    </section>
-
     <section class="reveal" aria-labelledby="pricing-heading">
       <div class="section-head">
         <h2 id="pricing-heading">Én simpel pris</h2>
@@ -1247,6 +1259,16 @@
           <a class="btn btn-accent" href="https://mesterpakken.dk">Kom i gang i dag</a>
           <p class="pricing-human-line">Er du i tvivl? Ring til Mathias: +45 22 44 00 80</p>
         </div>
+      </div>
+    </section>
+
+    <section class="lead-capture-section reveal" aria-label="Ring mig op">
+      <div class="lead-capture-inner">
+        <h2 class="lead-capture-title">Vil du se det før du beslutter dig?</h2>
+        <p class="lead-capture-sub">Skriv dit nummer. Mathias ringer dig op — ingen salgssnak, bare en kort gennemgang.</p>
+        <input id="phone-input" class="lead-capture-input" type="tel" placeholder="Dit mobilnummer" />
+        <button id="ring-btn" type="button" class="lead-capture-button" onclick="ringMigOp()">Ring mig op</button>
+        <p class="lead-capture-note">Vi ringer normalt tilbage samme dag</p>
       </div>
     </section>
   </main>
@@ -1379,15 +1401,6 @@
         });
       }
 
-      window.sendLeadPhone = function () {
-        var input = document.getElementById("lead-phone");
-        var value = input && "value" in input ? String(input.value || "").trim() : "";
-        var subject = encodeURIComponent("Ring mig op");
-        var body = encodeURIComponent("Nummer: " + value);
-        window.location.href =
-          "mailto:kontakt@mesterpakken.dk?subject=" + subject + "&body=" + body;
-      };
-
       document.addEventListener("DOMContentLoaded", function () {
         onScrollNav();
         window.addEventListener("scroll", onScrollNav, { passive: true });
@@ -1398,6 +1411,39 @@
         setupSmoothAnchors();
       });
     })();
+  </script>
+  <script>
+    async function ringMigOp() {
+      const phone = document.getElementById('phone-input').value.trim();
+      if (!phone) return;
+
+      const btn = document.getElementById('ring-btn');
+      btn.textContent = 'Sender...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('https://cklzgtqujptdipahhcbi.supabase.co/rest/v1/leads', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': 'sb_publishable_h3n8F99cS8q_Sub0Gl6pTQ_ZuLUaXui',
+            'Authorization': 'Bearer sb_publishable_h3n8F99cS8q_Sub0Gl6pTQ_ZuLUaXui',
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({ phone })
+        });
+        if (res.ok) {
+          btn.textContent = 'Tak — vi ringer dig op';
+          btn.style.background = '#1a7a3d';
+        } else {
+          btn.textContent = 'Noget gik galt — prøv igen';
+          btn.disabled = false;
+        }
+      } catch(e) {
+        btn.textContent = 'Noget gik galt — prøv igen';
+        btn.disabled = false;
+      }
+    }
   </script>
 </body>
 </html>

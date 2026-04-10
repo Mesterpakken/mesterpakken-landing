@@ -771,6 +771,59 @@
       text-align: center;
       margin-top: 12px;
     }
+
+    /* Lead capture */
+    main .lead-capture-section {
+      max-width: none !important;
+      background: #0d1f35;
+      padding: 64px 24px !important;
+    }
+    .lead-capture-inner {
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .lead-capture-title {
+      color: #ffffff;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .lead-capture-sub {
+      color: #8aacbb;
+      font-size: 15px;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    .lead-capture-input {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid #1e3a5f;
+      background: #0a1628;
+      color: #ffffff;
+      font-size: 15px;
+      margin-top: 24px;
+      outline: none;
+    }
+    .lead-capture-button {
+      width: 100%;
+      background: #19a7ce;
+      color: #ffffff;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      border: 0;
+      margin-top: 12px;
+      cursor: pointer;
+    }
+    .lead-capture-note {
+      font-size: 12px;
+      color: #8aacbb;
+      text-align: center;
+      margin-top: 8px;
+    }
     /* Footer */
     .site-footer {
       background: var(--footer-bg);
@@ -1079,6 +1132,16 @@
       </div>
     </section>
 
+    <section class="lead-capture-section reveal" aria-label="Ring mig op">
+      <div class="lead-capture-inner">
+        <h2 class="lead-capture-title">Vil du se det før du beslutter dig?</h2>
+        <p class="lead-capture-sub">Skriv dit nummer. Mathias ringer dig op — ingen salgssnak, bare en kort gennemgang.</p>
+        <input id="lead-phone" class="lead-capture-input" type="tel" placeholder="Dit mobilnummer" />
+        <button type="button" class="lead-capture-button" onclick="sendLeadPhone()">Ring mig op</button>
+        <p class="lead-capture-note">Vi ringer normalt tilbage samme dag</p>
+      </div>
+    </section>
+
     <section class="reveal" aria-labelledby="pricing-heading">
       <div class="section-head">
         <h2 id="pricing-heading">Én simpel pris</h2>
@@ -1243,6 +1306,15 @@
           });
         });
       }
+
+      window.sendLeadPhone = function () {
+        var input = document.getElementById("lead-phone");
+        var value = input && "value" in input ? String(input.value || "").trim() : "";
+        var subject = encodeURIComponent("Ring mig op");
+        var body = encodeURIComponent("Nummer: " + value);
+        window.location.href =
+          "mailto:kontakt@mesterpakken.dk?subject=" + subject + "&body=" + body;
+      };
 
       document.addEventListener("DOMContentLoaded", function () {
         onScrollNav();

@@ -45,6 +45,19 @@
       padding: 1rem 1.25rem;
       transition: background 0.35s ease, box-shadow 0.35s ease;
     }
+    .site-header::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      pointer-events: none;
+      background: rgba(25, 167, 206, 0.18);
+      box-shadow:
+        0 0 12px rgba(25, 167, 206, 0.2),
+        0 0 28px rgba(25, 167, 206, 0.12);
+    }
     .site-header.is-solid {
       background: #0d1f38;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
@@ -146,7 +159,10 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      padding: 4.8rem 1.25rem 3.2rem;
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding: 4.8rem 0 3.2rem;
       overflow: hidden;
     }
     .hero-bg {
@@ -195,7 +211,10 @@
     .hero-inner {
       position: relative;
       z-index: 1;
+      width: 100%;
       max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
       text-align: center;
     }
     .hero h1 {
@@ -255,22 +274,29 @@
     }
     .marquee-track {
       display: flex;
+      flex-wrap: nowrap;
       width: max-content;
-      animation: marquee 40s linear infinite;
+      animation: marquee-scroll 50s linear infinite;
+      will-change: transform;
     }
     .marquee-track:hover { animation-play-state: paused; }
-    .marquee-content {
-      display: flex;
+    .marquee-sequence {
+      display: inline-flex;
       align-items: center;
+      flex-shrink: 0;
       white-space: nowrap;
-      padding-right: 3rem;
       font-size: 0.95rem;
       color: var(--white);
       font-weight: 500;
     }
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+    .marquee-sequence .m-sep {
+      margin: 0 24px;
+      color: rgba(255, 255, 255, 0.42);
+      font-weight: 400;
+    }
+    @keyframes marquee-scroll {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
     }
 
     /* Sections */
@@ -278,6 +304,9 @@
       padding: 4rem 1.25rem;
       max-width: 1280px;
       margin: 0 auto;
+    }
+    main > section.hero {
+      max-width: none;
     }
     .section-head {
       text-align: center;
@@ -616,11 +645,11 @@
       <p class="marquee-label">Bygget til danske håndværkere</p>
       <div class="marquee-wrap">
         <div class="marquee-track">
-          <div class="marquee-content">
-            Tømrer · Maler · VVS · Elektriker · Anlægsgartner · Murer · Tagdækker · Gulvlægger · Snedker
+          <div class="marquee-sequence">
+            <span class="m-trade">Tømrer</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Maler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">VVS</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Elektriker</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Anlægsgartner</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Murer</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Tagdækker</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gulvlægger</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Snedker</span><span class="m-sep" aria-hidden="true">·</span>
           </div>
-          <div class="marquee-content" aria-hidden="true">
-            Tømrer · Maler · VVS · Elektriker · Anlægsgartner · Murer · Tagdækker · Gulvlægger · Snedker
+          <div class="marquee-sequence" aria-hidden="true">
+            <span class="m-trade">Tømrer</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Maler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">VVS</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Elektriker</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Anlægsgartner</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Murer</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Tagdækker</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gulvlægger</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Snedker</span><span class="m-sep" aria-hidden="true">·</span>
           </div>
         </div>
       </div>

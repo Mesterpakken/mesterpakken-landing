@@ -631,18 +631,23 @@
       margin-bottom: 1.1rem;
     }
     .followup-proof-row {
-      display: flex;
-      justify-content: center;
-      align-items: stretch;
-      gap: 4%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .followup-proof-item {
+      width: 100%;
+      height: auto;
     }
     .followup-proof-row img {
-      width: 48%;
-      height: 480px;
-      object-fit: cover;
-      object-position: top;
-      border-radius: 12px;
+      width: 100%;
+      height: auto;
+      object-fit: unset;
       display: block;
+      border-radius: 12px;
     }
     .followup-proof-item p {
       color: #8aacbb;
@@ -985,7 +990,7 @@
         order: 1;
       }
       .followup-proof-row {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 16px;
       }
       .followup-proof-row img {

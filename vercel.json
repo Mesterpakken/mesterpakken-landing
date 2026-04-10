@@ -1,6 +1,1 @@
-{
-  "rewrites": [
-    { "source": "/public/:path*", "destination": "/public/:path*" },
-    { "source": "/:path*", "destination": "/index.html" }
-  ]
-}
+{}

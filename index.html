@@ -248,7 +248,7 @@
       text-align: center;
     }
     .hero h1 {
-      font-size: clamp(1.75rem, 5vw, 2.75rem);
+      font-size: clamp(28px, 6vw, 52px);
       font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1.15;
@@ -566,9 +566,9 @@
       background: #0a1628;
     }
     .app-grid-inner {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
-      padding: 0 1.25rem;
+      padding: 0 24px;
     }
     .app-grid-heading {
       color: #ffffff;
@@ -584,11 +584,18 @@
     }
     .app-grid img {
       width: 100%;
-      height: 340px;
+      height: 380px;
       object-fit: cover;
       object-position: top;
       border-radius: 12px;
       display: block;
+    }
+    .app-grid-item p {
+      font-size: 13px;
+      color: #8aacbb;
+      text-align: center;
+      margin-top: 8px;
+      line-height: 1.4;
     }
 
     /* Features */
@@ -696,15 +703,6 @@
       padding: 2rem;
       text-align: center;
     }
-    .pricing-badge {
-      display: inline-block;
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 0.8125rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 1rem;
-    }
     .price-setup {
       margin-bottom: 0.25rem;
     }
@@ -739,11 +737,6 @@
     }
     .price-main { font-size: 2.75rem; font-weight: 800; color: var(--white); }
     .price-sub { font-size: 1rem; color: var(--muted); }
-    .pricing-meta {
-      color: var(--muted);
-      font-size: 0.8125rem;
-      margin-bottom: 1rem;
-    }
     .pricing-divider {
       height: 1px;
       background: rgba(138, 172, 187, 0.25);
@@ -771,6 +764,12 @@
       width: 100%;
       padding: 1rem 1.5rem;
       font-size: 1.0625rem;
+    }
+    .pricing-human-line {
+      font-size: 13px;
+      color: #8aacbb;
+      text-align: center;
+      margin-top: 12px;
     }
     /* Footer */
     .site-footer {
@@ -802,6 +801,12 @@
     }
     .footer-links a { color: var(--muted); transition: color 0.2s; }
     .footer-links a:hover { color: var(--white); }
+    .footer-contact-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
     .footer-divider {
       height: 1px;
       background: rgba(138, 172, 187, 0.2);
@@ -822,6 +827,57 @@
       clip: rect(0, 0, 0, 0);
       white-space: nowrap;
       border: 0;
+    }
+
+    @media (max-width: 767px) {
+      main section {
+        padding: 48px 24px !important;
+      }
+      .hero h1 {
+        font-size: clamp(28px, 6vw, 52px);
+      }
+      .showcase-inner {
+        grid-template-columns: 1fr !important;
+      }
+      .showcase-section--elevated .showcase-inner > .showcase-visual {
+        order: 2;
+      }
+      .showcase-section--elevated .showcase-inner > :not(.showcase-visual) {
+        order: 1;
+      }
+      .app-grid {
+        grid-template-columns: 1fr;
+      }
+      .pricing-card {
+        max-width: 100%;
+        padding: 24px;
+      }
+      .nav-toggle {
+        display: none;
+      }
+      .nav-links {
+        position: static;
+        width: auto;
+        height: auto;
+        background: transparent;
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        gap: 0.65rem;
+        box-shadow: none;
+        transform: none;
+      }
+      .nav-links .btn {
+        width: auto;
+        padding: 0.55rem 1rem;
+        font-size: 0.85rem;
+      }
+      .nav-links a.link-text {
+        font-size: 0.85rem;
+      }
+      .logo-text {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -956,10 +1012,22 @@
       <div class="app-grid-inner">
         <h2 id="app-grid-heading" class="app-grid-heading">Mere end bare tilbud</h2>
         <div class="app-grid">
-          <img src="./public/screen-4-opfolg-kritisk.png" alt="" loading="lazy" decoding="async" />
-          <img src="./public/screen-5-opfolg-reference.png" alt="" loading="lazy" decoding="async" />
-          <img src="./public/screen-6-genaktiver.png" alt="" loading="lazy" decoding="async" />
-          <img src="./public/screen-3-kunder.png" alt="" loading="lazy" decoding="async" />
+          <div class="app-grid-item">
+            <img src="./public/screen-4-opfolg-kritisk.png" alt="" loading="lazy" decoding="async" />
+            <p>Automatisk opfølgning</p>
+          </div>
+          <div class="app-grid-item">
+            <img src="./public/kundes-tilbud.png" alt="" loading="lazy" decoding="async" />
+            <p>Sådan ser tilbuddet ud for kunden</p>
+          </div>
+          <div class="app-grid-item">
+            <img src="./public/screen-6-genaktiver.png" alt="" loading="lazy" decoding="async" />
+            <p>Genaktiver gamle kunder</p>
+          </div>
+          <div class="app-grid-item">
+            <img src="./public/kundes-tilbud-neders.png" alt="" loading="lazy" decoding="async" />
+            <p>Kunden accepterer med ét tryk</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1018,7 +1086,6 @@
       </div>
       <div class="pricing-wrap">
         <div class="pricing-card reveal">
-          <span class="pricing-badge">Mest populær</span>
           <div class="price-setup">
             <p class="price-setup-amount">1.500 kr</p>
             <p class="price-setup-note">
@@ -1027,7 +1094,6 @@
             </p>
           </div>
           <div class="pricing-divider"></div>
-          <p class="pricing-meta">Ingen binding · Opsig når som helst · Gratis onboarding inkluderet</p>
           <div class="price-row price-row--monthly">
             <span class="price-main">499 kr</span>
             <span class="price-sub">/måned ekskl. moms</span>
@@ -1044,6 +1110,7 @@
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Personlig onboarding med opsætningen</span></li>
           </ul>
           <a class="btn btn-accent" href="https://mesterpakken.dk">Kom i gang i dag</a>
+          <p class="pricing-human-line">Er du i tvivl? Ring til Mathias: +45 22 44 00 80</p>
         </div>
       </div>
     </section>
@@ -1058,7 +1125,11 @@
         </div>
         <div class="footer-links">
           <a href="https://mesterpakken.dk">Log ind</a>
-          <a href="mailto:hej@mesterpakken.dk">hej@mesterpakken.dk</a>
+          <span class="footer-contact-line">
+            <a href="mailto:kontakt@mesterpakken.dk">kontakt@mesterpakken.dk</a>
+            <span aria-hidden="true">·</span>
+            <a href="tel:+4522440080">+45 22 44 00 80</a>
+          </span>
         </div>
       </div>
       <div class="footer-divider"></div>

@@ -321,11 +321,7 @@
       border-left: 4px solid var(--red);
       border-radius: 0 12px 12px 0;
       padding: 1.25rem 1.35rem;
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
     }
-    .pain-card .icon { font-size: 1.35rem; flex-shrink: 0; }
 
     /* How it works */
     .steps-grid {
@@ -351,19 +347,18 @@
       transform: translateY(0);
     }
     .step-num {
-      font-size: 3rem;
+      font-size: clamp(3.25rem, 7vw, 4.25rem);
       font-weight: 800;
-      color: rgba(25, 167, 206, 0.25);
+      color: rgba(25, 167, 206, 0.4);
       line-height: 1;
-      margin-bottom: 0.5rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.75rem;
     }
     .step-card h3 {
       font-size: 1.125rem;
       margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
+      font-weight: 700;
+      letter-spacing: 0.06em;
     }
     .step-card p { color: var(--muted); font-size: 0.9375rem; }
 
@@ -390,7 +385,21 @@
       border-color: rgba(25, 167, 206, 0.55);
       box-shadow: 0 0 24px rgba(25, 167, 206, 0.12);
     }
-    .feature-card .emoji { font-size: 2rem; display: block; margin-bottom: 0.75rem; }
+    .feature-accent {
+      display: block;
+      width: 2.25rem;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 1px;
+      margin-bottom: 0.85rem;
+    }
+    .feature-card:nth-child(3n + 2) .feature-accent {
+      width: 8px;
+      height: 8px;
+      border-radius: 1px;
+      transform: rotate(45deg);
+      margin-bottom: 1rem;
+    }
     .feature-card h3 { font-size: 1.0625rem; margin-bottom: 0.5rem; }
     .feature-card p { color: var(--muted); font-size: 0.9rem; }
 
@@ -454,7 +463,16 @@
       flex-shrink: 0;
     }
     .testimonial-meta { font-size: 0.8125rem; color: var(--muted); }
-    .stars { color: #d4af37; letter-spacing: 2px; font-size: 0.9rem; margin-top: 0.25rem; }
+    .stars {
+      display: flex;
+      gap: 3px;
+      margin-top: 0.25rem;
+    }
+    .star-icon {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
     .testimonial-card blockquote {
       font-style: italic;
       color: var(--muted);
@@ -513,17 +531,17 @@
       margin-bottom: 1.75rem;
     }
     .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
       padding: 0.45rem 0;
-      padding-left: 1.75rem;
-      position: relative;
       font-size: 0.9375rem;
     }
-    .checklist li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: 700;
+    .check-icon {
+      flex-shrink: 0;
+      width: 1.125rem;
+      height: 1.125rem;
+      margin-top: 0.15rem;
     }
     .pricing-card .btn-accent {
       width: 100%;
@@ -617,8 +635,8 @@
         </h1>
         <p class="hero-lead">Tal om opgaven. AI genererer tilbuddet. Kunden accepterer med ét tryk.</p>
         <div class="hero-cta">
-          <a class="btn btn-outline" href="#how-it-works">Se hvordan det virker ↓</a>
-          <a class="btn btn-accent" href="https://mesterpakken.dk">Kom i gang gratis →</a>
+          <a class="btn btn-outline" href="#how-it-works">Se hvordan det virker</a>
+          <a class="btn btn-accent" href="https://mesterpakken.dk">Kom i gang gratis</a>
         </div>
       </div>
     </section>
@@ -628,10 +646,10 @@
       <div class="marquee-wrap">
         <div class="marquee-track">
           <div class="marquee-content">
-            🔨 Tømrer &nbsp;&nbsp;·&nbsp;&nbsp; 🎨 Maler &nbsp;&nbsp;·&nbsp;&nbsp; 🔧 VVS &nbsp;&nbsp;·&nbsp;&nbsp; ⚡ Elektriker &nbsp;&nbsp;·&nbsp;&nbsp; 🌿 Anlægsgartner &nbsp;&nbsp;·&nbsp;&nbsp; 🧱 Murer &nbsp;&nbsp;·&nbsp;&nbsp; 🏠 Tagdækker &nbsp;&nbsp;·&nbsp;&nbsp; 🪵 Gulvlægger &nbsp;&nbsp;·&nbsp;&nbsp; 🪟 Snedker
+            Tømrer · Maler · VVS · Elektriker · Anlægsgartner · Murer · Tagdækker · Gulvlægger · Snedker
           </div>
           <div class="marquee-content" aria-hidden="true">
-            🔨 Tømrer &nbsp;&nbsp;·&nbsp;&nbsp; 🎨 Maler &nbsp;&nbsp;·&nbsp;&nbsp; 🔧 VVS &nbsp;&nbsp;·&nbsp;&nbsp; ⚡ Elektriker &nbsp;&nbsp;·&nbsp;&nbsp; 🌿 Anlægsgartner &nbsp;&nbsp;·&nbsp;&nbsp; 🧱 Murer &nbsp;&nbsp;·&nbsp;&nbsp; 🏠 Tagdækker &nbsp;&nbsp;·&nbsp;&nbsp; 🪵 Gulvlægger &nbsp;&nbsp;·&nbsp;&nbsp; 🪟 Snedker
+            Tømrer · Maler · VVS · Elektriker · Anlægsgartner · Murer · Tagdækker · Gulvlægger · Snedker
           </div>
         </div>
       </div>
@@ -644,19 +662,15 @@
       </div>
       <div class="problem-grid">
         <div class="pain-card reveal">
-          <span class="icon" aria-hidden="true">❌</span>
           <p>Et tilbud i Word tager 1-2 timer — det har du ikke tid til ude på en arbejdsplads</p>
         </div>
         <div class="pain-card reveal">
-          <span class="icon" aria-hidden="true">❌</span>
           <p>Kunden venter for længe på tilbuddet og vælger en anden</p>
         </div>
         <div class="pain-card reveal">
-          <span class="icon" aria-hidden="true">❌</span>
           <p>Du glemmer at følge op og mister opgaven stille og roligt</p>
         </div>
         <div class="pain-card reveal">
-          <span class="icon" aria-hidden="true">❌</span>
           <p>Ingen overblik — du ved ikke hvem der venter, og hvem der allerede har valgt fra</p>
         </div>
       </div>
@@ -669,17 +683,17 @@
       <div class="steps-grid" id="steps-grid">
         <article class="step-card" style="--delay: 0ms">
           <div class="step-num">01</div>
-          <h3><span aria-hidden="true">🎙️</span> TAL</h3>
+          <h3>TAL</h3>
           <p>Beskriv opgaven med din stemme. 60 sekunder er nok — inde fra bilen, på byggepladsen, hvor som helst.</p>
         </article>
         <article class="step-card" style="--delay: 150ms">
           <div class="step-num">02</div>
-          <h3><span aria-hidden="true">📄</span> TILBUD</h3>
+          <h3>TILBUD</h3>
           <p>AI strukturerer og prissætter automatisk baseret på hvad du har sagt. Du gennemgår og justerer med ét touch.</p>
         </article>
         <article class="step-card" style="--delay: 300ms">
           <div class="step-num">03</div>
-          <h3><span aria-hidden="true">✅</span> SEND</h3>
+          <h3>SEND</h3>
           <p>Kunden modtager et SMS-link og accepterer med ét tryk — ingen app, ingen login, ingen forvirring.</p>
         </article>
       </div>
@@ -691,13 +705,13 @@
         <p>Mesterpakken arbejder for dig — også når du ikke er i appen.</p>
       </div>
       <div class="features-grid">
-        <div class="feature-card reveal"><span class="emoji" aria-hidden="true">🎙️</span><h3>Stemmeoptagelse</h3><p>Fra tale til professionelt tilbud på under 2 minutter — ingen tastatur nødvendig.</p></div>
-        <div class="feature-card reveal"><span class="emoji" aria-hidden="true">📱</span><h3>SMS til kunden</h3><p>Kunden modtager et link og accepterer uden at downloade noget. Det hele sker på 30 sekunder.</p></div>
-        <div class="feature-card reveal"><span class="emoji" aria-hidden="true">🔔</span><h3>Automatiske påmindelser</h3><p>Systemet sender dig en SMS dag 4 og dag 8 hvis kunden ikke har svaret. Du glemmer aldrig en opgave igen.</p></div>
-        <div class="feature-card reveal"><span class="emoji" aria-hidden="true">📊</span><h3>Prisguidance</h3><p>Baseret på dine egne vundne projekter lærer systemet hvad du normalt vinder til. Sæt den rigtige pris første gang.</p></div>
-        <div class="feature-card reveal"><span class="emoji" aria-hidden="true">🔄</span><h3>Genaktiver gamle kunder</h3><p>Systemet finder kunder du ikke har talt med i 6 måneder og foreslår en personlig SMS. Tidligere kunder køber igen.</p></div>
-        <div class="feature-card reveal"><span class="emoji" aria-hidden="true">⭐</span><h3>Reference-anmodning</h3><p>30 dage efter en vunden opgave minder systemet dig om at bede om en Google-anmeldelse. Automatisk.</p></div>
-        <div class="feature-card reveal"><span class="emoji" aria-hidden="true">📈</span><h3>Pipeline overblik</h3><p>Se alle dine tilbud samlet — hvad der venter, hvad der er sendt, vundet og tabt. Aldrig mere rod i indbakken.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Stemmeoptagelse</h3><p>Fra tale til professionelt tilbud på under 2 minutter — ingen tastatur nødvendig.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>SMS til kunden</h3><p>Kunden modtager et link og accepterer uden at downloade noget. Det hele sker på 30 sekunder.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Automatiske påmindelser</h3><p>Systemet sender dig en SMS dag 4 og dag 8 hvis kunden ikke har svaret. Du glemmer aldrig en opgave igen.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Prisguidance</h3><p>Baseret på dine egne vundne projekter lærer systemet hvad du normalt vinder til. Sæt den rigtige pris første gang.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Genaktiver gamle kunder</h3><p>Systemet finder kunder du ikke har talt med i 6 måneder og foreslår en personlig SMS. Tidligere kunder køber igen.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Reference-anmodning</h3><p>30 dage efter en vunden opgave minder systemet dig om at bede om en Google-anmeldelse. Automatisk.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Pipeline overblik</h3><p>Se alle dine tilbud samlet — hvad der venter, hvad der er sendt, vundet og tabt. Aldrig mere rod i indbakken.</p></div>
       </div>
     </section>
 
@@ -722,7 +736,13 @@
             <div class="avatar" role="img" aria-label="Avatar"></div>
             <div>
               <div class="testimonial-meta">Beta-bruger · Tømrer</div>
-              <div class="stars" aria-label="5 stjerner">★★★★★</div>
+              <div class="stars" role="img" aria-label="5 ud af 5 stjerner">
+                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
+                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
+                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
+                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
+                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
+              </div>
             </div>
           </div>
           <blockquote>“Pladsholder — vi samler de første rigtige historier fra beta.”</blockquote>
@@ -732,7 +752,13 @@
             <div class="avatar" role="img" aria-label="Avatar"></div>
             <div>
               <div class="testimonial-meta">Beta-bruger · Elektriker</div>
-              <div class="stars" aria-label="5 stjerner">★★★★★</div>
+              <div class="stars" role="img" aria-label="5 ud af 5 stjerner">
+                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
+                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
+                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
+                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
+                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
+              </div>
             </div>
           </div>
           <blockquote>“Pladsholder — vi samler de første rigtige historier fra beta.”</blockquote>
@@ -742,13 +768,19 @@
             <div class="avatar" role="img" aria-label="Avatar"></div>
             <div>
               <div class="testimonial-meta">Beta-bruger · VVS</div>
-              <div class="stars" aria-label="5 stjerner">★★★★★</div>
+              <div class="stars" role="img" aria-label="5 ud af 5 stjerner">
+                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
+                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
+                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
+                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
+                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
+              </div>
             </div>
           </div>
           <blockquote>“Pladsholder — vi samler de første rigtige historier fra beta.”</blockquote>
         </div>
       </div>
-      <p class="testimonial-note">Vi er i beta — de første anmeldelser er på vej 🚀</p>
+      <p class="testimonial-note">Vi er i beta — de første anmeldelser er på vej.</p>
     </section>
 
     <section class="reveal" aria-labelledby="pricing-heading">
@@ -766,14 +798,14 @@
           <p class="pricing-meta">Ingen binding · Opsig når som helst · Gratis onboarding inkluderet</p>
           <div class="pricing-divider"></div>
           <ul class="checklist">
-            <li>Ubegrænsede tilbud</li>
-            <li>SMS direkte til kunden</li>
-            <li>Automatiske opfølgningspåmindelser</li>
-            <li>Prisguidance baseret på din historik</li>
-            <li>Genaktivering af gamle kunder</li>
-            <li>Reference-anmodning efter vundne projekter</li>
-            <li>Pipeline og overblik over alle tilbud</li>
-            <li>Personlig onboarding inkluderet</li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Ubegrænsede tilbud</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>SMS direkte til kunden</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Automatiske opfølgningspåmindelser</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Prisguidance baseret på din historik</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Genaktivering af gamle kunder</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reference-anmodning efter vundne projekter</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Pipeline og overblik over alle tilbud</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Personlig onboarding inkluderet</span></li>
           </ul>
           <a class="btn btn-accent" href="https://mesterpakken.dk">Start i dag — gratis de første 30 dage</a>
           <p class="pricing-foot">Herefter 499 kr/md · Opsig når som helst</p>

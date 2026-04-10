@@ -329,6 +329,38 @@
       100% { transform: translate3d(-50%, 0, 0); }
     }
 
+    /* ROI bar */
+    .roi-bar {
+      max-width: none !important;
+      background: #0d1f35;
+      padding: 48px 0 !important;
+    }
+    .roi-row {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .roi-item {
+      text-align: center;
+      font-size: 16px;
+      color: #ffffff;
+      font-weight: 600;
+      font-family: sans-serif;
+      line-height: 1.45;
+      max-width: 290px;
+    }
+    .roi-line {
+      width: 32px;
+      height: 2px;
+      background: #19a7ce;
+      margin: 0 auto 12px;
+    }
+
     /* Sections */
     main section {
       padding: 4rem 1.25rem;
@@ -851,6 +883,14 @@
         </div>
       </div>
     </div>
+
+    <section class="roi-bar reveal" aria-label="Værdi og afkast">
+      <div class="roi-row">
+        <p class="roi-item"><span class="roi-line" aria-hidden="true"></span>Én opgave mere om måneden betaler det hele</p>
+        <p class="roi-item"><span class="roi-line" aria-hidden="true"></span>Spar timevis i tilbud. Hver uge</p>
+        <p class="roi-item"><span class="roi-line" aria-hidden="true"></span>Følg op automatisk - der er penge i lortet</p>
+      </div>
+    </section>
 
     <section class="reveal" aria-labelledby="problem-heading">
       <div class="section-head">

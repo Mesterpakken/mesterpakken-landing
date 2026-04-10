@@ -566,7 +566,7 @@
       background: #0a1628;
     }
     .app-grid-inner {
-      max-width: 700px;
+      max-width: 720px;
       margin: 0 auto;
       padding: 0 1.25rem;
     }
@@ -579,17 +579,15 @@
     }
     .app-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
-    }
-    @media (min-width: 768px) {
-      .app-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
     }
     .app-grid img {
       width: 100%;
-      border-radius: 16px;
+      height: 340px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 12px;
       display: block;
     }
 
@@ -743,8 +741,8 @@
     .price-sub { font-size: 1rem; color: var(--muted); }
     .pricing-meta {
       color: var(--muted);
-      font-size: 0.9rem;
-      margin-bottom: 1.5rem;
+      font-size: 0.8125rem;
+      margin-bottom: 1rem;
     }
     .pricing-divider {
       height: 1px;
@@ -774,12 +772,6 @@
       padding: 1rem 1.5rem;
       font-size: 1.0625rem;
     }
-    .pricing-foot {
-      margin-top: 1rem;
-      font-size: 0.8125rem;
-      color: var(--muted);
-    }
-
     /* Footer */
     .site-footer {
       background: var(--footer-bg);
@@ -884,14 +876,6 @@
       </div>
     </div>
 
-    <section class="roi-bar reveal" aria-label="Værdi og afkast">
-      <div class="roi-row">
-        <p class="roi-item"><span class="roi-line" aria-hidden="true"></span>Én opgave mere om måneden betaler det hele</p>
-        <p class="roi-item"><span class="roi-line" aria-hidden="true"></span>Spar timevis i tilbud. Hver uge</p>
-        <p class="roi-item"><span class="roi-line" aria-hidden="true"></span>Følg op automatisk - der er penge i lortet</p>
-      </div>
-    </section>
-
     <section class="reveal" aria-labelledby="problem-heading">
       <div class="section-head">
         <h2 id="problem-heading">Kender du det her?</h2>
@@ -899,7 +883,7 @@
       </div>
       <div class="problem-grid">
         <div class="pain-card reveal">
-          <p>Et tilbud i Word tager 1-2 timer — det har du ikke tid til ude på en arbejdsplads</p>
+          <p>Et tilbud tager for lang tid — og mens du skriver, er kunden videre</p>
         </div>
         <div class="pain-card reveal">
           <p>Kunden venter for længe på tilbuddet og vælger en anden</p>
@@ -1021,6 +1005,14 @@
       <p class="beta-statement__sub">De første håndværkere er i gang. Resultater kommer her.</p>
     </section>
 
+    <section class="roi-bar reveal" aria-label="Værdi og afkast">
+      <div class="roi-row">
+        <p class="roi-item"><span class="roi-line" aria-hidden="true"></span>Én opgave mere om måneden betaler det hele</p>
+        <p class="roi-item"><span class="roi-line" aria-hidden="true"></span>Spar timevis i tilbud. Hver uge</p>
+        <p class="roi-item"><span class="roi-line" aria-hidden="true"></span>Følg op automatisk - der er penge i lortet</p>
+      </div>
+    </section>
+
     <section class="reveal" aria-labelledby="pricing-heading">
       <div class="section-head">
         <h2 id="pricing-heading">Én simpel pris</h2>
@@ -1037,11 +1029,11 @@
             </p>
           </div>
           <div class="pricing-divider"></div>
+          <p class="pricing-meta">Ingen binding · Opsig når som helst · Gratis onboarding inkluderet</p>
           <div class="price-row price-row--monthly">
             <span class="price-main">499 kr</span>
             <span class="price-sub">/måned ekskl. moms</span>
           </div>
-          <p class="pricing-meta">Ingen binding · Opsig når som helst · Personlig onboarding i opsætningen</p>
           <div class="pricing-divider"></div>
           <ul class="checklist">
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Ubegrænsede tilbud</span></li>
@@ -1054,7 +1046,6 @@
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Personlig onboarding med opsætningen</span></li>
           </ul>
           <a class="btn btn-accent" href="https://mesterpakken.dk">Kom i gang i dag</a>
-          <p class="pricing-foot">Opsætning inkluderer personlig onboarding — du er kørende på en time.</p>
         </div>
       </div>
     </section>

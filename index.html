@@ -421,7 +421,7 @@
     }
     .step-card p { color: var(--muted); font-size: 0.9375rem; }
 
-    /* App screenshots (phone frames) — centered row, ~3 visible, horizontal scroll */
+    /* App screenshots — phone frames, horizontal scroll */
     main .app-screens-section {
       max-width: none !important;
       padding: 80px 0 !important;
@@ -443,23 +443,19 @@
     }
     .screens-inner {
       width: 100%;
-      max-width: min(100%, calc(220px * 3 + 20px * 2 + 48px * 2));
       margin: 0 auto;
     }
     .screens-row {
       display: flex;
-      gap: 20px;
       overflow-x: auto;
-      padding: 24px 48px;
+      gap: 20px;
+      padding: 40px 48px;
       scroll-snap-type: x mandatory;
+      scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
     }
     .screens-row::-webkit-scrollbar {
-      height: 6px;
-    }
-    .screens-row::-webkit-scrollbar-thumb {
-      background: rgba(138, 172, 187, 0.35);
-      border-radius: 3px;
+      display: none;
     }
     .phone-shot {
       flex-shrink: 0;
@@ -467,28 +463,29 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 10px;
     }
     .phone-frame {
-      width: 220px;
+      width: 210px;
+      height: 400px;
       flex-shrink: 0;
-      border-radius: 40px;
+      border-radius: 36px;
       border: 6px solid #1e3a5f;
       overflow: hidden;
       background: #000;
     }
     .phone-frame img {
       width: 100%;
-      display: block;
+      height: 100%;
       object-fit: cover;
-      object-position: top center;
-      max-height: 420px;
+      object-position: top;
+      display: block;
     }
     .phone-caption {
-      color: #8aacbb;
       font-size: 12px;
-      margin-top: 10px;
+      color: #8aacbb;
       text-align: center;
-      max-width: 200px;
+      max-width: 190px;
       line-height: 1.4;
     }
 
@@ -836,43 +833,49 @@
         <div class="screens-row">
           <div class="phone-shot">
             <div class="phone-frame">
-              <img src="./public/screen-1-optag.png" alt="" width="208" height="420" loading="lazy" decoding="async" />
+              <img src="./public/screen-1-optag.png" alt="" width="210" height="400" loading="lazy" decoding="async" />
             </div>
             <p class="phone-caption">Tal om opgaven på 60 sekunder</p>
           </div>
           <div class="phone-shot">
             <div class="phone-frame">
-              <img src="./public/screen-2-genererer.png" alt="" width="208" height="420" loading="lazy" decoding="async" />
-            </div>
-            <p class="phone-caption">AI genererer tilbuddet automatisk</p>
-          </div>
-          <div class="phone-shot">
-            <div class="phone-frame">
-              <img src="./public/screen-3-prisguidance.png" alt="" width="208" height="420" loading="lazy" decoding="async" />
-            </div>
-            <p class="phone-caption">Prisguidance baseret på din historik</p>
-          </div>
-          <div class="phone-shot">
-            <div class="phone-frame">
-              <img src="./public/screen-4-opfolg-kritisk.png" alt="" width="208" height="420" loading="lazy" decoding="async" />
+              <img src="./public/screen-4-opfolg-kritisk.png" alt="" width="210" height="400" loading="lazy" decoding="async" />
             </div>
             <p class="phone-caption">Automatisk opfølgning dag 4 og dag 8</p>
           </div>
           <div class="phone-shot">
             <div class="phone-frame">
-              <img src="./public/screen-5-opfolg-reference.png" alt="" width="208" height="420" loading="lazy" decoding="async" />
+              <img src="./public/screen-8-screen.png" alt="" width="210" height="400" loading="lazy" decoding="async" />
             </div>
-            <p class="phone-caption">Referenceanmodning efter vundet opgave</p>
+            <p class="phone-caption">Systemet minder dig mens du er på arbejde</p>
           </div>
           <div class="phone-shot">
             <div class="phone-frame">
-              <img src="./public/screen-6-genaktiver.png" alt="" width="208" height="420" loading="lazy" decoding="async" />
+              <img src="./public/screen-6-sms.png" alt="" width="210" height="400" loading="lazy" decoding="async" />
+            </div>
+            <p class="phone-caption">SMS klar til send med ét tryk</p>
+          </div>
+          <div class="phone-shot">
+            <div class="phone-frame">
+              <img src="./public/screen-5-opfolg-reference.png" alt="" width="210" height="400" loading="lazy" decoding="async" />
+            </div>
+            <p class="phone-caption">Bed om reference efter vundet opgave</p>
+          </div>
+          <div class="phone-shot">
+            <div class="phone-frame">
+              <img src="./public/screen-6-genaktiver.png" alt="" width="210" height="400" loading="lazy" decoding="async" />
             </div>
             <p class="phone-caption">Genaktiver kunder du ikke har hørt fra</p>
           </div>
           <div class="phone-shot">
             <div class="phone-frame">
-              <img src="./public/screen-7-accepter.png" alt="" width="208" height="420" loading="lazy" decoding="async" />
+              <img src="./public/screen-3-kunder.png" alt="" width="210" height="400" loading="lazy" decoding="async" />
+            </div>
+            <p class="phone-caption">Fuldt overblik over alle dine kunder</p>
+          </div>
+          <div class="phone-shot">
+            <div class="phone-frame">
+              <img src="./public/screen-7-accepter.png" alt="" width="210" height="400" loading="lazy" decoding="async" />
             </div>
             <p class="phone-caption">Kunden accepterer med ét tryk</p>
           </div>

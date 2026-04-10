@@ -556,7 +556,60 @@
     }
     @keyframes floatY {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Price objection section */
+    main .price-objection-section {
+      max-width: none !important;
+      background: #0a1628;
+      padding: 80px 24px !important;
+    }
+    .price-objection-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .price-objection-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .price-objection-label {
+      color: #19a7ce;
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+    .price-objection-title {
+      color: #ffffff;
+      font-size: 36px;
+      font-weight: 700;
+      margin-top: 8px;
+      line-height: 1.2;
+    }
+    .price-objection-body {
+      color: #8aacbb;
+      font-size: 16px;
+      line-height: 1.7;
+      margin-top: 16px;
+      max-width: 42ch;
+    }
+    .price-objection-image-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .price-objection-image {
+      width: 100%;
+      max-width: 300px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 16px;
+      animation: floatY 4s infinite ease-in-out;
     }
 
     /* Simple app showcase grid */
@@ -886,6 +939,9 @@
       main section {
         padding: 48px 24px !important;
       }
+      .price-objection-section {
+        padding: 80px 24px !important;
+      }
       .hero h1 {
         font-size: clamp(28px, 6vw, 52px);
       }
@@ -900,6 +956,9 @@
       }
       .app-grid {
         grid-template-columns: 1fr;
+      }
+      .price-objection-image {
+        max-width: 320px;
       }
       .pricing-card {
         max-width: 100%;
@@ -1081,6 +1140,19 @@
             <img src="./public/kundes-tilbud-neders.png" alt="" loading="lazy" decoding="async" />
             <p>Kunden accepterer med ét tryk</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="price-objection-section reveal" aria-labelledby="price-objection-heading">
+      <div class="price-objection-inner">
+        <div>
+          <p class="price-objection-label">PRISEN</p>
+          <h2 id="price-objection-heading" class="price-objection-title">Rammer prisen rigtigt?</h2>
+          <p class="price-objection-body">Du godkender altid selv. Men vi bruger alt dit tilgængelige data. Systemet lærer hvad du vinder på — og hjælper dig med at ramme det igen. Flere ja&apos;er. Bedre indtjening.</p>
+        </div>
+        <div class="price-objection-image-wrap">
+          <img class="price-objection-image" src="./public/screen-raatilbud.png" alt="Prisvurdering i tilbudsflow" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>

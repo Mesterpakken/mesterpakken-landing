@@ -421,72 +421,133 @@
     }
     .step-card p { color: var(--muted); font-size: 0.9375rem; }
 
-    /* App screenshots — phone frames, horizontal scroll */
-    main .app-screens-section {
+    /* Showcase sections */
+    main .showcase-section {
       max-width: none !important;
       padding: 80px 0 !important;
+    }
+    main .showcase-section--dark {
       background: #0a1628;
     }
-    .app-screens-section .section-head {
-      text-align: center;
+    main .showcase-section--elevated {
+      background: #0d1f35;
+    }
+    .showcase-inner {
+      max-width: 1080px;
+      margin: 0 auto;
       padding: 0 1.25rem;
-      margin-bottom: 2.5rem;
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+      grid-template-columns: 1fr;
     }
-    .app-screens-section .section-head h2 {
-      color: var(--white);
+    @media (min-width: 900px) {
+      .showcase-inner {
+        grid-template-columns: 1fr 1fr;
+      }
     }
-    .app-screens-section .screens-sub {
+    .showcase-eyebrow {
+      color: #19a7ce;
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+    }
+    .showcase-title {
+      color: #ffffff;
+      font-size: clamp(2rem, 4.2vw, 36px);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.9rem;
+    }
+    .showcase-copy {
       color: #8aacbb;
       font-size: 1.0625rem;
-      max-width: 640px;
-      margin: 0 auto;
+      line-height: 1.6;
+      max-width: 42ch;
     }
-    .screens-inner {
-      width: 100%;
-      margin: 0 auto;
-    }
-    .screens-row {
+    .showcase-visual {
       display: flex;
-      overflow-x: auto;
-      gap: 20px;
-      padding: 40px 48px;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-    }
-    .screens-row::-webkit-scrollbar {
-      display: none;
-    }
-    .phone-shot {
-      flex-shrink: 0;
-      scroll-snap-align: center;
-      display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 10px;
     }
-    .phone-frame {
-      width: 210px;
-      height: 400px;
-      flex-shrink: 0;
-      border-radius: 36px;
-      border: 6px solid #1e3a5f;
-      overflow: hidden;
-      background: #000;
+    .record-wrap {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .phone-frame img {
+    .record-ring {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #C62828;
+      opacity: 0.4;
+      animation: recordPulse 2s infinite;
+    }
+    .record-ring--delay {
+      animation-delay: 0.5s;
+    }
+    .record-core {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #C62828;
+      position: relative;
+      z-index: 2;
+    }
+    @keyframes recordPulse {
+      0% { transform: scale(1); opacity: 0.4; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+    .sms-crop {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
+      max-width: 320px;
       display: block;
+      margin: 0 auto;
+      animation: floatY 4s ease-in-out infinite;
     }
-    .phone-caption {
-      font-size: 12px;
-      color: #8aacbb;
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* Simple app showcase grid */
+    main .app-grid-section {
+      max-width: none !important;
+      padding: 60px 0 !important;
+      background: #0a1628;
+    }
+    .app-grid-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+    .app-grid-heading {
+      color: #ffffff;
       text-align: center;
-      max-width: 190px;
-      line-height: 1.4;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.1rem;
+    }
+    .app-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 768px) {
+      .app-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .app-grid img {
+      width: 100%;
+      border-radius: 16px;
+      display: block;
     }
 
     /* Features */
@@ -824,61 +885,44 @@
       </div>
     </section>
 
-    <section class="app-screens-section reveal" aria-labelledby="app-screens-heading">
-      <div class="section-head">
-        <h2 id="app-screens-heading">Se det i aktion</h2>
-        <p class="screens-sub">Sådan ser det ud på din telefon</p>
+    <section class="showcase-section showcase-section--dark reveal" aria-labelledby="showcase-a-heading">
+      <div class="showcase-inner">
+        <div>
+          <p class="showcase-eyebrow">STEP 1</p>
+          <h2 id="showcase-a-heading" class="showcase-title">Tal om opgaven. Det er nok.</h2>
+          <p class="showcase-copy">Tryk optag. Beskriv opgaven med din stemme. 60 sekunder er nok — inde fra bilen, på byggepladsen, hvor som helst.</p>
+        </div>
+        <div class="showcase-visual" aria-hidden="true">
+          <div class="record-wrap">
+            <div class="record-ring"></div>
+            <div class="record-ring record-ring--delay"></div>
+            <div class="record-core"></div>
+          </div>
+        </div>
       </div>
-      <div class="screens-inner">
-        <div class="screens-row">
-          <div class="phone-shot">
-            <div class="phone-frame">
-              <img src="./public/screen-1-optag.png" alt="" width="210" height="400" loading="lazy" decoding="async" />
-            </div>
-            <p class="phone-caption">Tal om opgaven på 60 sekunder</p>
-          </div>
-          <div class="phone-shot">
-            <div class="phone-frame">
-              <img src="./public/screen-4-opfolg-kritisk.png" alt="" width="210" height="400" loading="lazy" decoding="async" />
-            </div>
-            <p class="phone-caption">Automatisk opfølgning dag 4 og dag 8</p>
-          </div>
-          <div class="phone-shot">
-            <div class="phone-frame">
-              <img src="./public/screen-8-screen.png" alt="" width="210" height="400" loading="lazy" decoding="async" />
-            </div>
-            <p class="phone-caption">Systemet minder dig mens du er på arbejde</p>
-          </div>
-          <div class="phone-shot">
-            <div class="phone-frame">
-              <img src="./public/screen-6-sms.png" alt="" width="210" height="400" loading="lazy" decoding="async" />
-            </div>
-            <p class="phone-caption">SMS klar til send med ét tryk</p>
-          </div>
-          <div class="phone-shot">
-            <div class="phone-frame">
-              <img src="./public/screen-5-opfolg-reference.png" alt="" width="210" height="400" loading="lazy" decoding="async" />
-            </div>
-            <p class="phone-caption">Bed om reference efter vundet opgave</p>
-          </div>
-          <div class="phone-shot">
-            <div class="phone-frame">
-              <img src="./public/screen-6-genaktiver.png" alt="" width="210" height="400" loading="lazy" decoding="async" />
-            </div>
-            <p class="phone-caption">Genaktiver kunder du ikke har hørt fra</p>
-          </div>
-          <div class="phone-shot">
-            <div class="phone-frame">
-              <img src="./public/screen-3-kunder.png" alt="" width="210" height="400" loading="lazy" decoding="async" />
-            </div>
-            <p class="phone-caption">Fuldt overblik over alle dine kunder</p>
-          </div>
-          <div class="phone-shot">
-            <div class="phone-frame">
-              <img src="./public/screen-7-accepter.png" alt="" width="210" height="400" loading="lazy" decoding="async" />
-            </div>
-            <p class="phone-caption">Kunden accepterer med ét tryk</p>
-          </div>
+    </section>
+
+    <section class="showcase-section showcase-section--elevated reveal" aria-labelledby="showcase-b-heading">
+      <div class="showcase-inner">
+        <div class="showcase-visual">
+          <img class="sms-crop" src="./public/screen-sms-crop.png" alt="SMS notifikation efter sendt tilbud" loading="lazy" decoding="async" />
+        </div>
+        <div>
+          <p class="showcase-eyebrow">AUTOMATISK</p>
+          <h2 id="showcase-b-heading" class="showcase-title">Systemet følger op. Du behøver ikke huske det.</h2>
+          <p class="showcase-copy">Dag 4 og dag 8 efter du har sendt tilbuddet får du en SMS med kundens navn og beløb. Ét tryk sender opfølgningen.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-grid-section reveal" aria-labelledby="app-grid-heading">
+      <div class="app-grid-inner">
+        <h2 id="app-grid-heading" class="app-grid-heading">Mere end bare tilbud</h2>
+        <div class="app-grid">
+          <img src="./public/screen-4-opfolg-kritisk.png" alt="" loading="lazy" decoding="async" />
+          <img src="./public/screen-5-opfolg-reference.png" alt="" loading="lazy" decoding="async" />
+          <img src="./public/screen-6-genaktiver.png" alt="" loading="lazy" decoding="async" />
+          <img src="./public/screen-3-kunder.png" alt="" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>

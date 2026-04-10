@@ -535,6 +535,27 @@
       letter-spacing: 0.06em;
       margin-bottom: 1rem;
     }
+    .price-setup {
+      margin-bottom: 0.25rem;
+    }
+    .price-setup-amount {
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: #8aacbb;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.35rem;
+    }
+    .price-setup-note {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .price-setup-note .price-setup-once {
+      display: block;
+      margin-top: 0.2rem;
+      font-size: 0.75rem;
+      opacity: 0.95;
+    }
     .price-row {
       display: flex;
       align-items: baseline;
@@ -543,7 +564,10 @@
       flex-wrap: wrap;
       margin-bottom: 0.75rem;
     }
-    .price-main { font-size: 2.75rem; font-weight: 800; }
+    .price-row--monthly {
+      margin-top: 0.25rem;
+    }
+    .price-main { font-size: 2.75rem; font-weight: 800; color: var(--white); }
     .price-sub { font-size: 1rem; color: var(--muted); }
     .pricing-meta {
       color: var(--muted);
@@ -651,7 +675,7 @@
       </button>
       <nav class="nav-links" id="nav-links" aria-label="Hovednavigation">
         <a class="link-text" href="https://mesterpakken.dk">Log ind</a>
-        <a class="btn btn-accent" href="https://mesterpakken.dk">Prøv gratis</a>
+        <a class="btn btn-accent" href="https://mesterpakken.dk">Kom i gang</a>
       </nav>
     </div>
   </header>
@@ -669,7 +693,7 @@
         <p class="hero-lead">Tal om opgaven. AI genererer tilbuddet. Kunden accepterer med ét tryk.</p>
         <div class="hero-cta">
           <a class="btn btn-outline" href="#how-it-works">Se hvordan det virker</a>
-          <a class="btn btn-accent" href="https://mesterpakken.dk">Kom i gang gratis</a>
+          <a class="btn btn-accent" href="https://mesterpakken.dk">Kom i gang i dag</a>
         </div>
       </div>
     </section>
@@ -756,12 +780,12 @@
           <p class="stat-label">Fra optagelse til sendt tilbud</p>
         </div>
         <div class="stat-item">
-          <p class="stat-value">0 kr</p>
-          <p class="stat-label">Ingen opsætningsgebyr</p>
+          <p class="stat-value">1.500 kr</p>
+          <p class="stat-label">Opsætning og onboarding (én gang)</p>
         </div>
         <div class="stat-item">
-          <p class="stat-value">30 dage</p>
-          <p class="stat-label">Gratis at prøve</p>
+          <p class="stat-value">1 time</p>
+          <p class="stat-label">Kørende efter onboarding</p>
         </div>
       </div>
     </section>
@@ -779,11 +803,19 @@
       <div class="pricing-wrap">
         <div class="pricing-card reveal">
           <span class="pricing-badge">Mest populær</span>
-          <div class="price-row">
+          <div class="price-setup">
+            <p class="price-setup-amount">1.500 kr</p>
+            <p class="price-setup-note">
+              Opsætning og onboarding
+              <span class="price-setup-once">(én gang)</span>
+            </p>
+          </div>
+          <div class="pricing-divider"></div>
+          <div class="price-row price-row--monthly">
             <span class="price-main">499 kr</span>
             <span class="price-sub">/måned ekskl. moms</span>
           </div>
-          <p class="pricing-meta">Ingen binding · Opsig når som helst · Gratis onboarding inkluderet</p>
+          <p class="pricing-meta">Ingen binding · Opsig når som helst · Personlig onboarding i opsætningen</p>
           <div class="pricing-divider"></div>
           <ul class="checklist">
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Ubegrænsede tilbud</span></li>
@@ -793,10 +825,10 @@
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Genaktivering af gamle kunder</span></li>
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reference-anmodning efter vundne projekter</span></li>
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Pipeline og overblik over alle tilbud</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Personlig onboarding inkluderet</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Personlig onboarding med opsætningen</span></li>
           </ul>
-          <a class="btn btn-accent" href="https://mesterpakken.dk">Start i dag — gratis de første 30 dage</a>
-          <p class="pricing-foot">Herefter 499 kr/md · Opsig når som helst</p>
+          <a class="btn btn-accent" href="https://mesterpakken.dk">Kom i gang i dag</a>
+          <p class="pricing-foot">Opsætning inkluderer personlig onboarding — du er kørende på en time.</p>
         </div>
       </div>
     </section>

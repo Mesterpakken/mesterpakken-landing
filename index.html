@@ -146,7 +146,7 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      padding: 6rem 1.25rem 4rem;
+      padding: 4.8rem 1.25rem 3.2rem;
       overflow: hidden;
     }
     .hero-bg {
@@ -387,18 +387,11 @@
     }
     .feature-accent {
       display: block;
-      width: 2.25rem;
+      width: 24px;
       height: 2px;
-      background: var(--accent);
+      background: #19a7ce;
       border-radius: 1px;
       margin-bottom: 0.85rem;
-    }
-    .feature-card:nth-child(3n + 2) .feature-accent {
-      width: 8px;
-      height: 8px;
-      border-radius: 1px;
-      transform: rotate(45deg);
-      margin-bottom: 1rem;
     }
     .feature-card h3 { font-size: 1.0625rem; margin-bottom: 0.5rem; }
     .feature-card p { color: var(--muted); font-size: 0.9rem; }
@@ -406,83 +399,61 @@
     /* Stat */
     .stat-section {
       max-width: none !important;
-      padding: 4rem 1.25rem !important;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      padding: 4rem 1.5rem !important;
+      background: #0d1f35;
       text-align: center;
     }
-    .stat-inner { max-width: 560px; margin: 0 auto; }
-    .stat-number {
-      font-size: clamp(4rem, 12vw, 6rem);
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: -0.04em;
-    }
-    .stat-unit {
-      font-size: clamp(2rem, 6vw, 3rem);
-      font-weight: 700;
-      vertical-align: baseline;
-    }
-    .stat-line {
-      color: var(--white);
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-top: 1rem;
-    }
-    .stat-sub {
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 0.9375rem;
-      margin-top: 0.5rem;
-    }
-
-    /* Testimonials */
-    .testimonial-grid {
+    .stat-row {
+      max-width: 960px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1.25rem;
+      gap: 2.5rem;
+      align-items: start;
     }
     @media (min-width: 768px) {
-      .testimonial-grid { grid-template-columns: repeat(3, 1fr); }
+      .stat-row {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
     }
-    .testimonial-card {
-      background: var(--bg-elevated);
-      border-radius: 12px;
-      padding: 1.5rem;
-      border: 1px solid rgba(138, 172, 187, 0.15);
+    .stat-item {
+      text-align: center;
     }
-    .testimonial-head {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
+    .stat-value {
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .stat-label {
+      margin-top: 0.5rem;
+      font-size: 0.9375rem;
+      color: #8aacbb;
+      line-height: 1.45;
+    }
+
+    /* Beta statement (former testimonials) */
+    .beta-statement {
+      background: #0a1628;
+      max-width: none !important;
+      padding: 5rem 1.5rem !important;
+      text-align: center;
+    }
+    .beta-statement h2 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
       margin-bottom: 1rem;
     }
-    .avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: #4a5568;
-      flex-shrink: 0;
-    }
-    .testimonial-meta { font-size: 0.8125rem; color: var(--muted); }
-    .stars {
-      display: flex;
-      gap: 3px;
-      margin-top: 0.25rem;
-    }
-    .star-icon {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-    }
-    .testimonial-card blockquote {
-      font-style: italic;
-      color: var(--muted);
-      font-size: 0.9375rem;
-    }
-    .testimonial-note {
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.875rem;
-      margin-top: 2rem;
+    .beta-statement__sub {
+      font-size: 1.0625rem;
+      color: #8aacbb;
+      max-width: 28rem;
+      margin: 0 auto;
+      line-height: 1.55;
     }
 
     /* Pricing */
@@ -716,71 +687,26 @@
     </section>
 
     <section class="stat-section reveal" id="stat-section" aria-labelledby="stat-heading">
-      <div class="stat-inner">
-        <h2 id="stat-heading" class="visually-hidden">Tid fra optagelse til tilbud</h2>
-        <p class="stat-number" aria-live="polite">
-          <span id="stat-num">0</span><span class="stat-unit"> min</span>
-        </p>
-        <p class="stat-line">Fra optagelse til sendt tilbud</p>
-        <p class="stat-sub">Gennemsnit baseret på beta-brugere</p>
+      <h2 id="stat-heading" class="visually-hidden">Nøgletal</h2>
+      <div class="stat-row">
+        <div class="stat-item">
+          <p class="stat-value">2 min</p>
+          <p class="stat-label">Fra optagelse til sendt tilbud</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-value">0 kr</p>
+          <p class="stat-label">Ingen opsætningsgebyr</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-value">30 dage</p>
+          <p class="stat-label">Gratis at prøve</p>
+        </div>
       </div>
     </section>
 
-    <section class="reveal" aria-labelledby="testimonials-heading">
-      <div class="section-head">
-        <h2 id="testimonials-heading">Hvad siger håndværkerne?</h2>
-      </div>
-      <div class="testimonial-grid">
-        <div class="testimonial-card reveal">
-          <div class="testimonial-head">
-            <div class="avatar" role="img" aria-label="Avatar"></div>
-            <div>
-              <div class="testimonial-meta">Beta-bruger · Tømrer</div>
-              <div class="stars" role="img" aria-label="5 ud af 5 stjerner">
-                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
-                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
-                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
-                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
-                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
-              </div>
-            </div>
-          </div>
-          <blockquote>“Pladsholder — vi samler de første rigtige historier fra beta.”</blockquote>
-        </div>
-        <div class="testimonial-card reveal">
-          <div class="testimonial-head">
-            <div class="avatar" role="img" aria-label="Avatar"></div>
-            <div>
-              <div class="testimonial-meta">Beta-bruger · Elektriker</div>
-              <div class="stars" role="img" aria-label="5 ud af 5 stjerner">
-                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
-                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
-                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
-                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
-                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
-              </div>
-            </div>
-          </div>
-          <blockquote>“Pladsholder — vi samler de første rigtige historier fra beta.”</blockquote>
-        </div>
-        <div class="testimonial-card reveal">
-          <div class="testimonial-head">
-            <div class="avatar" role="img" aria-label="Avatar"></div>
-            <div>
-              <div class="testimonial-meta">Beta-bruger · VVS</div>
-              <div class="stars" role="img" aria-label="5 ud af 5 stjerner">
-                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
-                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
-                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
-                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
-                <svg class="star-icon" viewBox="0 0 24 24" fill="#d4af37" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 21l2.3-7-6-4.6h7.6L12 2z"/></svg>
-              </div>
-            </div>
-          </div>
-          <blockquote>“Pladsholder — vi samler de første rigtige historier fra beta.”</blockquote>
-        </div>
-      </div>
-      <p class="testimonial-note">Vi er i beta — de første anmeldelser er på vej.</p>
+    <section class="beta-statement reveal" aria-labelledby="beta-heading">
+      <h2 id="beta-heading">Vi er i beta</h2>
+      <p class="beta-statement__sub">De første håndværkere er i gang. Resultater kommer her.</p>
     </section>
 
     <section class="reveal" aria-labelledby="pricing-heading">
@@ -894,32 +820,6 @@
         obs.observe(wrap);
       }
 
-      var statDone = false;
-      function setupStat() {
-        var sec = document.getElementById("stat-section");
-        var numEl = document.getElementById("stat-num");
-        if (!sec || !numEl) return;
-        var obs = new IntersectionObserver(
-          function (entries) {
-            entries.forEach(function (e) {
-              if (!e.isIntersecting || statDone) return;
-              statDone = true;
-              var start = performance.now();
-              var dur = 1500;
-              function frame(now) {
-                var t = Math.min(1, (now - start) / dur);
-                numEl.textContent = String(Math.round(t * 2));
-                if (t < 1) requestAnimationFrame(frame);
-                else numEl.textContent = "2";
-              }
-              requestAnimationFrame(frame);
-            });
-          },
-          { threshold: 0.35 }
-        );
-        obs.observe(sec);
-      }
-
       function setupNav() {
         var toggle = document.getElementById("nav-toggle");
         var links = document.getElementById("nav-links");
@@ -970,7 +870,6 @@
         typeWriter();
         setupReveal();
         setupSteps();
-        setupStat();
         setupNav();
         setupSmoothAnchors();
       });

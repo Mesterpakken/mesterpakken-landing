@@ -638,11 +638,17 @@
     }
     .followup-proof-row img {
       width: 48%;
-      height: 360px;
+      height: 480px;
       object-fit: cover;
       object-position: top;
       border-radius: 12px;
       display: block;
+    }
+    .followup-proof-item p {
+      color: #8aacbb;
+      font-size: 13px;
+      text-align: center;
+      margin-top: 10px;
     }
 
     /* Customer offer section */
@@ -1150,10 +1156,16 @@
 
     <section class="followup-proof-section reveal" aria-labelledby="followup-proof-heading">
       <div class="followup-proof-inner">
-        <h2 id="followup-proof-heading" class="followup-proof-heading">Opfølgning der virker</h2>
+        <h2 id="followup-proof-heading" class="followup-proof-heading">Ikke bare tilbud</h2>
         <div class="followup-proof-row">
-          <img src="./public/screen-4-opfolg-kritisk.png" alt="Automatisk opfølgning dag 4 og dag 8" loading="lazy" decoding="async" />
-          <img src="./public/screen-6-genaktiver.png" alt="Genaktivering af gamle kunder" loading="lazy" decoding="async" />
+          <div class="followup-proof-item">
+            <img src="./public/screen-4-opfolg-kritisk.png" alt="Automatisk opfølgning dag 4 og dag 8" loading="lazy" decoding="async" />
+            <p>Automatisk opfølgning — dag 4 og dag 8</p>
+          </div>
+          <div class="followup-proof-item">
+            <img src="./public/screen-6-genaktiver.png" alt="Genaktivering af gamle kunder" loading="lazy" decoding="async" />
+            <p>Genaktiver kunder du ikke har hørt fra i 6+ måneder</p>
+          </div>
         </div>
       </div>
     </section>

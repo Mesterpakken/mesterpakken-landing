@@ -899,29 +899,47 @@
     }
     .pricing-guarantee {
       text-align: left;
-      margin-bottom: 1.25rem;
-      padding: 1rem 1.1rem;
-      background: rgba(25, 167, 206, 0.08);
-      border-radius: 12px;
-      border: 1px solid rgba(25, 167, 206, 0.22);
+      margin-bottom: 1.35rem;
+      padding: 1.2rem 1.3rem;
+      background: linear-gradient(
+        145deg,
+        rgba(25, 167, 206, 0.28) 0%,
+        rgba(20, 108, 148, 0.42) 55%,
+        rgba(25, 167, 206, 0.18) 100%
+      );
+      border-radius: 14px;
+      border: 2px solid var(--accent);
+      box-shadow:
+        0 0 0 1px rgba(25, 167, 206, 0.45),
+        0 10px 36px rgba(25, 167, 206, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
     .pricing-guarantee-title {
-      font-size: 1.0625rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 1.125rem;
+      font-weight: 800;
+      margin-bottom: 0.55rem;
+      color: #7fe4fb;
+      letter-spacing: -0.02em;
+      text-shadow: 0 0 24px rgba(25, 167, 206, 0.45);
+    }
+    .pricing-guarantee-icon {
+      font-size: 1.35rem;
+      line-height: 1;
+      flex-shrink: 0;
     }
     .pricing-guarantee-body {
       font-size: 0.9375rem;
-      color: var(--muted);
+      color: rgba(255, 255, 255, 0.92);
       line-height: 1.55;
       margin-bottom: 0.65rem;
     }
     .pricing-guarantee-small {
       font-size: 0.75rem;
-      color: var(--muted);
+      color: rgba(200, 228, 238, 0.88);
       line-height: 1.45;
-      opacity: 0.92;
     }
 
     /* Lead capture */
@@ -1317,7 +1335,7 @@
           <div class="pricing-divider"></div>
           <div class="price-row price-row--monthly">
             <span class="price-main">499 kr</span>
-            <span class="price-sub">/måned ekskl. moms</span>
+            <span class="price-sub">/måned</span>
           </div>
           <div class="pricing-divider"></div>
           <ul class="checklist">
@@ -1331,7 +1349,7 @@
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Personlig onboarding med opsætningen</span></li>
           </ul>
           <div class="pricing-guarantee" aria-labelledby="guarantee-heading">
-            <h3 id="guarantee-heading" class="pricing-guarantee-title">Tilfredshedsgaranti</h3>
+            <h3 id="guarantee-heading" class="pricing-guarantee-title"><span class="pricing-guarantee-icon" aria-hidden="true">🛡️</span> Tilfredshedsgaranti</h3>
             <p class="pricing-guarantee-body">Lav 10 rigtige tilbud på én måned. Er du stadig ikke tilfreds, får du hele dit abonnement tilbage. Ingen spørgsmål, ingen bøvl.</p>
             <p class="pricing-guarantee-small">Gælder ved min. 10 sendte tilbud inden for de første 30 dage.</p>
           </div>

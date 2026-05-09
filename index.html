@@ -907,7 +907,7 @@
       margin-top: 12px;
     }
     .pricing-guarantee {
-      text-align: left;
+      text-align: center;
       margin-bottom: 1.35rem;
       padding: 1.2rem 1.3rem;
       background: linear-gradient(
@@ -924,9 +924,6 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
     .pricing-guarantee-title {
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
       font-size: 1.125rem;
       font-weight: 800;
       margin-bottom: 0.55rem;
@@ -935,9 +932,12 @@
       text-shadow: 0 0 24px rgba(25, 167, 206, 0.45);
     }
     .pricing-guarantee-icon {
-      font-size: 1.35rem;
+      display: block;
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 auto 0.55rem;
+      font-size: 2.65rem;
       line-height: 1;
-      flex-shrink: 0;
     }
     .pricing-guarantee-body {
       font-size: 0.9375rem;
@@ -1360,7 +1360,8 @@
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Systemet bliver klogere for hver opgave du laver</span></li>
           </ul>
           <div class="pricing-guarantee" aria-labelledby="guarantee-heading">
-            <h3 id="guarantee-heading" class="pricing-guarantee-title"><span class="pricing-guarantee-icon" aria-hidden="true">🛡️</span> Tilfredshedsgaranti</h3>
+            <span class="pricing-guarantee-icon" aria-hidden="true">🛡️</span>
+            <h3 id="guarantee-heading" class="pricing-guarantee-title">Tilfredshedsgaranti</h3>
             <p class="pricing-guarantee-body">Ikke tilfreds efter 30 dage? Pengene tilbage.</p>
             <p class="pricing-guarantee-small">Gælder ved min. 10 sendte tilbud.</p>
           </div>

@@ -716,12 +716,25 @@
       margin-top: 10px;
       font-size: 16px;
     }
-    .customer-offer-image {
-      width: 100%;
+    .customer-offer-phone {
       max-width: 320px;
       margin: 24px auto 0;
-      border-radius: 16px;
+      background: #0d1f35;
+      border-radius: 28px;
+      box-shadow:
+        0 22px 44px rgba(0, 0, 0, 0.38),
+        0 10px 20px rgba(0, 0, 0, 0.22),
+        0 0 0 1px rgba(255, 255, 255, 0.06);
+      padding: 10px;
+    }
+    .customer-offer-image {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      border-radius: 20px;
       display: block;
+      object-fit: contain;
+      background: transparent;
     }
 
     /* Features */
@@ -1286,7 +1299,9 @@
       <div class="customer-offer-inner">
         <h2 id="customer-offer-heading" class="customer-offer-title">Kunden åbner et link — og accepterer med ét tryk</h2>
         <p class="customer-offer-sub">Ingen app. Ingen login. Ingen forvirring.</p>
-        <img class="customer-offer-image" src="https://cklzgtqujptdipahhcbi.supabase.co/storage/v1/object/public/landing-assets/lang-tilbud-kunde.png" alt="Tilbud vist til kunden" loading="lazy" decoding="async" />
+        <div class="customer-offer-phone">
+          <img class="customer-offer-image" src="assets/quote-preview.png" alt="Tilbud vist til kunden" loading="lazy" decoding="async" />
+        </div>
       </div>
     </section>
 

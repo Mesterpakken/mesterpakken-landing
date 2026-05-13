@@ -680,12 +680,20 @@
       width: 100%;
       height: auto;
     }
-    .followup-proof-row img {
+    .followup-proof-image-card {
+      width: 100%;
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.28),
+        0 4px 12px rgba(0, 0, 0, 0.18);
+    }
+    .followup-proof-image-card img {
       width: 100%;
       height: auto;
       object-fit: unset;
       display: block;
-      border-radius: 12px;
     }
     .followup-proof-item p {
       color: #8aacbb;
@@ -1107,7 +1115,7 @@
         grid-template-columns: 1fr;
         gap: 16px;
       }
-      .followup-proof-row img {
+      .followup-proof-image-card img {
         width: 100%;
       }
       .price-objection-image {
@@ -1231,10 +1239,18 @@
 
     <section class="followup-proof-section reveal" aria-labelledby="followup-proof-heading">
       <div class="followup-proof-inner">
-        <h2 id="followup-proof-heading" class="followup-proof-heading">Ikke bare tilbud</h2>
+        <h2 id="followup-proof-heading" class="followup-proof-heading">Ikke bare opfølgning</h2>
         <div class="followup-proof-row">
           <div class="followup-proof-item">
-            <img src="https://cklzgtqujptdipahhcbi.supabase.co/storage/v1/object/public/landing-assets/screen-6-genaktiver.png" alt="Genaktivering af gamle kunder" loading="lazy" decoding="async" />
+            <div class="followup-proof-image-card">
+              <img src="assets/mersalg.png" alt="Mersalg i tilbuddet" loading="lazy" decoding="async" />
+            </div>
+            <p>Mersalg i tilbuddet</p>
+          </div>
+          <div class="followup-proof-item">
+            <div class="followup-proof-image-card">
+              <img src="https://cklzgtqujptdipahhcbi.supabase.co/storage/v1/object/public/landing-assets/screen-6-genaktiver.png" alt="Genaktivering af gamle kunder" loading="lazy" decoding="async" />
+            </div>
             <p>Genaktiver kunder du ikke har hørt fra i 6+ måneder</p>
           </div>
         </div>

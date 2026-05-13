@@ -719,24 +719,23 @@
     .customer-offer-phone {
       max-width: 320px;
       margin: 24px auto 0;
-      background: #0d1f35;
-      border-radius: 28px;
+    }
+    .customer-offer-image-card {
+      width: 100%;
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
       box-shadow:
-        0 22px 44px rgba(0, 0, 0, 0.38),
-        0 10px 20px rgba(0, 0, 0, 0.22),
-        0 0 0 1px rgba(255, 255, 255, 0.06);
-      padding: 10px;
-      isolation: isolate;
+        0 16px 40px rgba(0, 0, 0, 0.28),
+        0 4px 12px rgba(0, 0, 0, 0.18);
     }
     .customer-offer-image {
       width: 100%;
       max-width: none;
       margin: 0;
-      border-radius: 20px;
       display: block;
       object-fit: contain;
       background: transparent;
-      mix-blend-mode: multiply;
     }
 
     /* Features */
@@ -1302,7 +1301,9 @@
         <h2 id="customer-offer-heading" class="customer-offer-title">Kunden åbner et link — og accepterer med ét tryk</h2>
         <p class="customer-offer-sub">Ingen app. Ingen login. Ingen forvirring.</p>
         <div class="customer-offer-phone">
-          <img class="customer-offer-image" src="assets/quote-preview.png" alt="Tilbud vist til kunden" loading="lazy" decoding="async" />
+          <div class="customer-offer-image-card">
+            <img class="customer-offer-image" src="assets/quote-preview.png" alt="Tilbud vist til kunden" loading="lazy" decoding="async" />
+          </div>
         </div>
       </div>
     </section>

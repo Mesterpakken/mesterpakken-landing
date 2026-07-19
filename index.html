@@ -738,7 +738,14 @@
       font-size: 0.9375rem;
       font-weight: 700;
       color: #0d1f38;
-      margin: 0 0 0.65rem;
+      margin: 0 0 0.25rem;
+    }
+    .insights-mock-context {
+      margin: 0 0 0.7rem;
+      font-size: 0.75rem;
+      line-height: 1.35;
+      color: #5a6b7d;
+      font-weight: 500;
     }
     .insights-mock-feed {
       list-style: none;
@@ -767,6 +774,13 @@
       font-size: 0.8125rem;
       line-height: 1.35;
       color: #0d1f38;
+      font-weight: 500;
+    }
+    .insights-mock-footer {
+      margin: 0.7rem 0 0;
+      font-size: 0.6875rem;
+      line-height: 1.35;
+      color: #5a6b7d;
       font-weight: 500;
     }
 
@@ -1429,30 +1443,32 @@
       <div class="price-objection-inner">
         <div>
           <p class="price-objection-label">MESTER INSIGHTS</p>
-          <h2 id="price-objection-heading" class="price-objection-title">Dine tilbud begynder at arbejde for dig</h2>
-          <p class="price-objection-body">Hver gang du sender, retter, vinder eller taber et tilbud, bliver Mesterpakken klogere på din forretning. Insights viser små signaler i tilbudsflowet, så du kan sende et skarpere tilbud næste gang.</p>
+          <h2 id="price-objection-heading" class="price-objection-title">Se hvad dine tidligere tilbud siger om det næste</h2>
+          <p class="price-objection-body">Når du laver et tilbud, finder Mesterpakken mønstre i dine egne lignende opgaver: hvad du vinder, hvor prisen ligger, hvilke materialer der klarer sig bedst, og hvad du ofte kan sælge med. Så sender du ikke bare hurtigere — du sender klogere.</p>
         </div>
         <div class="price-objection-image-wrap">
           <div class="insights-mock-card" aria-label="Mester Insights eksempel">
             <p class="insights-mock-heading">Mester Insights</p>
+            <p class="insights-mock-context">Belægning · 95 m² · Betonfliser</p>
             <ul class="insights-mock-feed">
+              <li class="insights-mock-row">
+                <span class="insights-mock-row-label">Vundet 7/10</span>
+                <p class="insights-mock-row-text">Du har vundet 7 ud af dine seneste 10 belægningsopgaver over 50 m².</p>
+              </li>
+              <li class="insights-mock-row">
+                <span class="insights-mock-row-label">Prisrum</span>
+                <p class="insights-mock-row-text">Dine seneste vundne tilbud lå typisk 6–11% over beregningen. Der kan være plads til at hæve prisen.</p>
+              </li>
               <li class="insights-mock-row">
                 <span class="insights-mock-row-label">Produktmønster</span>
                 <p class="insights-mock-row-text">Du vinder oftere betonfliser end herregårdssten.</p>
               </li>
               <li class="insights-mock-row">
-                <span class="insights-mock-row-label">Tjek før du sender</span>
-                <p class="insights-mock-row-text">Du plejer at justere timer op på opgaver over 80 m².</p>
-              </li>
-              <li class="insights-mock-row">
                 <span class="insights-mock-row-label">Mersalg</span>
-                <p class="insights-mock-row-text">Kantsten er ofte med på dine vundne indkørsler.</p>
-              </li>
-              <li class="insights-mock-row">
-                <span class="insights-mock-row-label">Opfølgning</span>
-                <p class="insights-mock-row-text">Tilbud sendt på SMS bliver typisk åbnet hurtigere.</p>
+                <p class="insights-mock-row-text">På lignende indkørsler tilføjer du ofte kantsten og bortkørsel.</p>
               </li>
             </ul>
+            <p class="insights-mock-footer">Baseret på dine egne tilbud, rettelser og vundne/tabte opgaver.</p>
           </div>
         </div>
       </div>
@@ -1498,7 +1514,7 @@
         <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Stemmeoptagelse</h3><p>Fra tale til professionelt tilbud på under 2 minutter — ingen tastatur nødvendig.</p></div>
         <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>SMS til kunden</h3><p>Kunden modtager et link og accepterer uden at downloade noget. Det hele sker på 30 sekunder.</p></div>
         <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Automatiske påmindelser</h3><p>Systemet sender dig en SMS dag 4 og dag 8 hvis kunden ikke har svaret — du bestemmer selv dagene. Du glemmer aldrig en opgave igen.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Mester Insights</h3><p>Små signaler fra dine egne tilbud — hvad du vinder, retter, glemmer og kan sælge mere af.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Mester Insights</h3><p>Se hvad dine tidligere lignende tilbud fortæller dig — prisrum, vundne opgaver, materialer og mulige mersalg.</p></div>
         <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Få gamle kunder tilbage</h3><p>Kunder du ikke har hørt fra i 6 måneder får en personlig SMS. Tidligere kunder køber igen — hvis du husker dem.</p></div>
         <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Få anmeldelser automatisk</h3><p>30 dage efter en vundet opgave sender systemet en SMS og beder om en Google-anmeldelse. Du behøver ikke tænke på det.</p></div>
         <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Pipeline overblik</h3><p>Se alle dine tilbud samlet — hvad der venter, hvad der er sendt, vundet og tabt. Aldrig mere rod i indbakken.</p></div>

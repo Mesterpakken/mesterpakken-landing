@@ -724,56 +724,50 @@
     }
     .insights-mock-card {
       width: 100%;
-      max-width: 360px;
+      max-width: 340px;
       background: #ffffff;
       border-radius: 16px;
-      padding: 1.35rem 1.25rem;
+      padding: 1.1rem 1.1rem 0.85rem;
       box-shadow:
         0 16px 40px rgba(0, 0, 0, 0.28),
         0 4px 12px rgba(0, 0, 0, 0.18);
       text-align: left;
       color: #0d1f38;
     }
-    .insights-mock-total {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 0.75rem;
-      font-weight: 700;
-      font-size: 1rem;
-      color: #0d1f38;
-      margin-bottom: 1rem;
-    }
-    .insights-mock-label {
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      font-weight: 700;
-      color: #8aacbb;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-    .insights-mock-box {
-      background: rgba(25, 167, 206, 0.12);
-      border-radius: 12px;
-      padding: 0.9rem 1rem;
-      color: #0d1f38;
+    .insights-mock-heading {
       font-size: 0.9375rem;
-      line-height: 1.45;
+      font-weight: 700;
+      color: #0d1f38;
+      margin: 0 0 0.65rem;
     }
-    .insights-mock-box p {
-      display: flex;
-      gap: 0.55rem;
-      align-items: flex-start;
+    .insights-mock-feed {
+      list-style: none;
       margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
     }
-    .insights-mock-box p::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #19a7ce;
-      margin-top: 0.45rem;
-      flex-shrink: 0;
+    .insights-mock-row {
+      background: rgba(25, 167, 206, 0.1);
+      border-radius: 10px;
+      padding: 0.55rem 0.7rem;
+    }
+    .insights-mock-row-label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #19a7ce;
+      margin-bottom: 0.15rem;
+    }
+    .insights-mock-row-text {
+      margin: 0;
+      font-size: 0.8125rem;
+      line-height: 1.35;
+      color: #0d1f38;
+      font-weight: 500;
     }
 
     /* Customer offer section */
@@ -1435,19 +1429,30 @@
       <div class="price-objection-inner">
         <div>
           <p class="price-objection-label">MESTER INSIGHTS</p>
-          <h2 id="price-objection-heading" class="price-objection-title">Se om din pris ligger over eller under beregningen</h2>
-          <p class="price-objection-body">Mester Insights sammenligner den pris, du sender, med systemets beregnede pris for opgaven. Når du markerer tilbud som vundet eller tabt, får du bedre overblik over, hvilke priser du vinder på.</p>
+          <h2 id="price-objection-heading" class="price-objection-title">Dine tilbud begynder at arbejde for dig</h2>
+          <p class="price-objection-body">Hver gang du sender, retter, vinder eller taber et tilbud, bliver Mesterpakken klogere på din forretning. Insights viser små signaler i tilbudsflowet, så du kan sende et skarpere tilbud næste gang.</p>
         </div>
         <div class="price-objection-image-wrap">
           <div class="insights-mock-card" aria-label="Mester Insights eksempel">
-            <div class="insights-mock-total">
-              <span>I alt ekskl. moms</span>
-              <span>44.145 kr.</span>
-            </div>
-            <p class="insights-mock-label">Mester Insights</p>
-            <div class="insights-mock-box">
-              <p>Du sender dette tilbud ca. 9% over systemets beregnede pris.</p>
-            </div>
+            <p class="insights-mock-heading">Mester Insights</p>
+            <ul class="insights-mock-feed">
+              <li class="insights-mock-row">
+                <span class="insights-mock-row-label">Produktmønster</span>
+                <p class="insights-mock-row-text">Du vinder oftere betonfliser end herregårdssten.</p>
+              </li>
+              <li class="insights-mock-row">
+                <span class="insights-mock-row-label">Tjek før du sender</span>
+                <p class="insights-mock-row-text">Du plejer at justere timer op på opgaver over 80 m².</p>
+              </li>
+              <li class="insights-mock-row">
+                <span class="insights-mock-row-label">Mersalg</span>
+                <p class="insights-mock-row-text">Kantsten er ofte med på dine vundne indkørsler.</p>
+              </li>
+              <li class="insights-mock-row">
+                <span class="insights-mock-row-label">Opfølgning</span>
+                <p class="insights-mock-row-text">Tilbud sendt på SMS bliver typisk åbnet hurtigere.</p>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

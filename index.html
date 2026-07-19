@@ -677,6 +677,18 @@
       margin: 0 auto;
       padding: 0 24px;
     }
+    .followup-proof-row--single {
+      grid-template-columns: 1fr;
+      max-width: 360px;
+    }
+    .followup-proof-sub {
+      color: #8aacbb;
+      font-size: 16px;
+      line-height: 1.55;
+      text-align: center;
+      max-width: 36rem;
+      margin: 0 auto 1.5rem;
+    }
     .followup-proof-item {
       width: 100%;
       height: auto;
@@ -703,6 +715,59 @@
       line-height: 1.45;
       text-align: center;
       margin-top: 12px;
+    }
+    .insights-mock-card {
+      width: 100%;
+      max-width: 360px;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.35rem 1.25rem;
+      box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.28),
+        0 4px 12px rgba(0, 0, 0, 0.18);
+      text-align: left;
+      color: #0d1f38;
+    }
+    .insights-mock-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #0d1f38;
+      margin-bottom: 1rem;
+    }
+    .insights-mock-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: #8aacbb;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .insights-mock-box {
+      background: rgba(25, 167, 206, 0.12);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      color: #0d1f38;
+      font-size: 0.9375rem;
+      line-height: 1.45;
+    }
+    .insights-mock-box p {
+      display: flex;
+      gap: 0.55rem;
+      align-items: flex-start;
+      margin: 0;
+    }
+    .insights-mock-box p::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #19a7ce;
+      margin-top: 0.45rem;
+      flex-shrink: 0;
     }
 
     /* Customer offer section */
@@ -1254,6 +1319,30 @@
       </div>
     </section>
 
+    <section id="how-it-works" class="reveal" aria-labelledby="how-heading">
+      <div class="section-head">
+        <h2 id="how-heading">Se Mesterpakken lave et tilbud</h2>
+        <p>Fra simpel indtaling til kundevenligt tilbud, klar til at sende.</p>
+      </div>
+      <div class="how-video-wrap">
+        <div class="phone-shell">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <div class="phone-video">
+            <video
+              src="assets/demo%203.0.mp4"
+              poster="assets/screen-1-optag.png"
+              autoplay
+              loop
+              muted
+              playsinline
+              preload="none"
+              aria-label="Mesterpakken demo video"
+            ></video>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="marquee-section reveal">
       <p class="marquee-label">Bygget til danske håndværkere</p>
       <div class="marquee-wrap">
@@ -1270,21 +1359,21 @@
 
     <section class="reveal" aria-labelledby="problem-heading">
       <div class="section-head">
-        <h2 id="problem-heading">Det her koster håndværkere opgaver hver uge</h2>
-        <p>De fleste taber ikke opgaver på deres håndværk — men på manglende opfølgning og manglende overblik.</p>
+        <h2 id="problem-heading">Tilbud koster tid — og manglende opfølgning koster opgaver</h2>
+        <p>Mesterpakken hjælper dig med begge dele: mindre skrivearbejde, bedre tilbud og automatisk opfølgning.</p>
       </div>
       <div class="problem-grid">
+        <div class="pain-card reveal">
+          <p>Du bruger tid på tilbud, du aldrig vinder</p>
+        </div>
         <div class="pain-card reveal">
           <p>Du sender tilbuddet — og kunden forsvinder</p>
         </div>
         <div class="pain-card reveal">
-          <p>Du priser efter mavefornemmelse — og ved aldrig om det koster dig opgaven</p>
+          <p>Du ved ikke, om kunden har åbnet tilbuddet</p>
         </div>
         <div class="pain-card reveal">
-          <p>Du glemmer at følge op — og opgaven går til en anden</p>
-        </div>
-        <div class="pain-card reveal">
-          <p>Du mister overblikket over hvem der venter, og hvem der er tabt</p>
+          <p>Du mister overblikket over, hvem der venter</p>
         </div>
       </div>
     </section>
@@ -1304,42 +1393,13 @@
 
     <section class="followup-proof-section reveal" aria-labelledby="followup-proof-heading">
       <div class="followup-proof-inner">
-        <h2 id="followup-proof-heading" class="followup-proof-heading">Ikke bare opfølgning</h2>
-        <div class="followup-proof-row">
-          <div class="followup-proof-item">
-            <div class="followup-proof-image-card">
-              <img src="assets/mersalg.png" alt="Tilføj valgfrie tilkøb — kunden slår til med ét tryk" loading="lazy" decoding="async" />
-            </div>
-            <p>Tilføj valgfrie tilkøb — kunden slår til med ét tryk</p>
-          </div>
+        <h2 id="followup-proof-heading" class="followup-proof-heading">Alle kunder samlet ét sted</h2>
+        <p class="followup-proof-sub">Se hvem der har fået tilbud, hvem der har accepteret, hvem der skal følges op på, og hvem du kan genaktivere senere.</p>
+        <div class="followup-proof-row followup-proof-row--single">
           <div class="followup-proof-item">
             <div class="followup-proof-image-card">
               <img src="assets/Kunder.png" alt="Kunder — overblik over dine kunder og resultater" loading="lazy" decoding="async" />
             </div>
-            <p>Se dine kunder samlet — hvem der er vundet, og hvem der venter</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="how-it-works" class="reveal" aria-labelledby="how-heading">
-      <div class="section-head">
-        <h2 id="how-heading">Lav tilbud på sekunder — ikke minutter</h2>
-      </div>
-      <div class="how-video-wrap">
-        <div class="phone-shell">
-          <div class="phone-notch" aria-hidden="true"></div>
-          <div class="phone-video">
-            <video
-              src="https://cklzgtqujptdipahhcbi.supabase.co/storage/v1/object/public/landing-assets/MESTER%20(2).mp4"
-              poster="assets/screen-1-optag.png"
-              autoplay
-              loop
-              muted
-              playsinline
-              preload="none"
-              aria-label="Mesterpakken demo video"
-            ></video>
           </div>
         </div>
       </div>
@@ -1369,12 +1429,19 @@
       <div class="price-objection-inner">
         <div>
           <p class="price-objection-label">MESTER INSIGHTS</p>
-          <h2 id="price-objection-heading" class="price-objection-title">Skift mavefornemmelsen ud med dine egne tilbud.</h2>
-          <p class="price-objection-body">Mester Insights sammenligner din tilbudspris med den beregnede pris. Jo flere vundne og tabte tilbud du logger, jo skarpere bliver sammenligningen — så du erstatter mavefornemmelse med dine egne data.</p>
+          <h2 id="price-objection-heading" class="price-objection-title">Se om din pris ligger over eller under beregningen</h2>
+          <p class="price-objection-body">Mester Insights sammenligner den pris, du sender, med systemets beregnede pris for opgaven. Når du markerer tilbud som vundet eller tabt, får du bedre overblik over, hvilke priser du vinder på.</p>
         </div>
         <div class="price-objection-image-wrap">
-          <div class="followup-proof-image-card">
-            <img src="assets/insights.png" alt="Mester Insights — sammenligning med beregnet pris" loading="lazy" decoding="async" />
+          <div class="insights-mock-card" aria-label="Mester Insights eksempel">
+            <div class="insights-mock-total">
+              <span>I alt ekskl. moms</span>
+              <span>44.145 kr.</span>
+            </div>
+            <p class="insights-mock-label">Mester Insights</p>
+            <div class="insights-mock-box">
+              <p>Du sender dette tilbud ca. 9% over systemets beregnede pris.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1382,8 +1449,8 @@
 
     <section class="customer-offer-section reveal" aria-labelledby="customer-offer-heading">
       <div class="customer-offer-inner">
-        <h2 id="customer-offer-heading" class="customer-offer-title">Kunden åbner et link — og accepterer med ét tryk</h2>
-        <p class="customer-offer-sub">Ingen app. Ingen login. Ingen forvirring.</p>
+        <h2 id="customer-offer-heading" class="customer-offer-title">Kunden åbner et link — og du får besked</h2>
+        <p class="customer-offer-sub">Ingen app. Ingen login. Du får besked, når kunden åbner tilbuddet, og kunden kan acceptere med ét tryk.</p>
         <div class="customer-offer-visual">
           <div class="customer-offer-phone">
             <div class="customer-offer-image-card">
@@ -1420,7 +1487,7 @@
         <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Stemmeoptagelse</h3><p>Fra tale til professionelt tilbud på under 2 minutter — ingen tastatur nødvendig.</p></div>
         <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>SMS til kunden</h3><p>Kunden modtager et link og accepterer uden at downloade noget. Det hele sker på 30 sekunder.</p></div>
         <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Automatiske påmindelser</h3><p>Systemet sender dig en SMS dag 4 og dag 8 hvis kunden ikke har svaret — du bestemmer selv dagene. Du glemmer aldrig en opgave igen.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Mester Insights</h3><p>Se hvordan din tilbudspris ligger ift. den beregnede pris. Jo flere vundne og tabte tilbud du logger, jo skarpere bliver dit eget datagrundlag.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Mester Insights</h3><p>Se overblik over hvor dine priser lander — sammenlignet med systemets beregning. Når du logger vundet og tabt, bliver overblikket skarpere.</p></div>
         <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Få gamle kunder tilbage</h3><p>Kunder du ikke har hørt fra i 6 måneder får en personlig SMS. Tidligere kunder køber igen — hvis du husker dem.</p></div>
         <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Få anmeldelser automatisk</h3><p>30 dage efter en vundet opgave sender systemet en SMS og beder om en Google-anmeldelse. Du behøver ikke tænke på det.</p></div>
         <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Pipeline overblik</h3><p>Se alle dine tilbud samlet — hvad der venter, hvad der er sendt, vundet og tabt. Aldrig mere rod i indbakken.</p></div>
@@ -1474,10 +1541,10 @@
           <ul class="checklist">
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Vi læser dine tidligere tilbud ind</span></li>
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Systemet kender dine egne priser — ikke standardpriser</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Præcise tilbud fra første dag</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tilbud baseret på dine egne priser</span></li>
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Prioriteret support</span></li>
           </ul>
-          <p class="pricing-desc">Perfekt til virksomheder der vil have tilbud der rammer plet fra dag ét — bygget på deres egne priser, ikke standardpriser.</p>
+          <p class="pricing-desc">Perfekt til virksomheder der vil have tilbud baseret på deres egne priser — ikke standardpriser.</p>
           <a class="btn btn-accent" href="https://buy.stripe.com/dRmaEX2808Ao1RE4AC6Ri03">Vælg PLUS</a>
         </article>
 

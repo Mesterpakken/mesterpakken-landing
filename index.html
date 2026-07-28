@@ -947,6 +947,23 @@
       max-width: none !important;
       padding: 4rem 1.25rem !important;
     }
+    .pricing-guarantee {
+      max-width: 1120px;
+      margin: 0 auto 2rem;
+      padding: 1.15rem 1.35rem;
+      background: rgba(25, 167, 206, 0.1);
+      border: 1px solid rgba(25, 167, 206, 0.45);
+      border-radius: 12px;
+      text-align: center;
+      color: #d2e8f2;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      line-height: 1.55;
+    }
+    .pricing-guarantee strong {
+      color: var(--white);
+      font-weight: 700;
+    }
     .pricing-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -1555,27 +1572,29 @@
         <h2 id="pricing-heading">Vælg den pakke der passer</h2>
         <p>Ingen binding. Start småt — eller få hjælp hele vejen fra dag ét.</p>
       </div>
+      <p class="pricing-guarantee" role="note">
+        <strong>30 dages tilfredshedsgaranti</strong> — vi sætter det op for dig. Er du ikke tilfreds inden for 30 dage, får du pengene tilbage. Ingen binding.
+      </p>
       <div class="pricing-grid">
         <article class="pricing-card reveal" aria-labelledby="pricing-start">
           <p id="pricing-start" class="pricing-tier">Start</p>
           <div class="price-setup">
-            <p class="price-setup-amount">999 kr oprettelse</p>
             <div class="price-row price-row--monthly">
-              <span class="price-main">499 kr</span>
+              <span class="price-main">199 kr</span>
               <span class="price-sub">/md</span>
             </div>
           </div>
-          <p class="pricing-terms">Ingen binding · 30 dages tilfredshedsgaranti ved aktiv brug</p>
+          <p class="pricing-terms">Ingen binding · ekskl. moms</p>
+          <p class="pricing-desc">Til dig der lige er startet.</p>
           <div class="pricing-divider"></div>
           <ul class="checklist">
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Kom i gang på 10 minutter</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tilbud fra telefon på 2 minutter</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Standardpriser</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tilbud fra telefonen</span></li>
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Automatisk opfølgning på ubesvarede tilbud</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>SMS-besked når kunde åbner dit tilbud</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>SMS når kunden åbner dit tilbud</span></li>
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Pipeline & overblik</span></li>
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Kundehistorik</span></li>
           </ul>
-          <p class="pricing-desc">Perfekt til mindre håndværksvirksomheder der vil spare tid og følge bedre op.</p>
           <a class="btn btn-accent" href="https://buy.stripe.com/eVqbJ1eUM4k8aoa1oq6Ri02">Kom i gang</a>
         </article>
 
@@ -1583,34 +1602,34 @@
           <span class="pricing-badge">Mest valgt</span>
           <p id="pricing-plus" class="pricing-tier">Plus</p>
           <div class="price-setup">
-            <p class="price-setup-amount">2.999 kr oprettelse</p>
             <div class="price-row price-row--monthly">
-              <span class="price-main">999 kr</span>
+              <span class="price-main">299 kr</span>
               <span class="price-sub">/md</span>
             </div>
           </div>
-          <p class="pricing-terms">Ingen binding</p>
+          <p class="pricing-terms">Ingen binding · ekskl. moms</p>
+          <p class="pricing-desc">Det de fleste vælger — Mesterpakken som den er bedst.</p>
           <div class="pricing-divider"></div>
           <p class="pricing-includes">Alt i START +</p>
           <ul class="checklist">
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Vi læser dine tidligere tilbud ind</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Systemet kender dine egne priser — ikke standardpriser</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tilbud baseret på dine egne priser</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Systemet læser dine egne priser ind</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tilbud baseret på dine egne priser (ikke standardpriser)</span></li>
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Prioriteret support</span></li>
           </ul>
-          <p class="pricing-desc">Perfekt til virksomheder der vil have tilbud baseret på deres egne priser — ikke standardpriser.</p>
           <a class="btn btn-accent" href="https://buy.stripe.com/dRmaEX2808Ao1RE4AC6Ri03">Vælg PLUS</a>
         </article>
 
         <article class="pricing-card pricing-card--pro reveal" aria-labelledby="pricing-pro">
           <p id="pricing-pro" class="pricing-tier">Pro</p>
           <div class="price-setup">
-            <p class="price-setup-amount">9.999 kr oprettelse</p>
+            <p class="price-setup-amount">999 kr oprettelse</p>
             <div class="price-row price-row--monthly">
-              <span class="price-main">1.999 kr</span>
+              <span class="price-main">999 kr</span>
               <span class="price-sub">/md</span>
             </div>
           </div>
+          <p class="pricing-terms">Ingen binding · ekskl. moms</p>
+          <p class="pricing-desc">Vi bygger hele setup'et for jer.</p>
           <div class="pricing-divider"></div>
           <p class="pricing-includes">Alt i PLUS +</p>
           <ul class="checklist">
@@ -1620,7 +1639,6 @@
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Fast månedlig sparring</span></li>
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Komplet lead- og tilbudsflow</span></li>
           </ul>
-          <p class="pricing-desc">Vi bygger hele setup'et for jer — tilbud, opfølgning og leadflow samlet ét sted.</p>
           <a class="btn btn-outline" href="mailto:kontakt@mesterpakken.dk">Kontakt os</a>
         </article>
       </div>

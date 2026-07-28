@@ -668,6 +668,36 @@
       max-width: 42ch;
     }
 
+    /* Overview section polish */
+    .overview-value {
+      color: #ffffff;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      line-height: 1.5;
+      margin-top: 1.25rem;
+      max-width: 42ch;
+    }
+    .overview-shot {
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #0e4a63;
+      box-shadow:
+        0 0 0 2px #2a2a2a,
+        0 0 0 6px #1a1a1a,
+        0 16px 40px rgba(0, 0, 0, 0.28),
+        0 4px 12px rgba(0, 0, 0, 0.18);
+    }
+    .overview-shot img {
+      display: block;
+      width: 108%;
+      max-width: none;
+      height: auto;
+      margin: -2.5% -4% -0.5% -4%;
+    }
+
     /* Follow-up proof section */
     main .followup-proof-section {
       max-width: none !important;
@@ -1402,10 +1432,10 @@
           <p class="price-objection-label">OVERBLIK</p>
           <h2 id="overview-heading" class="price-objection-title">Alt starter fra én enkel forside</h2>
           <p class="price-objection-body">Se åbne tilbud, manglende handlinger og seneste kunder — eller start et nyt tilbud med optag-knappen.</p>
-          <p class="price-objection-note">Bygget til hverdagen, ikke til kontoret.</p>
+          <p class="overview-value">Gode tilbud vinder opgaver. Mesterpakken gør dem hurtigere at lave — og sværere at glemme at følge op på.</p>
         </div>
         <div class="price-objection-image-wrap">
-          <div class="followup-proof-image-card">
+          <div class="overview-shot">
             <img src="assets/forside.png" alt="Mesterpakken forside med handlinger, optag-knap og kundeliste" loading="lazy" decoding="async" />
           </div>
         </div>
@@ -1437,7 +1467,7 @@
     </section>
 
     <div class="marquee-section reveal">
-      <p class="marquee-label">Bygget til små anlægs- og belægningsvirksomheder</p>
+      <p class="marquee-label">Bygget til anlægs- og belægningsvirksomheder</p>
       <div class="marquee-wrap">
         <div class="marquee-track">
           <div class="marquee-sequence">

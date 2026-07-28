@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-  <title>Mesterpakken – Tilbud og opfølgning for håndværkere</title>
-  <meta name="description" content="Tal om opgaven. Tilbuddet er klar til kunden. Mesterpakken er voice-to-quote til danske håndværkere." />
-  <meta property="og:title" content="Mesterpakken – Tilbud og opfølgning for håndværkere" />
-  <meta property="og:description" content="Voice-to-quote SaaS til danske håndværkere. Spar tid og vind flere opgaver." />
+  <title>Mesterpakken – Tilbud til anlægsgartnere og brolæggere</title>
+  <meta name="description" content="Tilbudssystem til små anlægs- og belægningsvirksomheder. Bygget på dine egne priser, tidligere tilbud og automatisk opfølgning." />
+  <meta property="og:title" content="Mesterpakken – Tilbud til anlægsgartnere og brolæggere" />
+  <meta property="og:description" content="Lav gode tilbud hurtigere — med dine egne priser, tidligere tilbud og automatisk opfølgning." />
   <meta property="og:image" content="https://mesterpakken.dk/og-image.png" />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -882,6 +882,27 @@
     .feature-card h3 { font-size: 1.0625rem; margin-bottom: 0.5rem; }
     .feature-card p { color: var(--muted); font-size: 0.9rem; }
 
+    /* Smart core */
+    .smart-core-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    @media (min-width: 768px) {
+      .smart-core-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .pricing-why {
+      max-width: 40rem;
+      margin: 0 auto 2rem;
+      text-align: center;
+      color: #b8d4e0;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
     /* Stat */
     .stat-section {
       max-width: none !important;
@@ -1367,7 +1388,7 @@
       <div class="hero-orb hero-orb--2" aria-hidden="true"></div>
       <div class="hero-inner">
         <h1>Du er håndværker. Ikke sælger.</h1>
-        <p class="hero-lead">Tal opgaven ind efter besigtigelse på sekunder. Kunden modtager et professionelt tilbud med det samme — og Mesterpakken følger automatisk op, så varme tilbud ikke går tabt.</p>
+        <p class="hero-lead">Tal opgaven ind efter besigtigelsen. Systemet forbereder tilbuddet — du godkender prisen, før det sendes. Mesterpakken hjælper dig også med at følge op, så varme tilbud ikke går tabt.</p>
         <div class="hero-cta">
           <a class="btn btn-outline" href="#how-it-works">Se hvordan det virker</a>
           <a class="btn btn-accent" href="https://buy.stripe.com/eVqbJ1eUM4k8aoa1oq6Ri02">Prøv det på din næste opgave</a>
@@ -1393,8 +1414,8 @@
 
     <section id="how-it-works" class="reveal" aria-labelledby="how-heading">
       <div class="section-head">
-        <h2 id="how-heading">Se Mesterpakken lave et tilbud</h2>
-        <p>Fra simpel indtaling til kundevenligt tilbud, klar til at sende.</p>
+        <h2 id="how-heading">Fra indtaling til tilbud — klar til at sende</h2>
+        <p>Systemet strukturerer opgaven og forbereder tilbuddet. Du gennemgår og godkender prisen.</p>
       </div>
       <div class="how-video-wrap">
         <div class="phone-shell">
@@ -1416,14 +1437,14 @@
     </section>
 
     <div class="marquee-section reveal">
-      <p class="marquee-label">Bygget til danske håndværkere</p>
+      <p class="marquee-label">Bygget til små anlægs- og belægningsvirksomheder</p>
       <div class="marquee-wrap">
         <div class="marquee-track">
           <div class="marquee-sequence">
-            <span class="m-trade">Tømrer</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Maler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Murer</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Tagdækker</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gulvlægger</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Snedker</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Tømrer</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Maler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Murer</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Tagdækker</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gulvlægger</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Snedker</span><span class="m-sep" aria-hidden="true">·</span>
+            <span class="m-trade">Belægning</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Indkørsler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gangstier</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hegn</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hæk</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Rullegræs</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Afvanding</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Haveanlæg</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Belægning</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Indkørsler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gangstier</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hegn</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hæk</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Rullegræs</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Afvanding</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Haveanlæg</span><span class="m-sep" aria-hidden="true">·</span>
           </div>
           <div class="marquee-sequence" aria-hidden="true">
-            <span class="m-trade">Tømrer</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Maler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Murer</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Tagdækker</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gulvlægger</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Snedker</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Tømrer</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Maler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Murer</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Tagdækker</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gulvlægger</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Snedker</span><span class="m-sep" aria-hidden="true">·</span>
+            <span class="m-trade">Belægning</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Indkørsler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gangstier</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hegn</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hæk</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Rullegræs</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Afvanding</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Haveanlæg</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Belægning</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Indkørsler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gangstier</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hegn</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hæk</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Rullegræs</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Afvanding</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Haveanlæg</span><span class="m-sep" aria-hidden="true">·</span>
           </div>
         </div>
       </div>
@@ -1432,7 +1453,7 @@
     <section class="reveal" aria-labelledby="problem-heading">
       <div class="section-head">
         <h2 id="problem-heading">Tilbud koster tid — og manglende opfølgning koster opgaver</h2>
-        <p>Mesterpakken hjælper dig med begge dele: mindre skrivearbejde, bedre tilbud og automatisk opfølgning.</p>
+        <p>Mindre tid på at skrive tilbud. Mere genbrug af det, du allerede ved virker. Bedre opfølgning.</p>
       </div>
       <div class="problem-grid">
         <div class="pain-card reveal">
@@ -1446,6 +1467,35 @@
         </div>
         <div class="pain-card reveal">
           <p>Du mister overblikket over, hvem der venter</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal" aria-labelledby="smart-core-heading">
+      <div class="section-head">
+        <h2 id="smart-core-heading">Dine egne tilbud. Bare hurtigere.</h2>
+        <p>Dine gamle tilbud, dine priser, dit sprog og dine vundne/tabte opgaver bliver ikke bare arkiv. Mesterpakken bruger det som grundlag for dine næste tilbud.</p>
+      </div>
+      <div class="smart-core-grid">
+        <div class="feature-card reveal">
+          <span class="feature-accent" aria-hidden="true"></span>
+          <h3>Dine egne priser</h3>
+          <p>Ikke kun standardpriser. Mesterpakken kan sættes op med dine egne priser og måden, du normalt regner tilbud på.</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-accent" aria-hidden="true"></span>
+          <h3>Dine tidligere tilbud</h3>
+          <p>Gamle tilbud, formuleringer og erfaringer bliver brugt som grundlag for nye tilbud.</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-accent" aria-hidden="true"></span>
+          <h3>Mester Insights</h3>
+          <p>Over tid kan systemet vise mønstre fra dine vundne og tabte tilbud, så du bliver skarpere på, hvad der virker.</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-accent" aria-hidden="true"></span>
+          <h3>Automatisk opfølgning</h3>
+          <p>Når tilbuddet er sendt, hjælper systemet dig med at følge op, så opgaver ikke forsvinder.</p>
         </div>
       </div>
     </section>
@@ -1482,7 +1532,7 @@
         <div>
           <p class="showcase-eyebrow">STEP 1</p>
           <h2 id="showcase-a-heading" class="showcase-title">Tal om opgaven. Det er nok.</h2>
-          <p class="showcase-copy">Tryk optag. Beskriv opgaven med din stemme. 60 sekunder er nok — inde fra bilen, på byggepladsen, hvor som helst.</p>
+          <p class="showcase-copy">Tryk optag. Beskriv opgaven med din stemme — fra bilen eller på pladsen. Systemet forbereder tilbuddet. Du godkender prisen.</p>
         </div>
         <div class="showcase-visual" aria-hidden="true">
           <div class="record-wrap">
@@ -1502,7 +1552,7 @@
         <div>
           <p class="price-objection-label">MESTER INSIGHTS</p>
           <h2 id="price-objection-heading" class="price-objection-title">Se hvad dine tidligere tilbud siger om det næste</h2>
-          <p class="price-objection-body">Når du laver et tilbud, finder Mesterpakken mønstre i dine egne lignende opgaver: hvad du vinder, hvor prisen ligger, hvilke materialer der klarer sig bedst, og hvad du ofte kan sælge med. Så sender du ikke bare hurtigere — du sender klogere.</p>
+          <p class="price-objection-body">Når du laver et tilbud, kan Mesterpakken pege på mønstre i dine egne lignende opgaver: hvad du typisk vinder, hvor prisen har ligget, og hvad du ofte sælger med. Du sender hurtigere — og med mere erfaring bag dig.</p>
         </div>
         <div class="price-objection-image-wrap">
           <div class="insights-mock-card" aria-label="Mester Insights eksempel">
@@ -1557,8 +1607,8 @@
         </div>
         <div>
           <p class="showcase-eyebrow">AUTOMATISK</p>
-          <h2 id="showcase-b-heading" class="showcase-title">Systemet arbejder mens du er på byggepladsen</h2>
-          <p class="showcase-copy">Du får besked når en kunde ikke har svaret, når et tilbud bliver accepteret, og når det er tid til at bede om en anmeldelse. Du behøver ikke huske noget.</p>
+          <h2 id="showcase-b-heading" class="showcase-title">Systemet arbejder mens du er på pladsen</h2>
+          <p class="showcase-copy">Du får besked når en kunde ikke har svaret, når et tilbud bliver accepteret, og når det er tid til at bede om en anmeldelse.</p>
         </div>
       </div>
     </section>
@@ -1566,18 +1616,18 @@
     <section class="reveal" aria-labelledby="features-heading">
       <div class="section-head">
         <h2 id="features-heading">Alt hvad du behøver</h2>
-        <p>Mesterpakken arbejder for dig — også når du ikke er i appen.</p>
+        <p>Bygget til hverdagen i en lille anlægs- eller belægningsvirksomhed.</p>
       </div>
       <div class="features-grid">
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Stemmeoptagelse</h3><p>Fra tale til professionelt tilbud på under 2 minutter — ingen tastatur nødvendig.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>SMS til kunden</h3><p>Kunden modtager et link og accepterer uden at downloade noget. Det hele sker på 30 sekunder.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Automatiske påmindelser</h3><p>Systemet sender dig en SMS dag 4 og dag 8 hvis kunden ikke har svaret — du bestemmer selv dagene. Du glemmer aldrig en opgave igen.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Mester Insights</h3><p>Se hvad dine tidligere lignende tilbud fortæller dig — prisrum, vundne opgaver, materialer og mulige mersalg.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Få gamle kunder tilbage</h3><p>Kunder du ikke har hørt fra i 6 måneder får en personlig SMS. Tidligere kunder køber igen — hvis du husker dem.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Få anmeldelser automatisk</h3><p>30 dage efter en vundet opgave sender systemet en SMS og beder om en Google-anmeldelse. Du behøver ikke tænke på det.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Pipeline overblik</h3><p>Se alle dine tilbud samlet — hvad der venter, hvad der er sendt, vundet og tabt. Aldrig mere rod i indbakken.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Fast pris</h3><p>Slå til på hvert tilbud. Kunden ved præcis hvad de betaler — og accepterer hurtigere.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Mersalg i tilbuddet</h3><p>Tilføj valgfrie tilkøb kunden selv kan slå til — helårsolie, ekstra rum, udvidet garanti. Du sælger mere uden at sige et ord.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Stemmeoptagelse</h3><p>Tal opgaven ind. Systemet forbereder tilbuddet — du godkender, før det sendes.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>SMS til kunden</h3><p>Kunden får et link og kan acceptere uden app eller login.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Automatiske påmindelser</h3><p>SMS til dig dag 4 og dag 8, hvis kunden ikke har svaret — du bestemmer selv dagene.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Mester Insights</h3><p>Mønstre fra dine egne tilbud: prisrum, vundne opgaver, materialer og mulige mersalg.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Få gamle kunder tilbage</h3><p>Kunder du ikke har hørt fra i 6 måneder kan få en personlig SMS — hvis du vælger det.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Få anmeldelser automatisk</h3><p>Efter en vundet opgave kan systemet minde dig om at bede om en Google-anmeldelse.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Pipeline overblik</h3><p>Se alle tilbud samlet — sendt, vundet, tabt og dem der venter.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Fast pris</h3><p>Kunden ser en klar pris på tilbuddet — nemmere at forstå og acceptere.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Mersalg i tilbuddet</h3><p>Tilføj valgfrie tilkøb som kantsten, bortkørsel eller ekstra bed — kunden kan slå til selv.</p></div>
       </div>
     </section>
 
@@ -1586,6 +1636,7 @@
         <h2 id="pricing-heading">Vælg den pakke der passer</h2>
         <p>Ingen binding. Start småt — eller få hjælp hele vejen fra dag ét.</p>
       </div>
+      <p class="pricing-why">Dine gode tilbud er allerede en konkurrencefordel. Mesterpakken gør dem bare hurtigere at lave — og sværere at glemme at følge op på.</p>
       <p class="pricing-guarantee" role="note">
         <strong>30 dages tilfredshedsgaranti</strong> — vi sætter det op for dig. Er du ikke tilfreds inden for 30 dage, får du pengene tilbage. Ingen binding.
       </p>
@@ -1599,13 +1650,13 @@
             </div>
           </div>
           <p class="pricing-terms">Ingen binding</p>
-          <p class="pricing-position">Til dig der lige er startet.</p>
-          <p class="pricing-desc">Du taler opgaven ind på telefonen efter besigtigelsen, og kunden får et professionelt tilbud på få minutter — med standardpriser, så du hurtigt er i gang. Systemet følger op automatisk, så du ikke mister opgaver, du glemmer at følge op på. Til dig der lige er startet.</p>
+          <p class="pricing-position">Til dig der vil i gang hurtigt med standardopsætning.</p>
+          <p class="pricing-desc">Indtal opgaven, få et professionelt tilbud, send link/PDF, og få hjælp til opfølgning.</p>
           <div class="pricing-divider"></div>
           <ul class="checklist">
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Standardpriser</span></li>
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tilbud fra telefonen</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Automatisk opfølgning på ubesvarede tilbud</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Automatisk opfølgning</span></li>
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>SMS når kunden åbner dit tilbud</span></li>
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Pipeline & overblik</span></li>
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Kundehistorik</span></li>
@@ -1623,13 +1674,16 @@
             </div>
           </div>
           <p class="pricing-terms">Ingen binding</p>
-          <p class="pricing-position">Det de fleste vælger — Mesterpakken som den er bedst.</p>
-          <p class="pricing-desc">Alt i START, men tilbuddene bygges på DINE egne priser — præcis de priser du selv tager — så hvert tilbud er klar til at sende, ikke bare et gæt. Det er Mesterpakken, som den er bedst: tal opgaven ind, send et skarpt tilbud på dine egne priser, på minutter. Det er forskellen, der betyder noget, hvis du allerede driver forretning med dine egne priser.</p>
+          <p class="pricing-position">Den rigtige Mesterpakken.</p>
+          <p class="pricing-desc">Bygget på dine egne priser, tidligere tilbud, sprog og historik.</p>
           <div class="pricing-divider"></div>
           <p class="pricing-includes">Alt i START +</p>
           <ul class="checklist">
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Vi læser dine egne priser ind</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tilbud baseret på dine egne priser (ikke standardpriser)</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Dine egne priser indlæst</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tidligere tilbud som grundlag</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Din måde at skrive tilbud på</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Mester Insights</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Automatisk opfølgning</span></li>
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Prioriteret support</span></li>
           </ul>
           <a class="btn btn-accent" href="https://buy.stripe.com/dRmaEX2808Ao1RE4AC6Ri03">Vælg PLUS</a>
@@ -1645,8 +1699,8 @@
             </div>
           </div>
           <p class="pricing-terms">Ingen binding</p>
-          <p class="pricing-position">Vi bygger hele setup'et for jer.</p>
-          <p class="pricing-desc">Alt i PLUS, og vi bygger dig en hjemmeside med leadformular og kobler indkomne leads direkte ind i Mesterpakken — hele flowet fra lead til sendt tilbud, sat op for dig. Til dig der vil have det hele sat op og klar.</p>
+          <p class="pricing-position">Til dig der vil have hele lead-til-tilbud-flowet sat op.</p>
+          <p class="pricing-desc">Vi bygger setup, hjemmeside/leadformular og flowet omkring jer.</p>
           <div class="pricing-divider"></div>
           <p class="pricing-includes">Alt i PLUS +</p>
           <ul class="checklist">
@@ -1677,7 +1731,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <p class="name">Mesterpakken</p>
-          <p class="tagline">Spar tid. Vind flere opgaver.</p>
+          <p class="tagline">Gode tilbud. Hurtigere. Bedre opfølgning.</p>
         </div>
         <div class="footer-links">
           <a href="https://mesterpakken.dk">Log ind</a>

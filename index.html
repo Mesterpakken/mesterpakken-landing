@@ -506,6 +506,42 @@
       transform-origin: center center;
       background: #000;
     }
+    .phone-video-play {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.28);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    .phone-video-play:hover .phone-video-play-icon,
+    .phone-video-play:focus-visible .phone-video-play-icon {
+      transform: scale(1.06);
+    }
+    .phone-video-play-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(25, 167, 206, 0.95);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+    }
+    .phone-video-play-icon svg {
+      width: 28px;
+      height: 28px;
+      margin-left: 3px;
+      fill: #0a1628;
+    }
+    .phone-video.is-playing .phone-video-play {
+      display: none;
+    }
 
     /* Showcase sections */
     main .showcase-section {
@@ -1461,80 +1497,6 @@
       </div>
     </section>
 
-    <section class="price-objection-section reveal" aria-labelledby="overview-heading">
-      <div class="price-objection-inner">
-        <div>
-          <p class="price-objection-label">OVERBLIK</p>
-          <h2 id="overview-heading" class="price-objection-title">Alt starter fra én enkel forside</h2>
-          <p class="price-objection-body">Se åbne tilbud, manglende handlinger og seneste kunder — eller start et nyt tilbud med optag-knappen.</p>
-        </div>
-        <div class="price-objection-image-wrap">
-          <div class="overview-shot">
-            <img src="assets/forside.png" alt="Mesterpakken forside med handlinger, optag-knap og kundeliste" loading="lazy" decoding="async" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="how-it-works" class="reveal" aria-labelledby="how-heading">
-      <div class="section-head">
-        <h2 id="how-heading">Fra indtaling til tilbud — klar til at sende</h2>
-        <p>Systemet strukturerer opgaven og forbereder tilbuddet. Du gennemgår og godkender prisen.</p>
-      </div>
-      <div class="how-video-wrap">
-        <div class="phone-shell">
-          <div class="phone-notch" aria-hidden="true"></div>
-          <div class="phone-video">
-            <video
-              src="assets/demo%203.0.mp4"
-              poster="assets/screen-1-optag.png"
-              autoplay
-              loop
-              muted
-              playsinline
-              preload="none"
-              aria-label="Mesterpakken demo video"
-            ></video>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="marquee-section reveal">
-      <p class="marquee-label">Bygget til anlægs- og belægningsvirksomheder</p>
-      <div class="marquee-wrap">
-        <div class="marquee-track">
-          <div class="marquee-sequence">
-            <span class="m-trade">Belægning</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Indkørsler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gangstier</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hegn</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hæk</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Rullegræs</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Afvanding</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Haveanlæg</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Belægning</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Indkørsler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gangstier</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hegn</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hæk</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Rullegræs</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Afvanding</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Haveanlæg</span><span class="m-sep" aria-hidden="true">·</span>
-          </div>
-          <div class="marquee-sequence" aria-hidden="true">
-            <span class="m-trade">Belægning</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Indkørsler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gangstier</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hegn</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hæk</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Rullegræs</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Afvanding</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Haveanlæg</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Belægning</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Indkørsler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gangstier</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hegn</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hæk</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Rullegræs</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Afvanding</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Haveanlæg</span><span class="m-sep" aria-hidden="true">·</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <section class="reveal" aria-labelledby="problem-heading">
-      <div class="section-head">
-        <h2 id="problem-heading">Tilbud koster tid — og manglende opfølgning koster opgaver</h2>
-        <p>Mindre tid på at skrive tilbud. Mere genbrug af det, du allerede ved virker. Bedre opfølgning.</p>
-      </div>
-      <div class="problem-grid">
-        <div class="pain-card reveal">
-          <p>Du bruger tid på tilbud, du aldrig vinder</p>
-        </div>
-        <div class="pain-card reveal">
-          <p>Du sender tilbuddet — og kunden forsvinder</p>
-        </div>
-        <div class="pain-card reveal">
-          <p>Du ved ikke, om kunden har åbnet tilbuddet</p>
-        </div>
-        <div class="pain-card reveal">
-          <p>Du mister overblikket over, hvem der venter</p>
-        </div>
-      </div>
-    </section>
-
     <section class="reveal" aria-labelledby="evenings-heading">
       <div class="section-head">
         <h2 id="evenings-heading">Tilbud skal ikke tage dine aftener</h2>
@@ -1554,15 +1516,73 @@
         <div class="feature-card reveal">
           <span class="feature-accent" aria-hidden="true"></span>
           <h3>Opfølgning bagefter</h3>
-          <p>Lad systemet hjælpe med at følge op, så du ikke glemmer varme tilbud.</p>
+          <p>Systemet hjælper med at følge op, så varme tilbud ikke bliver glemt.</p>
         </div>
       </div>
     </section>
 
+    <section id="how-it-works" class="reveal" aria-labelledby="how-heading">
+      <div class="section-head">
+        <h2 id="how-heading">Fra indtaling til tilbud — klar til at sende</h2>
+        <p>Tal opgaven ind efter besigtigelsen. Systemet forbereder tilbuddet — du gennemgår og godkender prisen.</p>
+      </div>
+      <div class="how-video-wrap">
+        <div class="phone-shell">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <div class="phone-video" id="demo-video-wrap">
+            <video
+              id="demo-video"
+              src="assets/demo%203.0.mp4"
+              poster="assets/screen-1-optag.png"
+              loop
+              muted
+              playsinline
+              preload="none"
+              aria-label="Mesterpakken demo video"
+            ></video>
+            <button type="button" class="phone-video-play" id="demo-video-play" aria-label="Afspil demo">
+              <span class="phone-video-play-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="price-objection-section reveal" aria-labelledby="overview-heading">
+      <div class="price-objection-inner">
+        <div>
+          <p class="price-objection-label">OVERBLIK</p>
+          <h2 id="overview-heading" class="price-objection-title">Alt samlet ét sted</h2>
+          <p class="price-objection-body">Se åbne tilbud, opfølgninger og seneste kunder — eller start et nyt tilbud med optag-knappen.</p>
+        </div>
+        <div class="price-objection-image-wrap">
+          <div class="overview-shot">
+            <img src="assets/forside.png" alt="Mesterpakken forside med handlinger, Indtal-knap og kundeliste" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee-section reveal">
+      <p class="marquee-label">Bygget til anlægs- og belægningsvirksomheder</p>
+      <div class="marquee-wrap">
+        <div class="marquee-track">
+          <div class="marquee-sequence">
+            <span class="m-trade">Belægning</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Indkørsler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gangstier</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hegn</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hæk</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Rullegræs</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Afvanding</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Haveanlæg</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Belægning</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Indkørsler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gangstier</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hegn</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hæk</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Rullegræs</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Afvanding</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Haveanlæg</span><span class="m-sep" aria-hidden="true">·</span>
+          </div>
+          <div class="marquee-sequence" aria-hidden="true">
+            <span class="m-trade">Belægning</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Indkørsler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gangstier</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hegn</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hæk</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Rullegræs</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Afvanding</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Haveanlæg</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Belægning</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Indkørsler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gangstier</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hegn</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hæk</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Rullegræs</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Afvanding</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Haveanlæg</span><span class="m-sep" aria-hidden="true">·</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <section class="reveal" aria-labelledby="pricing-data-heading">
       <div class="section-head">
         <h2 id="pricing-data-heading">Prissæt med dine egne data — ikke kun mavefornemmelse</h2>
-        <p>Mesterpakken kan bygges på dine egne priser, tidligere tilbud og historik fra vundne og tabte opgaver. Så får du bedre støtte, når næste tilbud skal prissættes — og over tid bliver systemet skarpere på, hvad du faktisk vinder på.</p>
+        <p>Mesterpakken kan bygges på dine egne priser, tidligere tilbud og historik fra vundne og tabte opgaver. Så får du bedre støtte, når næste tilbud skal prissættes.</p>
       </div>
       <div class="smart-core-grid">
         <div class="feature-card reveal">
@@ -1582,56 +1602,9 @@
         </div>
         <div class="feature-card reveal">
           <span class="feature-accent" aria-hidden="true"></span>
-          <h3>Mester Insights over tid</h3>
-          <p>Bliver stærkere med dine data. Du har stadig kontrollen — du godkender før det sendes.</p>
+          <h3>Du godkender før det sendes</h3>
+          <p>Mesterpakken forbereder tilbuddet. Du har stadig kontrollen over pris og indhold.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="price-objection-section reveal" aria-labelledby="followup-opfolgning-heading">
-      <div class="price-objection-inner">
-        <div>
-          <p class="price-objection-label">OPFØLGNING</p>
-          <h2 id="followup-opfolgning-heading" class="price-objection-title">De fleste følger aldrig op. Opfølgning er der penge i.</h2>
-          <p class="price-objection-body">Mesterpakken sender automatisk en SMS dag 4 og dag 8 hvis kunden ikke har svaret. Du bestemmer selv dagene. Ingen opgaver falder mellem stolene — og du behøver ikke huske noget.</p>
-        </div>
-        <div class="price-objection-image-wrap">
-          <img class="price-objection-image" src="assets/Handlinger.png" alt="Handlinger — opfølgning på ubesvarede tilbud" loading="lazy" decoding="async" />
-        </div>
-      </div>
-    </section>
-
-    <section class="followup-proof-section reveal" aria-labelledby="followup-proof-heading">
-      <div class="followup-proof-inner">
-        <h2 id="followup-proof-heading" class="followup-proof-heading">Alle kunder samlet ét sted</h2>
-        <p class="followup-proof-sub">Se hvem der har fået tilbud, hvem der har accepteret, hvem der skal følges op på, og hvem du kan genaktivere senere.</p>
-        <div class="followup-proof-row followup-proof-row--single">
-          <div class="followup-proof-item">
-            <div class="followup-proof-image-card">
-              <img src="assets/Kunder.png" alt="Kunder — overblik over dine kunder og resultater" loading="lazy" decoding="async" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="showcase-section showcase-section--dark reveal" aria-labelledby="showcase-a-heading">
-      <div class="showcase-inner">
-        <div>
-          <p class="showcase-eyebrow">STEP 1</p>
-          <h2 id="showcase-a-heading" class="showcase-title">Tal om opgaven. Det er nok.</h2>
-          <p class="showcase-copy">Tryk optag. Beskriv opgaven med din stemme — fra bilen eller på pladsen. Systemet forbereder tilbuddet. Du godkender prisen.</p>
-        </div>
-        <div class="showcase-visual" aria-hidden="true">
-          <div class="record-wrap">
-            <div class="record-ring"></div>
-            <div class="record-ring record-ring--delay"></div>
-            <div class="record-core"></div>
-          </div>
-        </div>
-      </div>
-      <div class="price-objection-image-wrap">
-        <img class="price-objection-image" src="assets/God_indtaling.png" alt="God indtaling — huskeliste til stemmeoptagelse" loading="lazy" decoding="async" />
       </div>
     </section>
 
@@ -1640,7 +1613,7 @@
         <div>
           <p class="price-objection-label">MESTER INSIGHTS</p>
           <h2 id="price-objection-heading" class="price-objection-title">Dine gamle tilbud skal ikke bare ligge i en mappe</h2>
-          <p class="price-objection-body">Mesterpakken bruger dem som grundlag for de næste — dine priser, dit sprog og de opgaver, du har vundet eller tabt.</p>
+          <p class="price-objection-body">Mester Insights viser mønstre i dine egne tilbud: hvad du vinder, hvor prisen ligger, og hvor der kan være plads til at justere.</p>
           <ul class="insight-points">
             <li>Se mønstre i vundne og tabte tilbud</li>
             <li>Brug dine egne priser som udgangspunkt</li>
@@ -1678,31 +1651,41 @@
 
     <section class="customer-offer-section reveal" aria-labelledby="customer-offer-heading">
       <div class="customer-offer-inner">
-        <h2 id="customer-offer-heading" class="customer-offer-title">Kunden åbner et link — og du får besked</h2>
-        <p class="customer-offer-sub">Ingen app. Ingen login. Du får besked, når kunden åbner tilbuddet, og kunden kan acceptere med ét tryk.</p>
+        <h2 id="customer-offer-heading" class="customer-offer-title">Kunden får et tilbud, der er nemt at forstå</h2>
+        <p class="customer-offer-sub">Send tilbuddet som link eller PDF. Kunden kan åbne det uden login — og du kan se, når der er aktivitet.</p>
         <div class="customer-offer-visual">
           <div class="customer-offer-phone">
             <div class="customer-offer-image-card">
-              <img class="customer-offer-image" src="assets/ny_tilbud.png" alt="Kundetilbud fase for fase — åbent via link" loading="lazy" decoding="async" />
+              <img class="customer-offer-image" src="assets/ny_tilbud.png" alt="Professionelt kundetilbud som link eller PDF" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="showcase-section showcase-section--elevated reveal" aria-labelledby="showcase-b-heading">
-      <div class="showcase-inner">
-        <div class="showcase-visual">
-          <div class="sms-stack">
-            <img src="https://cklzgtqujptdipahhcbi.supabase.co/storage/v1/object/public/landing-assets/screen-sms-crop.png" alt="SMS opfølgning notifikation" loading="lazy" decoding="async" />
-            <img src="https://cklzgtqujptdipahhcbi.supabase.co/storage/v1/object/public/landing-assets/screen-sms-accept.png" alt="SMS accepteret notifikation" loading="lazy" decoding="async" />
-            <img src="https://cklzgtqujptdipahhcbi.supabase.co/storage/v1/object/public/landing-assets/screen-sms-reference.png" alt="SMS reference notifikation" loading="lazy" decoding="async" />
-          </div>
-        </div>
+    <section class="price-objection-section reveal" aria-labelledby="followup-opfolgning-heading">
+      <div class="price-objection-inner">
         <div>
-          <p class="showcase-eyebrow">AUTOMATISK</p>
-          <h2 id="showcase-b-heading" class="showcase-title">Systemet arbejder mens du er på pladsen</h2>
-          <p class="showcase-copy">Du får besked når en kunde ikke har svaret, når et tilbud bliver accepteret, og når det er tid til at bede om en anmeldelse.</p>
+          <p class="price-objection-label">OPFØLGNING</p>
+          <h2 id="followup-opfolgning-heading" class="price-objection-title">De fleste følger aldrig op. Det gør Mesterpakken.</h2>
+          <p class="price-objection-body">Systemet minder dig om varme tilbud, så opgaver ikke forsvinder mellem to arbejdsdage.</p>
+        </div>
+        <div class="price-objection-image-wrap">
+          <img class="price-objection-image" src="assets/Handlinger.png" alt="Handlinger — opfølgning på ubesvarede tilbud" loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </section>
+
+    <section class="followup-proof-section reveal" aria-labelledby="followup-proof-heading">
+      <div class="followup-proof-inner">
+        <h2 id="followup-proof-heading" class="followup-proof-heading">Alle kunder samlet ét sted</h2>
+        <p class="followup-proof-sub">Se hvem der har fået tilbud, hvem der venter, hvem der har accepteret, og hvem du kan genaktivere senere.</p>
+        <div class="followup-proof-row followup-proof-row--single">
+          <div class="followup-proof-item">
+            <div class="followup-proof-image-card">
+              <img src="assets/Kunder.png" alt="Kunder — overblik over dine kunder og resultater" loading="lazy" decoding="async" />
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1713,15 +1696,12 @@
         <p>Bygget til hverdagen i en anlægs- eller belægningsvirksomhed.</p>
       </div>
       <div class="features-grid">
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Stemmeoptagelse</h3><p>Tal opgaven ind. Systemet forbereder tilbuddet — du godkender, før det sendes.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>SMS til kunden</h3><p>Kunden får et link og kan acceptere uden app eller login.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Automatiske påmindelser</h3><p>SMS til dig dag 4 og dag 8, hvis kunden ikke har svaret — du bestemmer selv dagene.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Stemmeoptagelse</h3><p>Tal opgaven ind. Systemet forbereder tilbuddet — du godkender før det sendes.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Link og PDF til kunden</h3><p>Kunden får et professionelt tilbud, der kan åbnes som link eller sendes som PDF.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Automatisk opfølgning</h3><p>Systemet hjælper dig med at følge op, så varme tilbud ikke bliver glemt.</p></div>
         <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Mester Insights</h3><p>Mønstre fra dine egne tilbud: prisrum, vundne opgaver, materialer og mulige mersalg.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Få gamle kunder tilbage</h3><p>Kunder du ikke har hørt fra i 6 måneder kan få en personlig SMS — hvis du vælger det.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Få anmeldelser automatisk</h3><p>Efter en vundet opgave kan systemet minde dig om at bede om en Google-anmeldelse.</p></div>
         <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Pipeline overblik</h3><p>Se alle tilbud samlet — sendt, vundet, tabt og dem der venter.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Fast pris</h3><p>Kunden ser en klar pris på tilbuddet — nemmere at forstå og acceptere.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Mersalg i tilbuddet</h3><p>Tilføj valgfrie tilkøb som kantsten, bortkørsel eller ekstra bed — kunden kan slå til selv.</p></div>
+        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Kundehistorik</h3><p>Gem kunder, tilbud og opfølgninger ét sted, så gamle muligheder ikke forsvinder.</p></div>
       </div>
     </section>
 
@@ -1730,6 +1710,7 @@
         <h2 id="pricing-heading">Vælg den pakke der passer</h2>
         <p>Ingen binding. Start småt — eller få hjælp hele vejen fra dag ét.</p>
       </div>
+      <p class="pricing-why">Vælg hvor meget Mesterpakken skal bygges på din forretning.</p>
       <p class="pricing-guarantee" role="note">
         <strong>30 dages tilfredshedsgaranti</strong> — vi sætter det op for dig. Er du ikke tilfreds inden for 30 dage, får du pengene tilbage. Ingen binding.
       </p>
@@ -1743,8 +1724,8 @@
             </div>
           </div>
           <p class="pricing-terms">Ingen binding</p>
-          <p class="pricing-position">Hurtig start med standardopsætning.</p>
-          <p class="pricing-desc">Indtal opgaven, få et professionelt tilbud, send link/PDF, og få automatisk opfølgning.</p>
+          <p class="pricing-position">Til dig der vil hurtigt i gang med standardopsætning.</p>
+          <p class="pricing-desc">Indtal opgaven, få et professionelt tilbud, send link/PDF, og få opfølgning — med standardpriser.</p>
           <div class="pricing-divider"></div>
           <ul class="checklist">
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Standardpriser</span></li>
@@ -1767,8 +1748,8 @@
             </div>
           </div>
           <p class="pricing-terms">Ingen binding</p>
-          <p class="pricing-position">Den rigtige Mesterpakken — bygget på din virksomhed.</p>
-          <p class="pricing-desc">Egne priser, tidligere tilbud, dit sprog og vundet/tabt-historik. Bedre støtte til prissætning.</p>
+          <p class="pricing-position">Til dig der vil have Mesterpakken bygget på dine egne priser, tidligere tilbud og måde at skrive på.</p>
+          <p class="pricing-desc">Egne priser, tidligere tilbud, eget sprog, vundne/tabte opgaver, Mester Insights og automatisk opfølgning.</p>
           <div class="pricing-divider"></div>
           <p class="pricing-includes">Alt i START +</p>
           <ul class="checklist">
@@ -1792,8 +1773,8 @@
             </div>
           </div>
           <p class="pricing-terms">Ingen binding</p>
-          <p class="pricing-position">Fuldt lead-til-tilbud-setup.</p>
-          <p class="pricing-desc">Alt i PLUS + hjemmeside, leadformular og flowet sat op omkring jer.</p>
+          <p class="pricing-position">Til dig der vil have hele flowet sat op — fra hjemmeside og leads til tilbud og opfølgning.</p>
+          <p class="pricing-desc">Alt i PLUS + leadformular/hjemmeside, custom opsætning, branding og sparring.</p>
           <div class="pricing-divider"></div>
           <p class="pricing-includes">Alt i PLUS +</p>
           <ul class="checklist">
@@ -1947,6 +1928,23 @@
         });
       }
 
+      function setupDemoVideo() {
+        var wrap = document.getElementById("demo-video-wrap");
+        var video = document.getElementById("demo-video");
+        var playBtn = document.getElementById("demo-video-play");
+        if (!wrap || !video || !playBtn) return;
+        function startPlayback() {
+          wrap.classList.add("is-playing");
+          var playPromise = video.play();
+          if (playPromise && typeof playPromise.catch === "function") {
+            playPromise.catch(function () {
+              wrap.classList.remove("is-playing");
+            });
+          }
+        }
+        playBtn.addEventListener("click", startPlayback);
+      }
+
       document.addEventListener("DOMContentLoaded", function () {
         onScrollNav();
         window.addEventListener("scroll", onScrollNav, { passive: true });
@@ -1955,6 +1953,7 @@
         setupSteps();
         setupNav();
         setupSmoothAnchors();
+        setupDemoVideo();
       });
     })();
   </script>

@@ -2,15 +2,19 @@
 <html lang="da">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-  <title>Mesterpakken – Tilbud til anlægsgartnere og brolæggere</title>
-  <meta name="description" content="Tilbudssystem til anlægs- og belægningsvirksomheder. Bygget på dine egne priser, tidligere tilbud og automatisk opfølgning." />
-  <meta property="og:title" content="Mesterpakken – Tilbud til anlægsgartnere og brolæggere" />
-  <meta property="og:description" content="Lav gode tilbud hurtigere — med dine egne priser, tidligere tilbud og automatisk opfølgning." />
-  <meta property="og:image" content="https://mesterpakken.dk/og-image.png" />
+  <title>Mesterpakken – tilbudssystem til anlægsgartnere og brolæggere</title>
+  <meta name="description" content="Tilbudssystem til anlægsgartnere og brolæggere. Indtal opgaven på pladsen, få tilbuddet bygget med dine egne priser, send det til kunden på SMS og hold styr på opfølgningen." />
+  <meta property="og:title" content="Mesterpakken – tilbudssystem til anlægsgartnere og brolæggere" />
+  <meta property="og:description" content="Indtal opgaven på pladsen. Mesterpakken bygger tilbuddet med dine egne priser, sender det til kunden på SMS og husker opfølgningen." />
+  <meta property="og:image" content="https://mesterpakken.eu/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="da_DK" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -18,12 +22,16 @@
     :root {
       --bg: #0a1628;
       --bg-elevated: #0d1f38;
+      --bg-band: #0d1f35;
       --primary: #146c94;
       --accent: #19a7ce;
       --white: #ffffff;
       --muted: #8aacbb;
+      --soft: #b8d4e0;
       --red: #c62828;
       --footer-bg: #060f1e;
+      --frame: #1a1a1a;
+      --header-h: 78px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -35,7 +43,7 @@
       overflow-x: hidden;
     }
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; height: auto; }
+    img { max-width: 100%; height: auto; display: block; }
 
     /* Navbar */
     .site-header {
@@ -70,13 +78,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 0.75rem;
     }
     .logo-link {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      color: inherit;
-      text-decoration: none;
+      min-width: 0;
     }
     .logo-mark {
       width: 46px;
@@ -84,62 +92,57 @@
       background: #ffffff;
       border-radius: 50%;
       padding: 3px;
-      box-sizing: border-box;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
     .logo-mark img {
-      height: 42px;
-      width: auto;
-      max-width: 100%;
+      width: 40px;
+      height: 40px;
       object-fit: contain;
-      display: block;
     }
     .logo-text {
       font-weight: 800;
       font-size: 1.125rem;
       letter-spacing: -0.02em;
     }
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--white);
-      cursor: pointer;
-      padding: 0.5rem;
-      line-height: 0;
-    }
-    .nav-toggle svg { width: 28px; height: 28px; }
     .nav-links {
       display: flex;
       align-items: center;
       gap: 1.25rem;
+      flex-shrink: 0;
     }
     .nav-links a.link-text {
       color: var(--muted);
       font-weight: 500;
       transition: color 0.2s;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
     }
     .nav-links a.link-text:hover { color: var(--white); }
+
+    /* Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
+      min-height: 44px;
       font-weight: 600;
       border-radius: 999px;
       padding: 0.65rem 1.35rem;
       border: 2px solid transparent;
       cursor: pointer;
       font-size: 0.9375rem;
+      line-height: 1.3;
       transition: transform 0.2s, box-shadow 0.25s, background 0.2s, border-color 0.2s;
       font-family: inherit;
     }
     .btn-accent {
       background: var(--accent);
       color: var(--bg);
-      box-shadow: 0 0 0 0 rgba(25, 167, 206, 0);
     }
     .btn-accent:hover {
       box-shadow: 0 0 28px rgba(25, 167, 206, 0.55);
@@ -154,48 +157,133 @@
       border-color: var(--white);
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.12);
     }
-    @media (max-width: 767px) {
-      .nav-toggle { display: block; }
-      .nav-links {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: min(300px, 85vw);
-        height: 100vh;
-        background: #0d1f38;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 5rem 1.5rem 2rem;
-        gap: 1rem;
-        box-shadow: -12px 0 40px rgba(0, 0, 0, 0.4);
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-      }
-      .nav-links.is-open { transform: translateX(0); }
-      .nav-links .btn { width: 100%; text-align: center; }
-      .nav-backdrop {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 999;
-      }
-      .nav-backdrop.is-open { display: block; }
+    .btn-lg {
+      min-height: 52px;
+      padding: 0.85rem 1.75rem;
+      font-size: 1rem;
     }
+
+    /* Sections */
+    main section {
+      padding: 4.5rem 1.25rem;
+      max-width: 1180px;
+      margin: 0 auto;
+      scroll-margin-top: var(--header-h);
+    }
+    .band {
+      max-width: none !important;
+      background: var(--bg-band);
+    }
+    .band > .band-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .section-head {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .section-head h2 {
+      font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.0625rem;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* Frames */
+    .browser-frame {
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+    .browser-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      height: 26px;
+      padding: 0 12px;
+      background: #e8eef2;
+      border-bottom: 1px solid #d5dee4;
+    }
+    .browser-bar span {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #c3cfd7;
+    }
+    .browser-frame img { width: 100%; }
+
+    .phone-frame {
+      background: var(--frame);
+      border-radius: 34px;
+      padding: 9px;
+      box-shadow:
+        0 0 0 2px #333,
+        0 24px 60px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      max-width: 270px;
+      margin: 0 auto;
+    }
+    .phone-screen {
+      border-radius: 26px;
+      overflow: hidden;
+      background: #f4f7fa;
+      position: relative;
+    }
+    .phone-screen img { width: 100%; }
+    .phone-screen--lock {
+      background: linear-gradient(165deg, #1d3d5c 0%, #0e2238 100%);
+      padding: 64px 10px 0;
+      aspect-ratio: 9 / 15;
+    }
+    .phone-screen--lock img,
+    .phone-screen--sms img {
+      border-radius: 14px;
+    }
+    .phone-screen--sms {
+      background: #ffffff;
+      padding: 28px 10px 12px;
+    }
+    .phone-frame--lock { max-width: 240px; }
 
     /* Hero */
     .hero {
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       position: relative;
-      width: 100%;
-      max-width: none;
-      margin: 0;
-      padding: 4.8rem 0 3.2rem;
       overflow: hidden;
+      max-width: none !important;
+      padding: calc(var(--header-h) + 2.5rem) 1.25rem 3.5rem !important;
     }
     .hero-bg {
       position: absolute;
@@ -213,549 +301,213 @@
       border-radius: 50%;
       filter: blur(80px);
       background: var(--accent);
-      opacity: 0.04;
+      opacity: 0.05;
       pointer-events: none;
-    }
-    .hero-orb--1 {
       width: min(480px, 90vw);
       height: min(480px, 90vw);
       top: 10%;
       left: -10%;
-      animation: drift1 22s ease-in-out infinite;
-    }
-    .hero-orb--2 {
-      width: min(400px, 80vw);
-      height: min(400px, 80vw);
-      bottom: 5%;
-      right: -5%;
-      animation: drift2 26s ease-in-out infinite;
-    }
-    @keyframes drift1 {
-      0%, 100% { transform: translate(0, 0); }
-      33% { transform: translate(40px, 30px); }
-      66% { transform: translate(-20px, 50px); }
-    }
-    @keyframes drift2 {
-      0%, 100% { transform: translate(0, 0); }
-      40% { transform: translate(-50px, -40px); }
-      70% { transform: translate(30px, 20px); }
     }
     .hero-inner {
       position: relative;
       z-index: 1;
-      width: 100%;
-      max-width: 720px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 0 1.25rem;
-      text-align: center;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.75rem;
+      align-items: center;
     }
+    .hero-copy { text-align: center; }
     .hero h1 {
-      font-size: clamp(28px, 6vw, 52px);
+      font-size: clamp(2rem, 7vw, 3.25rem);
       font-weight: 800;
       letter-spacing: -0.03em;
-      line-height: 1.15;
-      margin-bottom: 1.25rem;
+      line-height: 1.12;
+      margin-bottom: 1.1rem;
     }
-    .type-wrap { display: inline; }
-    .type-cursor {
-      display: inline-block;
-      width: 3px;
-      height: 1em;
-      background: var(--accent);
-      margin-left: 2px;
-      vertical-align: -0.1em;
-      animation: blink 0.7s step-end infinite;
-    }
-    .type-cursor.is-done { animation: blink 0.7s step-end infinite; }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-    .hero-lead {
-      color: var(--muted);
-      font-size: clamp(1rem, 2.5vw, 1.125rem);
-      max-width: 540px;
-      margin: 0 auto 2rem;
-    }
-    .hero-value {
-      color: #ffffff;
-      font-size: clamp(1.125rem, 2.8vw, 1.35rem);
-      font-weight: 600;
-      line-height: 1.45;
-      max-width: 36rem;
-      margin: 0 auto 1.25rem;
-      letter-spacing: -0.01em;
+    .hero-sub {
+      color: var(--soft);
+      font-size: clamp(1.0625rem, 2.6vw, 1.1875rem);
+      line-height: 1.55;
+      max-width: 34rem;
+      margin: 0 auto 1.75rem;
     }
     .hero-cta {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: stretch;
+      max-width: 22rem;
+      margin: 0 auto;
     }
-
-    /* Marquee */
-    .marquee-section {
-      background: var(--bg-elevated);
-      padding: 1.75rem 0;
-      border-top: 1px solid rgba(25, 167, 206, 0.12);
-      border-bottom: 1px solid rgba(25, 167, 206, 0.12);
-    }
-    .marquee-label {
-      text-align: center;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-    .marquee-wrap {
-      overflow: hidden;
+    .hero-visual {
+      position: relative;
       width: 100%;
-    }
-    .marquee-track {
-      display: flex;
-      flex-wrap: nowrap;
-      width: max-content;
-      animation: marquee-scroll 50s linear infinite;
-      will-change: transform;
-    }
-    .marquee-track:hover { animation-play-state: paused; }
-    .marquee-sequence {
-      display: inline-flex;
-      align-items: center;
-      flex-shrink: 0;
-      white-space: nowrap;
-      font-size: 0.95rem;
-      color: var(--white);
-      font-weight: 500;
-    }
-    .marquee-sequence .m-sep {
-      margin: 0 24px;
-      color: rgba(255, 255, 255, 0.42);
-      font-weight: 400;
-    }
-    @keyframes marquee-scroll {
-      0% { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(-50%, 0, 0); }
-    }
-
-    /* ROI bar */
-    .roi-bar {
-      max-width: none !important;
-      background: #0d1f35;
-      padding: 48px 0 !important;
-    }
-    .roi-row {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.25rem;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 48px;
-      flex-wrap: wrap;
-    }
-    .roi-item {
-      text-align: center;
-      font-size: 16px;
-      color: #ffffff;
-      font-weight: 600;
-      font-family: sans-serif;
-      line-height: 1.45;
-      max-width: 290px;
-    }
-    .roi-line {
-      width: 32px;
-      height: 2px;
-      background: #19a7ce;
-      margin: 0 auto 12px;
-    }
-
-    /* Sections */
-    main section {
-      padding: 4rem 1.25rem;
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-    main > section.hero {
-      max-width: none;
-    }
-    .section-head {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-    .section-head h2 {
-      font-size: clamp(1.5rem, 4vw, 2.25rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.75rem;
-    }
-    .section-head p {
-      color: var(--muted);
-      font-size: 1.0625rem;
       max-width: 640px;
       margin: 0 auto;
+      padding-bottom: 16%;
+    }
+    .hero-visual .browser-frame { width: 86%; }
+    .hero-visual .phone-frame {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 32%;
+      max-width: none;
+      border-radius: 22px;
+      padding: 5px;
+    }
+    .hero-visual .phone-screen { border-radius: 17px; }
+
+    /* Video */
+    .video-card {
+      max-width: 960px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #000;
+      box-shadow:
+        0 0 0 1px rgba(25, 167, 206, 0.2),
+        0 24px 60px rgba(0, 0, 0, 0.45);
+    }
+    .video-card video {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      background: #000;
     }
 
-    /* Reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Problem cards */
+    /* Problem */
     .problem-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 1rem;
     }
-    @media (min-width: 768px) {
-      .problem-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
-    }
     .pain-card {
       background: var(--bg-elevated);
       border-left: 4px solid var(--red);
       border-radius: 0 12px 12px 0;
-      padding: 1.25rem 1.35rem;
+      padding: 1.35rem 1.4rem;
     }
-
-    /* How it works */
-    .steps-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-    }
-    @media (min-width: 768px) {
-      .steps-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    .step-card {
-      background: var(--bg-elevated);
-      border-top: 4px solid var(--accent);
-      border-radius: 12px;
-      padding: 1.75rem;
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
-      transition-delay: var(--delay, 0ms);
-    }
-    .step-card.is-visible-step {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .step-num {
-      font-size: clamp(3.25rem, 7vw, 4.25rem);
-      font-weight: 800;
-      color: rgba(25, 167, 206, 0.4);
-      line-height: 1;
-      letter-spacing: -0.04em;
-      margin-bottom: 0.75rem;
-    }
-    .step-card h3 {
+    .pain-card h3 {
       font-size: 1.125rem;
-      margin-bottom: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
+      line-height: 1.35;
+      margin-bottom: 0.5rem;
     }
-    .step-card p { color: var(--muted); font-size: 0.9375rem; }
-    .how-video-wrap {
+    .pain-card p { color: var(--muted); font-size: 0.9375rem; }
+
+    /* Steps */
+    .steps {
+      list-style: none;
+      display: grid;
+      gap: 3.5rem;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .step-text h3 {
+      font-size: clamp(1.25rem, 3.5vw, 1.6rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.6rem;
+    }
+    .step-text p {
+      color: var(--muted);
+      font-size: 1.0625rem;
+      max-width: 34rem;
+    }
+    .step-visual .browser-frame { max-width: 640px; margin: 0 auto; }
+
+    /* Follow-up */
+    .followup {
+      border-top: 1px solid rgba(25, 167, 206, 0.2);
+      border-bottom: 1px solid rgba(25, 167, 206, 0.2);
+    }
+    .followup-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .followup h2 {
+      font-size: clamp(1.75rem, 5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 1.1rem;
+    }
+    .followup-text p {
+      color: var(--soft);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      max-width: 36rem;
+    }
+    .followup-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .followup-visual .phone-frame { max-width: 250px; margin: 0; }
+    .followup-visual .phone-frame--sms { max-width: 260px; }
+
+    /* System overview */
+    .system-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .system-item {
+      background: var(--bg-elevated);
+      border: 1px solid rgba(25, 167, 206, 0.15);
+      border-radius: 14px;
+      padding: 1.25rem;
+    }
+    .system-item h3 { font-size: 1.125rem; margin-bottom: 0.35rem; }
+    .system-item p { color: var(--muted); font-size: 0.9375rem; }
+    .system-item .browser-frame { margin-top: 1.1rem; }
+    .system-note {
+      text-align: center;
+      color: var(--soft);
+      font-weight: 600;
       margin-top: 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .phone-shell {
-      width: min(290px, 92vw);
-      background: #1a1a1a;
-      border-radius: 44px;
-      padding: 12px;
-      box-shadow: 0 0 0 2px #333, 0 30px 80px rgba(0, 0, 0, 0.6);
-      position: relative;
-    }
-    .phone-notch {
-      width: 100px;
-      height: 26px;
-      background: #1a1a1a;
-      border-radius: 0 0 18px 18px;
-      margin: 0 auto 8px;
-      position: relative;
-      z-index: 2;
-    }
-    .phone-video {
-      border-radius: 32px;
-      overflow: hidden;
-      aspect-ratio: 9 / 16;
-      background: #000;
-      position: relative;
-    }
-    .phone-video video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-      object-fit: cover;
-      object-position: center center;
-      transform: scale(1.08);
-      transform-origin: center center;
-      background: #000;
-    }
-    .phone-video-play {
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0, 0, 0, 0.28);
-      border: none;
-      cursor: pointer;
-      padding: 0;
-    }
-    .phone-video-play:hover .phone-video-play-icon,
-    .phone-video-play:focus-visible .phone-video-play-icon {
-      transform: scale(1.06);
-    }
-    .phone-video-play-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: rgba(25, 167, 206, 0.95);
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.2s ease;
-    }
-    .phone-video-play-icon svg {
-      width: 28px;
-      height: 28px;
-      margin-left: 3px;
-      fill: #0a1628;
-    }
-    .phone-video.is-playing .phone-video-play {
-      display: none;
     }
 
-    /* Showcase sections */
-    main .showcase-section {
-      max-width: none !important;
-      padding: 80px 0 !important;
-    }
-    main .showcase-section--dark {
-      background: #0a1628;
-    }
-    main .showcase-section--elevated {
-      background: #0d1f35;
-    }
-    .showcase-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 1.25rem;
-      display: grid;
-      gap: 2rem;
-      align-items: center;
-      grid-template-columns: 1fr;
-    }
-    @media (min-width: 900px) {
-      .showcase-inner {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    .showcase-eyebrow {
-      color: #19a7ce;
-      font-size: 12px;
-      letter-spacing: 2px;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-      text-transform: uppercase;
-    }
-    .showcase-title {
-      color: #ffffff;
-      font-size: clamp(2rem, 4.2vw, 36px);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 0.9rem;
-    }
-    .showcase-copy {
-      color: #8aacbb;
-      font-size: 1.0625rem;
-      line-height: 1.6;
-      max-width: 42ch;
-    }
-    .showcase-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .record-wrap {
-      width: 200px;
-      height: 200px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .record-ring {
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: #C62828;
-      opacity: 0.4;
-      animation: recordPulse 2s infinite;
-    }
-    .record-ring--delay {
-      animation-delay: 0.5s;
-    }
-    .record-core {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: #C62828;
-      position: relative;
-      z-index: 2;
-    }
-    @keyframes recordPulse {
-      0% { transform: scale(1); opacity: 0.4; }
-      100% { transform: scale(1.8); opacity: 0; }
-    }
-    .sms-stack {
-      position: relative;
-      animation: floatY 4s ease-in-out infinite;
-    }
-    .sms-stack img {
-      width: 100%;
-      max-width: 340px;
-      display: block;
-      border-radius: 16px;
-    }
-    .sms-stack img:nth-child(2) {
-      margin-left: 32px;
-      margin-top: -20px;
-    }
-    .sms-stack img:nth-child(3) {
-      margin-left: 16px;
-      margin-top: -20px;
-    }
-    @keyframes floatY {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    /* Price objection section */
-    main .price-objection-section {
-      max-width: none !important;
-      background: #0a1628;
-      padding: 80px 24px !important;
-    }
-    .price-objection-inner {
-      max-width: 1100px;
-      margin: 0 auto;
+    /* Mester Insights */
+    .insights-inner {
       display: grid;
       grid-template-columns: 1fr;
       gap: 2rem;
       align-items: center;
     }
-    @media (min-width: 900px) {
-      .price-objection-inner {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    .price-objection-label {
-      color: #19a7ce;
-      font-size: 12px;
-      letter-spacing: 2px;
-      font-weight: 600;
-    }
-    .price-objection-title {
-      color: #ffffff;
-      font-size: 36px;
-      font-weight: 700;
-      margin-top: 8px;
+    .insights-title {
+      font-size: clamp(1.6rem, 4.5vw, 2.25rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
       line-height: 1.2;
     }
-    .price-objection-body {
-      color: #8aacbb;
-      font-size: 16px;
-      line-height: 1.7;
-      margin-top: 16px;
-      max-width: 42ch;
-    }
-    .price-objection-image-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .price-objection-image {
-      width: 100%;
-      max-width: 300px;
-      display: block;
-      margin: 0 auto;
-      border-radius: 16px;
-      animation: floatY 4s infinite ease-in-out;
-    }
-    .price-objection-image-wrap .followup-proof-image-card {
-      width: 100%;
-      max-width: 360px;
-    }
-    .price-objection-note {
-      color: #8aacbb;
-      font-size: 15px;
-      line-height: 1.55;
-      margin-top: 0.75rem;
-      max-width: 42ch;
-    }
-
-    /* Overview section polish */
-    .overview-value {
-      color: #ffffff;
+    .insights-body {
+      color: var(--muted);
       font-size: 1.0625rem;
-      font-weight: 600;
-      line-height: 1.5;
-      margin-top: 1.25rem;
+      line-height: 1.65;
+      margin-top: 1rem;
       max-width: 42ch;
-    }
-    .overview-shot {
-      width: 100%;
-      max-width: 320px;
-      margin: 0 auto;
-      border-radius: 28px;
-      overflow: hidden;
-      background: #0e4a63;
-      box-shadow:
-        0 0 0 2px #2a2a2a,
-        0 0 0 6px #1a1a1a,
-        0 16px 40px rgba(0, 0, 0, 0.28),
-        0 4px 12px rgba(0, 0, 0, 0.18);
-    }
-    .overview-shot img {
-      display: block;
-      width: 100%;
-      max-width: none;
-      height: auto;
-      /* Tiny top crop only — keeps bottom nav (Indtal) fully visible */
-      margin: -1px 0 0;
-      clip-path: inset(1px 1px 0 1px);
     }
     .insight-points {
       list-style: none;
-      margin: 1rem 0 0;
-      padding: 0;
+      margin-top: 1rem;
       max-width: 42ch;
     }
     .insight-points li {
-      color: #b8d4e0;
+      color: var(--soft);
       font-size: 0.9375rem;
       line-height: 1.45;
-      padding: 0.35rem 0;
-      padding-left: 1rem;
+      padding: 0.35rem 0 0.35rem 1rem;
       position: relative;
     }
     .insight-points li::before {
@@ -768,343 +520,41 @@
       border-radius: 50%;
       background: var(--accent);
     }
-
-    /* Follow-up proof section */
-    main .followup-proof-section {
-      max-width: none !important;
-      padding: 80px 24px !important;
-      background: #0a1628;
-    }
-    .followup-proof-inner {
-      max-width: 1100px;
+    .insights-example {
+      max-width: 420px;
       margin: 0 auto;
-      padding: 0;
-    }
-    .followup-proof-heading {
-      color: #ffffff;
-      text-align: center;
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 1.1rem;
-    }
-    .followup-proof-row {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .followup-proof-row--single {
-      grid-template-columns: 1fr;
-      max-width: 360px;
-    }
-    .followup-proof-sub {
-      color: #8aacbb;
-      font-size: 16px;
-      line-height: 1.55;
-      text-align: center;
-      max-width: 36rem;
-      margin: 0 auto 1.5rem;
-    }
-    .followup-proof-item {
       width: 100%;
-      height: auto;
     }
-    .followup-proof-image-card {
-      width: 100%;
-      background: #ffffff;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow:
-        0 16px 40px rgba(0, 0, 0, 0.28),
-        0 4px 12px rgba(0, 0, 0, 0.18);
-    }
-    .followup-proof-image-card img {
-      width: 100%;
-      height: auto;
-      object-fit: unset;
-      display: block;
-    }
-    .followup-proof-item p {
-      color: #d2e8f2;
-      font-size: 15px;
-      font-weight: 500;
-      line-height: 1.45;
-      text-align: center;
-      margin-top: 12px;
-    }
-    .insights-mock-card {
-      width: 100%;
-      max-width: 340px;
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 1.1rem 1.1rem 0.85rem;
-      box-shadow:
-        0 16px 40px rgba(0, 0, 0, 0.28),
-        0 4px 12px rgba(0, 0, 0, 0.18);
-      text-align: left;
-      color: #0d1f38;
-    }
-    .insights-mock-heading {
-      font-size: 0.9375rem;
-      font-weight: 700;
-      color: #0d1f38;
-      margin: 0 0 0.25rem;
-    }
-    .insights-mock-context {
-      margin: 0 0 0.7rem;
+    .example-label {
+      display: inline-block;
+      margin-bottom: 0.6rem;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 999px;
       font-size: 0.75rem;
-      line-height: 1.35;
-      color: #5a6b7d;
-      font-weight: 500;
-    }
-    .insights-mock-feed {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-    }
-    .insights-mock-row {
-      background: rgba(25, 167, 206, 0.1);
-      border-radius: 10px;
-      padding: 0.55rem 0.7rem;
-    }
-    .insights-mock-row-label {
-      display: block;
-      font-size: 10px;
+      font-weight: 700;
       letter-spacing: 0.08em;
-      font-weight: 700;
       text-transform: uppercase;
-      color: #19a7ce;
-      margin-bottom: 0.15rem;
+      color: var(--soft);
     }
-    .insights-mock-row-text {
-      margin: 0;
-      font-size: 0.8125rem;
-      line-height: 1.35;
-      color: #0d1f38;
-      font-weight: 500;
-    }
-    .insights-mock-footer {
-      margin: 0.7rem 0 0;
-      font-size: 0.6875rem;
-      line-height: 1.35;
-      color: #5a6b7d;
-      font-weight: 500;
-    }
-
-    /* Customer offer section */
-    main .customer-offer-section {
-      max-width: none !important;
-      background: #0d1f35;
-      padding: 80px 24px !important;
-    }
-    .customer-offer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .customer-offer-title {
-      color: #ffffff;
-      font-size: clamp(1.7rem, 4vw, 2.3rem);
-      font-weight: 700;
-      line-height: 1.25;
-    }
-    .customer-offer-sub {
-      color: #8aacbb;
-      margin-top: 10px;
-      font-size: 16px;
-    }
-    .customer-offer-visual {
-      margin-top: 24px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      flex-wrap: nowrap;
-      gap: 0 12px;
-    }
-    .customer-offer-phone {
-      max-width: 320px;
-      margin: 0;
-      flex-shrink: 0;
-    }
-    .customer-offer-image-card {
+    .insights-example img {
       width: 100%;
-      background: #ffffff;
       border-radius: 16px;
-      overflow: hidden;
       box-shadow:
         0 16px 40px rgba(0, 0, 0, 0.28),
         0 4px 12px rgba(0, 0, 0, 0.18);
-    }
-    .customer-offer-image {
-      width: 100%;
-      max-width: none;
-      margin: 0;
-      display: block;
-      object-fit: contain;
-      background: transparent;
-    }
-
-    /* Features */
-    .features-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-    @media (min-width: 768px) {
-      .features-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 1280px) {
-      .features-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    .feature-card {
-      background: var(--bg-elevated);
-      border: 1px solid rgba(25, 167, 206, 0.15);
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: border-color 0.25s, box-shadow 0.25s;
-    }
-    .feature-card:hover {
-      border-color: rgba(25, 167, 206, 0.55);
-      box-shadow: 0 0 24px rgba(25, 167, 206, 0.12);
-    }
-    .feature-accent {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: #19a7ce;
-      border-radius: 1px;
-      margin-bottom: 0.85rem;
-    }
-    .feature-card h3 { font-size: 1.0625rem; margin-bottom: 0.5rem; }
-    .feature-card p { color: var(--muted); font-size: 0.9rem; }
-
-    /* Smart core */
-    .smart-core-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    @media (min-width: 768px) {
-      .smart-core-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    .pricing-why {
-      max-width: 40rem;
-      margin: 0 auto 2rem;
-      text-align: center;
-      color: #b8d4e0;
-      font-size: 1.0625rem;
-      font-weight: 600;
-      line-height: 1.5;
-    }
-
-    /* Stat */
-    .stat-section {
-      max-width: none !important;
-      padding: 4rem 1.5rem !important;
-      background: #0d1f35;
-      text-align: center;
-    }
-    .stat-row {
-      max-width: 960px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-      align-items: start;
-    }
-    @media (min-width: 768px) {
-      .stat-row {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-      }
-    }
-    .stat-item {
-      text-align: center;
-    }
-    .stat-value {
-      font-size: clamp(1.75rem, 4vw, 2.25rem);
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-    }
-    .stat-label {
-      margin-top: 0.5rem;
-      font-size: 0.9375rem;
-      color: #8aacbb;
-      line-height: 1.45;
-    }
-
-    /* Beta statement (former testimonials) */
-    .beta-statement {
-      background: #0a1628;
-      max-width: none !important;
-      padding: 5rem 1.5rem !important;
-      text-align: center;
-    }
-    .beta-statement h2 {
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      font-weight: 800;
-      color: var(--white);
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-    }
-    .beta-statement__sub {
-      font-size: 1.0625rem;
-      color: #8aacbb;
-      max-width: 28rem;
-      margin: 0 auto;
-      line-height: 1.55;
     }
 
     /* Pricing */
-    .pricing-section {
-      max-width: none !important;
-      padding: 4rem 1.25rem !important;
-    }
-    .pricing-guarantee {
-      max-width: 1120px;
-      margin: 0 auto 2rem;
-      padding: 1.15rem 1.35rem;
-      background: rgba(25, 167, 206, 0.1);
-      border: 1px solid rgba(25, 167, 206, 0.45);
-      border-radius: 12px;
-      text-align: center;
-      color: #d2e8f2;
-      font-size: 0.9375rem;
-      font-weight: 500;
-      line-height: 1.55;
-    }
-    .pricing-guarantee strong {
-      color: var(--white);
-      font-weight: 700;
-    }
     .pricing-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 1.5rem;
-      max-width: 1120px;
+      max-width: 1000px;
       margin: 0 auto;
       align-items: stretch;
     }
-    @media (min-width: 900px) {
-      .pricing-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-        align-items: stretch;
-      }
-    }
-    .pricing-wrap { display: flex; justify-content: center; }
     .pricing-card {
-      width: 100%;
-      max-width: none;
       background: var(--bg-elevated);
       border: 1px solid rgba(25, 167, 206, 0.2);
       border-radius: 16px;
@@ -1112,7 +562,6 @@
       text-align: center;
       display: flex;
       flex-direction: column;
-      height: 100%;
       position: relative;
     }
     .pricing-card--featured {
@@ -1122,26 +571,15 @@
         0 16px 48px rgba(25, 167, 206, 0.22);
       padding-top: 2.25rem;
     }
-    @media (min-width: 900px) {
-      .pricing-card--featured {
-        transform: scale(1.04);
-        z-index: 1;
-      }
-    }
-    .pricing-card--pro {
-      border-color: rgba(255, 255, 255, 0.22);
-      background: linear-gradient(165deg, #0f2848 0%, var(--bg-elevated) 55%, #0a1a30 100%);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-    }
     .pricing-badge {
       position: absolute;
-      top: -0.7rem;
+      top: -0.8rem;
       left: 50%;
       transform: translateX(-50%);
       background: var(--accent);
       color: var(--bg);
-      font-size: 0.6875rem;
-      font-weight: 700;
+      font-size: 0.75rem;
+      font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       padding: 0.35rem 0.9rem;
@@ -1149,122 +587,54 @@
       white-space: nowrap;
     }
     .pricing-tier {
-      font-size: 0.8125rem;
+      font-size: 0.875rem;
       font-weight: 800;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 0.85rem;
-    }
-    .pricing-card--pro .pricing-tier {
-      color: #7fe4fb;
-    }
-    .pricing-terms {
-      font-size: 0.8125rem;
-      color: var(--muted);
-      line-height: 1.45;
-      margin: 0 auto 1rem;
-      text-align: center;
-      width: 100%;
-    }
-    .pricing-includes {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: #b8d4e0;
-      text-align: left;
-      margin: 0.25rem 0 0.5rem;
-      padding-top: 0.35rem;
-    }
-    .pricing-position {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: #b8d4e0;
-      line-height: 1.45;
-      text-align: left;
-      margin: 0 0 0.65rem;
-    }
-    .pricing-desc {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.5;
-      text-align: left;
-      margin: 0 0 1.25rem;
-      flex-grow: 0;
-    }
-    .pricing-card .btn {
-      width: 100%;
-      padding: 0.9rem 1.25rem;
-      font-size: 1rem;
-      margin-top: auto;
-    }
-    .price-setup {
-      margin-bottom: 0.25rem;
-      text-align: center;
-      width: 100%;
-    }
-    .price-setup-amount {
-      font-size: 1.375rem;
-      font-weight: 700;
-      color: #8aacbb;
-      letter-spacing: -0.02em;
-      margin: 0 auto 0.35rem;
-      text-align: center;
-    }
-    .price-setup-note {
-      font-size: 0.8125rem;
-      color: var(--muted);
-      line-height: 1.4;
-    }
-    .price-setup-note .price-setup-once {
-      display: block;
-      margin-top: 0.2rem;
-      font-size: 0.75rem;
-      opacity: 0.95;
+      margin-bottom: 0.75rem;
     }
     .price-row {
       display: flex;
       align-items: baseline;
       justify-content: center;
-      gap: 0.35rem;
-      flex-wrap: nowrap;
-      margin: 0 auto 0.75rem;
-      width: 100%;
+      gap: 0.15rem;
+      margin-bottom: 0.5rem;
     }
-    .price-row--monthly {
-      margin-top: 0.25rem;
-    }
-    .pricing-roi-line {
-      font-size: 0.9375rem;
-      font-weight: 600;
-      color: #b8d4e0;
-      line-height: 1.45;
-      max-width: 22rem;
-      margin: 0 auto 0.35rem;
-      text-align: center;
-    }
-    .price-main { font-size: 2.75rem; font-weight: 800; color: var(--white); }
-    .pricing-grid .price-main {
-      font-size: clamp(1.65rem, 3.5vw, 2.1rem);
-    }
-    .pricing-grid .price-setup-amount {
-      font-size: 1.0625rem;
-      color: var(--white);
-      font-weight: 700;
-    }
-    .pricing-grid .checklist {
-      margin-bottom: 1rem;
-      flex-grow: 1;
+    .price-main {
+      font-size: clamp(2rem, 6vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
     }
     .price-sub { font-size: 1rem; color: var(--muted); }
-    .pricing-divider {
-      height: 1px;
-      background: rgba(138, 172, 187, 0.25);
-      margin: 1.5rem 0;
+    .pricing-terms {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .pricing-card .btn {
+      width: 100%;
+      margin-top: auto;
+      min-height: 50px;
+      font-size: 1rem;
+    }
+    .pricing-includes {
+      max-width: 1000px;
+      margin: 2rem auto 0;
+      background: var(--bg-elevated);
+      border: 1px solid rgba(25, 167, 206, 0.15);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+    .pricing-includes h3 {
+      font-size: 1.125rem;
+      margin-bottom: 0.75rem;
     }
     .checklist {
-      text-align: left;
       list-style: none;
-      margin-bottom: 1.75rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0 2rem;
     }
     .checklist li {
       display: flex;
@@ -1279,72 +649,116 @@
       height: 1.125rem;
       margin-top: 0.15rem;
     }
-    .pricing-human-line {
-      font-size: 13px;
-      color: #8aacbb;
-      text-align: center;
-      margin-top: 12px;
+
+    /* FAQ */
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(138, 172, 187, 0.25);
+    }
+    .faq-item { border-bottom: 1px solid rgba(138, 172, 187, 0.25); }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0;
+      font-weight: 600;
+      font-size: 1.0625rem;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: "+";
+      flex-shrink: 0;
+      font-size: 1.5rem;
+      font-weight: 400;
+      line-height: 1;
+      color: var(--accent);
+      transition: transform 0.2s;
+    }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item p {
+      color: var(--muted);
+      padding: 0 0 1.25rem;
+      max-width: 62ch;
     }
 
-    /* Lead capture */
-    main .lead-capture-section {
-      max-width: none !important;
-      background: #0d1f35;
-      padding: 64px 24px !important;
+    /* Final CTA */
+    .final-cta { text-align: center; }
+    .final-cta h2 {
+      font-size: clamp(1.75rem, 5vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      max-width: 22ch;
+      margin: 0 auto 1.5rem;
     }
+    .final-cta > .band-inner > .btn { width: 100%; max-width: 22rem; }
+
+    /* Lead capture */
     .lead-capture-inner {
       max-width: 480px;
-      margin: 0 auto;
+      margin: 3rem auto 0;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(138, 172, 187, 0.2);
       text-align: center;
     }
     .lead-capture-title {
       color: #ffffff;
-      font-size: 28px;
+      font-size: 1.375rem;
       font-weight: 700;
-      line-height: 1.2;
+      line-height: 1.25;
     }
     .lead-capture-sub {
-      color: #8aacbb;
+      color: var(--muted);
       font-size: 15px;
       margin-top: 8px;
       line-height: 1.5;
     }
     .lead-capture-input {
       width: 100%;
+      min-height: 48px;
       padding: 14px 16px;
       border-radius: 10px;
       border: 1px solid #1e3a5f;
       background: #0a1628;
       color: #ffffff;
-      font-size: 15px;
-      margin-top: 24px;
+      font-size: 16px;
+      font-family: inherit;
+      margin-top: 20px;
       outline: none;
     }
+    .lead-capture-input:focus { border-color: var(--accent); }
     .lead-capture-button {
       width: 100%;
+      min-height: 48px;
       background: #19a7ce;
       color: #ffffff;
       padding: 14px;
       border-radius: 10px;
       font-size: 15px;
       font-weight: 600;
+      font-family: inherit;
       border: 0;
       margin-top: 12px;
       cursor: pointer;
     }
     .lead-capture-note {
       font-size: 12px;
-      color: #8aacbb;
-      text-align: center;
+      color: var(--muted);
       margin-top: 8px;
     }
+
     /* Footer */
     .site-footer {
       background: var(--footer-bg);
       padding: 3rem 1.25rem 2rem;
     }
     .footer-inner {
-      max-width: 1280px;
+      max-width: 1180px;
       margin: 0 auto;
     }
     .footer-top {
@@ -1352,27 +766,28 @@
       grid-template-columns: 1fr;
       gap: 2rem;
     }
-    @media (min-width: 768px) {
-      .footer-top { grid-template-columns: 1fr 1fr; align-items: start; }
-    }
     .footer-brand .name { font-weight: 800; font-size: 1.125rem; }
-    .footer-brand .tag { color: var(--muted); margin-top: 0.35rem; font-size: 0.9375rem; }
+    .footer-brand .tagline { color: var(--muted); margin-top: 0.35rem; font-size: 0.9375rem; }
     .footer-links {
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
       align-items: flex-start;
     }
-    @media (min-width: 768px) {
-      .footer-links { align-items: flex-end; text-align: right; }
+    .footer-links a {
+      color: var(--muted);
+      transition: color 0.2s;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
     }
-    .footer-links a { color: var(--muted); transition: color 0.2s; }
     .footer-links a:hover { color: var(--white); }
     .footer-contact-line {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       flex-wrap: wrap;
+      color: var(--muted);
     }
     .footer-divider {
       height: 1px;
@@ -1384,236 +799,291 @@
       color: var(--muted);
       font-size: 0.8125rem;
     }
-    .visually-hidden {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
+
+    /* Sticky mobile CTA */
+    .sticky-cta {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 900;
+      padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(13, 31, 56, 0.97);
+      border-top: 1px solid rgba(25, 167, 206, 0.3);
+      box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.35);
+      transform: translateY(110%);
+      visibility: hidden;
+      transition: transform 0.25s ease, visibility 0s linear 0.25s;
     }
+    .sticky-cta.is-visible {
+      transform: translateY(0);
+      visibility: visible;
+      transition: transform 0.25s ease;
+    }
+    .sticky-cta .btn { width: 100%; min-height: 50px; font-size: 1rem; }
 
     @media (max-width: 767px) {
-      main section {
-        padding: 48px 24px !important;
+      body { padding-bottom: 76px; }
+    }
+    @media (max-width: 400px) {
+      .logo-text { display: none; }
+      .nav-links { gap: 0.75rem; }
+      .nav-links .btn { padding: 0.5rem 1rem; font-size: 0.875rem; }
+    }
+    @media (min-width: 560px) {
+      .hero-cta {
+        flex-direction: row;
+        justify-content: center;
+        max-width: none;
       }
-      .price-objection-section {
-        padding: 80px 24px !important;
+    }
+    @media (min-width: 640px) {
+      .followup-visual {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 1rem;
       }
-      .hero h1 {
-        font-size: clamp(28px, 6vw, 52px);
+    }
+    @media (min-width: 768px) {
+      main section { padding: 5.5rem 1.5rem; }
+      .problem-grid { grid-template-columns: repeat(3, 1fr); }
+      .system-grid { grid-template-columns: repeat(2, 1fr); align-items: start; }
+      .checklist { grid-template-columns: repeat(2, 1fr); }
+      .pricing-includes { padding: 1.75rem 2rem; }
+      .footer-top { grid-template-columns: 1fr 1fr; align-items: start; }
+      .footer-links { align-items: flex-end; text-align: right; }
+      .sticky-cta { display: none; }
+    }
+    @media (min-width: 900px) {
+      .step {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
       }
-      .showcase-inner {
-        grid-template-columns: 1fr !important;
-      }
-      .showcase-section--elevated .showcase-inner > .showcase-visual {
-        order: 2;
-      }
-      .showcase-section--elevated .showcase-inner > :not(.showcase-visual) {
-        order: 1;
-      }
-      .followup-proof-row {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-      .followup-proof-image-card img {
-        width: 100%;
-      }
-      .price-objection-image {
-        max-width: 320px;
-      }
-      .pricing-card {
-        max-width: 100%;
-        padding: 24px 20px 20px;
+      .step:nth-child(even) .step-text { order: 2; }
+      .followup-inner { grid-template-columns: 1fr 1fr; gap: 3rem; }
+      .insights-inner { grid-template-columns: 1fr 1fr; }
+      .pricing-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
       }
       .pricing-card--featured {
-        transform: none;
-        padding-top: 28px;
+        transform: scale(1.04);
+        z-index: 1;
       }
-      .nav-toggle {
-        display: none;
-      }
-      .nav-links {
-        position: static;
-        width: auto;
-        height: auto;
-        background: transparent;
-        flex-direction: row;
-        align-items: center;
-        padding: 0;
-        gap: 0.65rem;
-        box-shadow: none;
-        transform: none;
-      }
-      .nav-links .btn {
-        width: auto;
-        padding: 0.55rem 1rem;
-        font-size: 0.85rem;
-      }
-      .nav-links a.link-text {
-        font-size: 0.85rem;
-      }
-      .logo-text {
-        font-size: 1rem;
-      }
+    }
+    @media (min-width: 1024px) {
+      .hero { padding-top: calc(var(--header-h) + 4rem) !important; padding-bottom: 5rem !important; }
+      .hero-inner { grid-template-columns: 1fr 1.1fr; gap: 3rem; }
+      .hero-copy { text-align: left; }
+      .hero-sub { margin-left: 0; }
+      .hero-cta { justify-content: flex-start; }
     }
   </style>
 </head>
 <body>
   <header class="site-header" id="site-header">
     <div class="nav-inner">
-      <a href="#" class="logo-link">
-        <span class="logo-mark"><img src="logo.png" alt="" /></span>
+      <a href="#top" class="logo-link" aria-label="Mesterpakken – til toppen">
+        <span class="logo-mark"><img src="logo.png" alt="" width="40" height="40" /></span>
         <span class="logo-text">Mesterpakken</span>
       </a>
-      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Åbn menu" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-      <nav class="nav-links" id="nav-links" aria-label="Hovednavigation">
+      <nav class="nav-links" aria-label="Hovednavigation">
         <a class="link-text" href="https://mesterpakken.dk">Log ind</a>
-        <a class="btn btn-accent" href="https://buy.stripe.com/eVqbJ1eUM4k8aoa1oq6Ri02">Kom i gang</a>
+        <a class="btn btn-accent" href="#priser">Kom i gang</a>
       </nav>
     </div>
   </header>
-  <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
 
   <main>
-    <section class="hero" aria-label="Intro">
+    <section class="hero" id="top" aria-labelledby="hero-heading">
       <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-orb hero-orb--1" aria-hidden="true"></div>
-      <div class="hero-orb hero-orb--2" aria-hidden="true"></div>
+      <div class="hero-orb" aria-hidden="true"></div>
       <div class="hero-inner">
-        <h1>Du er håndværker. Ikke sælger.</h1>
-        <p class="hero-value">Gode tilbud vinder opgaver. Mesterpakken gør dem hurtigere at lave — og sværere at glemme at følge op på.</p>
-        <div class="hero-cta">
-          <a class="btn btn-outline" href="#how-it-works">Se hvordan det virker</a>
-          <a class="btn btn-accent" href="https://buy.stripe.com/eVqbJ1eUM4k8aoa1oq6Ri02">Prøv det på din næste opgave</a>
+        <div class="hero-copy">
+          <p class="eyebrow">Til anlægsgartnere og brolæggere</p>
+          <h1 id="hero-heading">Du er anlægsgartner. Ikke sælger.</h1>
+          <p class="hero-sub">Indtal opgaven på pladsen. Mesterpakken bygger tilbuddet med dine egne priser, sender det til kunden på SMS og husker opfølgningen. Så flere af dine tilbud bliver til job.</p>
+          <div class="hero-cta">
+            <a class="btn btn-accent btn-lg" href="#priser">Kom i gang – fra 299 kr./md.</a>
+            <a class="btn btn-outline btn-lg" href="#video">Se hvordan det virker</a>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <section class="reveal" aria-labelledby="evenings-heading">
-      <div class="section-head">
-        <h2 id="evenings-heading">Tilbud skal ikke tage dine aftener</h2>
-        <p>Mange tilbud bliver først skrevet, når arbejdsdagen egentlig er slut. Mesterpakken hjælper dig med at få opgaven fra hovedet og ind i et færdigt tilbud hurtigere — så du ikke skal bruge hver aften foran computeren.</p>
-      </div>
-      <div class="smart-core-grid">
-        <div class="feature-card reveal">
-          <span class="feature-accent" aria-hidden="true"></span>
-          <h3>Indtal mens det er frisk</h3>
-          <p>Tal opgaven ind efter besigtigelsen — fra bilen eller på pladsen.</p>
-        </div>
-        <div class="feature-card reveal">
-          <span class="feature-accent" aria-hidden="true"></span>
-          <h3>Tilbuddet gøres klar hurtigere</h3>
-          <p>Systemet forbereder tilbuddet. Du gennemgår og godkender prisen.</p>
-        </div>
-        <div class="feature-card reveal">
-          <span class="feature-accent" aria-hidden="true"></span>
-          <h3>Opfølgning bagefter</h3>
-          <p>Systemet hjælper med at følge op, så varme tilbud ikke bliver glemt.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="how-it-works" class="reveal" aria-labelledby="how-heading">
-      <div class="section-head">
-        <h2 id="how-heading">Fra indtaling til tilbud — klar til at sende</h2>
-        <p>Tal opgaven ind efter besigtigelsen. Systemet forbereder tilbuddet — du gennemgår og godkender prisen.</p>
-      </div>
-      <div class="how-video-wrap">
-        <div class="phone-shell">
-          <div class="phone-notch" aria-hidden="true"></div>
-          <div class="phone-video" id="demo-video-wrap">
-            <video
-              id="demo-video"
-              src="assets/demo%203.0.mp4"
-              poster="assets/screen-1-optag.png"
-              loop
-              muted
-              playsinline
-              preload="none"
-              aria-label="Mesterpakken demo video"
-            ></video>
-            <button type="button" class="phone-video-play" id="demo-video-play" aria-label="Afspil demo">
-              <span class="phone-video-play-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              </span>
-            </button>
+        <div class="hero-visual">
+          <div class="browser-frame">
+            <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+            <img src="assets/landing/screen-overblik.jpg" alt="Mesterpakken på computeren: overblik med åbne tilbud, vundet omsætning og handlinger" width="1400" height="715" fetchpriority="high" decoding="async" />
+          </div>
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <img src="assets/landing/mobil-forside.jpg" alt="Mesterpakken på mobilen med knappen Indtal ny opgave" width="640" height="1098" decoding="async" />
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="price-objection-section reveal" aria-labelledby="overview-heading">
-      <div class="price-objection-inner">
+    <section id="video" class="reveal" aria-labelledby="video-heading">
+      <div class="section-head">
+        <h2 id="video-heading">Se Mesterpakken på 71 sekunder</h2>
+      </div>
+      <div class="video-card">
+        <video
+          controls
+          muted
+          playsinline
+          preload="none"
+          poster="assets/landing/video-poster.jpg"
+          width="1920"
+          height="1080"
+          aria-label="Video: Mesterpakken på 71 sekunder"
+        >
+          <source src="assets/landing/mesterpakken-video.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </section>
+
+    <section class="reveal" aria-label="Problemet">
+      <div class="problem-grid">
+        <div class="pain-card">
+          <h3>Det er 22:40, og du skriver stadig tilbud.</h3>
+          <p>Tilbuddene bliver lavet om aftenen, når dagen burde være slut.</p>
+        </div>
+        <div class="pain-card">
+          <h3>Han lovede at sende et tilbud. Det gjorde han aldrig.</h3>
+          <p>Kunden vælger ham, der svarer først.</p>
+        </div>
+        <div class="pain-card">
+          <h3>Du har sendt 12 tilbud. Hvor mange fik du fulgt op på?</h3>
+          <p>Tilbud uden opfølgning er job, du har regnet på gratis.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="saadan-virker-det" aria-labelledby="steps-heading">
+      <div class="section-head reveal">
+        <h2 id="steps-heading">Sådan virker det</h2>
+      </div>
+      <ol class="steps">
+        <li class="step reveal">
+          <div class="step-text">
+            <h3>1. Indtal opgaven</h3>
+            <p>Stå på pladsen og sig, hvad der skal laves. Ingen skemaer.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="assets/landing/mobil-forside.jpg" alt="Forsiden på mobilen med knappen Indtal ny opgave" width="640" height="1098" loading="lazy" decoding="async" />
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="step reveal">
+          <div class="step-text">
+            <h3>2. Tilbuddet er bygget</h3>
+            <p>Mængder, materialer og arbejdsløn er regnet ud med dine egne priser. Du retter, hvad du vil, før noget sendes.</p>
+          </div>
+          <div class="step-visual">
+            <div class="browser-frame">
+              <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+              <img src="assets/landing/screen-tilbud.jpg" alt="Tilbud med tilbudslinjer: mængder, enhedspriser og arbejdsløn" width="1400" height="620" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </li>
+        <li class="step reveal">
+          <div class="step-text">
+            <h3>3. Kunden godkender med ét tryk</h3>
+            <p>Kunden får et SMS-link, ser et tydeligt tilbud og godkender. Ingen login. Tilbuddet kan også sendes på e-mail.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="assets/landing/mobil-kundens-tilbud.jpg" alt="Kundens tilbud åbnet på mobilen" width="640" height="1063" loading="lazy" decoding="async" />
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="step reveal">
+          <div class="step-text">
+            <h3>4. Du får besked</h3>
+            <p>Du får en SMS, når kunden åbner tilbuddet, og når kunden godkender.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone-frame phone-frame--lock">
+              <div class="phone-screen phone-screen--lock">
+                <img src="assets/landing/mobil-besked-aabnet.jpg" alt="SMS-besked: kunden har åbnet dit tilbud" width="860" height="178" loading="lazy" decoding="async" />
+              </div>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="band followup" aria-labelledby="followup-heading">
+      <div class="band-inner followup-inner reveal">
+        <div class="followup-text">
+          <p class="eyebrow">Opfølgning</p>
+          <h2 id="followup-heading">De fleste taber ikke på prisen. De taber på opfølgningen.</h2>
+          <p>Mesterpakken viser hver dag, hvilke tilbud der venter på svar, og hvilke vundne job der mangler en aftale. Du ringer op eller sender en SMS med ét tryk. Beskeden er skrevet på forhånd med din egen tekst, som du selv sætter op under Indstillinger.</p>
+        </div>
+        <div class="followup-visual">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <img src="assets/landing/mobil-handlinger.jpg" alt="Handlinger i dag: vundne job der mangler en aftale og tilbud der venter på svar" width="640" height="1146" loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <div class="phone-frame phone-frame--sms">
+            <div class="phone-screen phone-screen--sms">
+              <img src="assets/landing/mobil-opfoelgning-sms.jpg" alt="Opfølgnings-SMS skrevet på forhånd, klar til at sende" width="730" height="320" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="system-heading">
+      <div class="section-head reveal">
+        <h2 id="system-heading">Overblik over hele forretningen</h2>
+      </div>
+      <div class="system-grid">
+        <div class="system-item reveal">
+          <h3>Overblik</h3>
+          <p>Åbne tilbud, vundet omsætning og hvad der haster i dag.</p>
+          <div class="browser-frame">
+            <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+            <img src="assets/landing/screen-overblik.jpg" alt="Overblik over åbne tilbud, vundet omsætning og handlinger" width="1400" height="715" loading="lazy" decoding="async" />
+          </div>
+        </div>
+        <div class="system-item reveal">
+          <h3>Handlinger</h3>
+          <p>Din to-do-liste for opfølgning.</p>
+          <div class="browser-frame">
+            <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+            <img src="assets/landing/screen-handlinger.jpg" alt="Handlinger: listen over tilbud og kunder, der skal følges op" width="1400" height="715" loading="lazy" decoding="async" />
+          </div>
+        </div>
+        <div class="system-item reveal">
+          <h3>Pipeline</h3>
+          <p>Alle tilbud og deres status: kladde, sendt, åbnet, vundet eller tabt.</p>
+          <div class="browser-frame">
+            <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+            <img src="assets/landing/screen-pipeline.jpg" alt="Pipeline med alle tilbud og deres status" width="1400" height="841" loading="lazy" decoding="async" />
+          </div>
+        </div>
+        <div class="system-item reveal">
+          <h3>Kunder</h3>
+          <p>Alle kunder og deres tilbud samlet ét sted.</p>
+        </div>
+      </div>
+      <p class="system-note reveal">Virker på mobilen ude på pladsen og på computeren hjemme.</p>
+    </section>
+
+    <section class="band" aria-labelledby="insights-heading">
+      <div class="band-inner insights-inner reveal">
         <div>
-          <p class="price-objection-label">OVERBLIK</p>
-          <h2 id="overview-heading" class="price-objection-title">Alt samlet ét sted</h2>
-          <p class="price-objection-body">Se åbne tilbud, opfølgninger og seneste kunder — eller start et nyt tilbud med optag-knappen.</p>
-        </div>
-        <div class="price-objection-image-wrap">
-          <div class="overview-shot">
-            <img src="assets/forside.png" alt="Mesterpakken forside med handlinger, Indtal-knap og kundeliste" loading="lazy" decoding="async" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="marquee-section reveal">
-      <p class="marquee-label">Bygget til anlægs- og belægningsvirksomheder</p>
-      <div class="marquee-wrap">
-        <div class="marquee-track">
-          <div class="marquee-sequence">
-            <span class="m-trade">Belægning</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Indkørsler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gangstier</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hegn</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hæk</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Rullegræs</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Afvanding</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Haveanlæg</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Belægning</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Indkørsler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gangstier</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hegn</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hæk</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Rullegræs</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Afvanding</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Haveanlæg</span><span class="m-sep" aria-hidden="true">·</span>
-          </div>
-          <div class="marquee-sequence" aria-hidden="true">
-            <span class="m-trade">Belægning</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Indkørsler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gangstier</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hegn</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hæk</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Rullegræs</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Afvanding</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Haveanlæg</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Belægning</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Indkørsler</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Gangstier</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hegn</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Hæk</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Rullegræs</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Afvanding</span><span class="m-sep" aria-hidden="true">·</span><span class="m-trade">Haveanlæg</span><span class="m-sep" aria-hidden="true">·</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <section class="reveal" aria-labelledby="pricing-data-heading">
-      <div class="section-head">
-        <h2 id="pricing-data-heading">Prissæt med dine egne data — ikke kun mavefornemmelse</h2>
-        <p>Mesterpakken kan bygges på dine egne priser, tidligere tilbud og historik fra vundne og tabte opgaver. Så får du bedre støtte, når næste tilbud skal prissættes.</p>
-      </div>
-      <div class="smart-core-grid">
-        <div class="feature-card reveal">
-          <span class="feature-accent" aria-hidden="true"></span>
-          <h3>Dine egne priser og materialer</h3>
-          <p>Ikke kun standardpriser — dine tal og den måde, du normalt regner på.</p>
-        </div>
-        <div class="feature-card reveal">
-          <span class="feature-accent" aria-hidden="true"></span>
-          <h3>Tidligere tilbud og formuleringer</h3>
-          <p>Gamle tilbud og dit sprog bliver grundlag for de næste.</p>
-        </div>
-        <div class="feature-card reveal">
-          <span class="feature-accent" aria-hidden="true"></span>
-          <h3>Vundne og tabte opgaver</h3>
-          <p>Mere overblik over, hvad der typisk virker hos dig — mindre mavefornemmelse.</p>
-        </div>
-        <div class="feature-card reveal">
-          <span class="feature-accent" aria-hidden="true"></span>
-          <h3>Du godkender før det sendes</h3>
-          <p>Mesterpakken forbereder tilbuddet. Du har stadig kontrollen over pris og indhold.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="price-objection-section reveal" aria-labelledby="price-objection-heading">
-      <div class="price-objection-inner">
-        <div>
-          <p class="price-objection-label">MESTER INSIGHTS</p>
-          <h2 id="price-objection-heading" class="price-objection-title">Dine gamle tilbud skal ikke bare ligge i en mappe</h2>
-          <p class="price-objection-body">Mester Insights viser mønstre i dine egne tilbud: hvad du vinder, hvor prisen ligger, og hvor der kan være plads til at justere.</p>
+          <p class="eyebrow">Mester Insights</p>
+          <h2 id="insights-heading" class="insights-title">Dine gamle tilbud skal ikke bare ligge i en mappe</h2>
+          <p class="insights-body">Mester Insights viser mønstre i dine egne tilbud: hvad du vinder, hvor prisen ligger, og hvor der kan være plads til at justere.</p>
           <ul class="insight-points">
             <li>Se mønstre i vundne og tabte tilbud</li>
             <li>Brug dine egne priser som udgangspunkt</li>
@@ -1621,181 +1091,106 @@
             <li>Genbrug det, der allerede virker</li>
           </ul>
         </div>
-        <div class="price-objection-image-wrap">
-          <div class="insights-mock-card" aria-label="Mester Insights eksempel">
-            <p class="insights-mock-heading">Mester Insights</p>
-            <p class="insights-mock-context">Belægning · 95 m² · Betonfliser</p>
-            <ul class="insights-mock-feed">
-              <li class="insights-mock-row">
-                <span class="insights-mock-row-label">Vundet 7/10</span>
-                <p class="insights-mock-row-text">Du har vundet 7 ud af dine seneste 10 belægningsopgaver over 50 m².</p>
-              </li>
-              <li class="insights-mock-row">
-                <span class="insights-mock-row-label">Prisrum</span>
-                <p class="insights-mock-row-text">Dine seneste vundne tilbud lå typisk 6–11% over beregningen. Der kan være plads til at hæve prisen.</p>
-              </li>
-              <li class="insights-mock-row">
-                <span class="insights-mock-row-label">Produktmønster</span>
-                <p class="insights-mock-row-text">Du vinder oftere betonfliser end herregårdssten.</p>
-              </li>
-              <li class="insights-mock-row">
-                <span class="insights-mock-row-label">Mersalg</span>
-                <p class="insights-mock-row-text">På lignende indkørsler tilføjer du ofte kantsten og bortkørsel.</p>
-              </li>
-            </ul>
-            <p class="insights-mock-footer">Baseret på dine egne tilbud, rettelser og vundne/tabte opgaver.</p>
-          </div>
-        </div>
+        <figure class="insights-example">
+          <figcaption class="example-label">Eksempel</figcaption>
+          <img src="assets/landing/mester-insights-eksempel.jpg" alt="Eksempel på Mester Insights for en belægningsopgave" width="760" height="766" loading="lazy" decoding="async" />
+        </figure>
       </div>
     </section>
 
-    <section class="customer-offer-section reveal" aria-labelledby="customer-offer-heading">
-      <div class="customer-offer-inner">
-        <h2 id="customer-offer-heading" class="customer-offer-title">Kunden får et tilbud, der er nemt at forstå</h2>
-        <p class="customer-offer-sub">Send tilbuddet som link eller PDF. Kunden kan åbne det uden login — og du kan se, når der er aktivitet.</p>
-        <div class="customer-offer-visual">
-          <div class="customer-offer-phone">
-            <div class="customer-offer-image-card">
-              <img class="customer-offer-image" src="assets/ny_tilbud.png" alt="Professionelt kundetilbud som link eller PDF" loading="lazy" decoding="async" />
-            </div>
-          </div>
-        </div>
+    <section id="priser" aria-labelledby="pricing-heading">
+      <div class="section-head reveal">
+        <h2 id="pricing-heading">Én pakke. Alt er med.</h2>
+        <p>Vælg, hvor længe du vil betale for ad gangen.</p>
       </div>
-    </section>
-
-    <section class="price-objection-section reveal" aria-labelledby="followup-opfolgning-heading">
-      <div class="price-objection-inner">
-        <div>
-          <p class="price-objection-label">OPFØLGNING</p>
-          <h2 id="followup-opfolgning-heading" class="price-objection-title">De fleste følger aldrig op. Det gør Mesterpakken.</h2>
-          <p class="price-objection-body">Systemet minder dig om varme tilbud, så opgaver ikke forsvinder mellem to arbejdsdage.</p>
-        </div>
-        <div class="price-objection-image-wrap">
-          <img class="price-objection-image" src="assets/Handlinger.png" alt="Handlinger — opfølgning på ubesvarede tilbud" loading="lazy" decoding="async" />
-        </div>
-      </div>
-    </section>
-
-    <section class="followup-proof-section reveal" aria-labelledby="followup-proof-heading">
-      <div class="followup-proof-inner">
-        <h2 id="followup-proof-heading" class="followup-proof-heading">Alle kunder samlet ét sted</h2>
-        <p class="followup-proof-sub">Se hvem der har fået tilbud, hvem der venter, hvem der har accepteret, og hvem du kan genaktivere senere.</p>
-        <div class="followup-proof-row followup-proof-row--single">
-          <div class="followup-proof-item">
-            <div class="followup-proof-image-card">
-              <img src="assets/Kunder.png" alt="Kunder — overblik over dine kunder og resultater" loading="lazy" decoding="async" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="reveal" aria-labelledby="features-heading">
-      <div class="section-head">
-        <h2 id="features-heading">Alt hvad du behøver</h2>
-        <p>Bygget til hverdagen i en anlægs- eller belægningsvirksomhed.</p>
-      </div>
-      <div class="features-grid">
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Stemmeoptagelse</h3><p>Tal opgaven ind. Systemet forbereder tilbuddet — du godkender før det sendes.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Link og PDF til kunden</h3><p>Kunden får et professionelt tilbud, der kan åbnes som link eller sendes som PDF.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Automatisk opfølgning</h3><p>Systemet hjælper dig med at følge op, så varme tilbud ikke bliver glemt.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Mester Insights</h3><p>Mønstre fra dine egne tilbud: prisrum, vundne opgaver, materialer og mulige mersalg.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Pipeline overblik</h3><p>Se alle tilbud samlet — sendt, vundet, tabt og dem der venter.</p></div>
-        <div class="feature-card reveal"><span class="feature-accent" aria-hidden="true"></span><h3>Kundehistorik</h3><p>Gem kunder, tilbud og opfølgninger ét sted, så gamle muligheder ikke forsvinder.</p></div>
-      </div>
-    </section>
-
-    <section id="pricing" class="pricing-section reveal" aria-labelledby="pricing-heading">
-      <div class="section-head">
-        <h2 id="pricing-heading">Vælg den pakke der passer</h2>
-        <p>Ingen binding. Start småt — eller få hjælp hele vejen fra dag ét.</p>
-      </div>
-      <p class="pricing-why">Vælg hvor meget Mesterpakken skal bygges på din forretning.</p>
-      <p class="pricing-guarantee" role="note">
-        <strong>30 dages tilfredshedsgaranti</strong> — vi sætter det op for dig. Er du ikke tilfreds inden for 30 dage, får du pengene tilbage. Ingen binding.
-      </p>
       <div class="pricing-grid">
-        <article class="pricing-card reveal" aria-labelledby="pricing-start">
-          <p id="pricing-start" class="pricing-tier">Start</p>
-          <div class="price-setup">
-            <div class="price-row price-row--monthly">
-              <span class="price-main">199 kr</span>
-              <span class="price-sub">/md</span>
-            </div>
+        <article class="pricing-card reveal" aria-labelledby="pricing-1m">
+          <p id="pricing-1m" class="pricing-tier">1 måned</p>
+          <div class="price-row">
+            <span class="price-main">399 kr.</span><span class="price-sub">/md.</span>
           </div>
           <p class="pricing-terms">Ingen binding</p>
-          <p class="pricing-position">Til dig der vil hurtigt i gang med standardopsætning.</p>
-          <p class="pricing-desc">Indtal opgaven, få et professionelt tilbud, send link/PDF, og få opfølgning — med standardpriser.</p>
-          <div class="pricing-divider"></div>
-          <ul class="checklist">
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Standardpriser</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Indtal opgaven fra telefonen</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Send link/PDF til kunden</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Automatisk opfølgning</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>SMS når kunden åbner dit tilbud</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Pipeline &amp; kundehistorik</span></li>
-          </ul>
-          <a class="btn btn-accent" href="https://buy.stripe.com/fZu14naEwbMA7bY9UW6Ri05">Kom i gang</a>
+          <a class="btn btn-outline" href="#priser" data-payment-link="monthly">Vælg 1 måned</a>
         </article>
 
-        <article class="pricing-card pricing-card--featured reveal" aria-labelledby="pricing-plus">
-          <span class="pricing-badge">Mest valgt</span>
-          <p id="pricing-plus" class="pricing-tier">Plus</p>
-          <div class="price-setup">
-            <div class="price-row price-row--monthly">
-              <span class="price-main">299 kr</span>
-              <span class="price-sub">/md</span>
-            </div>
+        <article class="pricing-card reveal" aria-labelledby="pricing-6m">
+          <p id="pricing-6m" class="pricing-tier">6 måneder</p>
+          <div class="price-row">
+            <span class="price-main">349 kr.</span><span class="price-sub">/md.</span>
           </div>
-          <p class="pricing-terms">Ingen binding</p>
-          <p class="pricing-position">Til dig der vil have Mesterpakken bygget på dine egne priser, tidligere tilbud og måde at skrive på.</p>
-          <p class="pricing-desc">Egne priser, tidligere tilbud, eget sprog, vundne/tabte opgaver, Mester Insights og automatisk opfølgning.</p>
-          <div class="pricing-divider"></div>
-          <p class="pricing-includes">Alt i START +</p>
-          <ul class="checklist">
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Dine egne priser indlæst</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tidligere tilbud som grundlag</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Dit sprog og din måde at skrive tilbud på</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Vundne og tabte opgaver</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Mester Insights</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Prioriteret support</span></li>
-          </ul>
-          <a class="btn btn-accent" href="https://buy.stripe.com/eVq9AT13WbMAfIu6IK6Ri06">Vælg PLUS</a>
+          <p class="pricing-terms">2.094 kr. betales forud</p>
+          <a class="btn btn-outline" href="#priser" data-payment-link="sixMonths">Vælg 6 måneder</a>
         </article>
 
-        <article class="pricing-card pricing-card--pro reveal" aria-labelledby="pricing-pro">
-          <p id="pricing-pro" class="pricing-tier">Pro</p>
-          <div class="price-setup">
-            <p class="price-setup-amount">1.999 kr oprettelse</p>
-            <div class="price-row price-row--monthly">
-              <span class="price-main">999 kr</span>
-              <span class="price-sub">/md</span>
-            </div>
+        <article class="pricing-card pricing-card--featured reveal" aria-labelledby="pricing-12m">
+          <span class="pricing-badge">Laveste pris</span>
+          <p id="pricing-12m" class="pricing-tier">12 måneder</p>
+          <div class="price-row">
+            <span class="price-main">299 kr.</span><span class="price-sub">/md.</span>
           </div>
-          <p class="pricing-terms">Ingen binding</p>
-          <p class="pricing-position">Til dig der vil have hele flowet sat op — fra hjemmeside og leads til tilbud og opfølgning.</p>
-          <p class="pricing-desc">Alt i PLUS + leadformular/hjemmeside, custom opsætning, branding og sparring.</p>
-          <div class="pricing-divider"></div>
-          <p class="pricing-includes">Alt i PLUS +</p>
-          <ul class="checklist">
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Hjemmeside med leadformular</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Leads direkte ind i Mesterpakken</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Custom opsætning og branding</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Fast månedlig sparring</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Komplet flow fra lead til tilbud</span></li>
-          </ul>
-          <a class="btn btn-outline" href="https://buy.stripe.com/6oUcN56og4k853Q2su6Ri07">Vælg PRO</a>
+          <p class="pricing-terms">3.588 kr. betales forud</p>
+          <a class="btn btn-accent" href="#priser" data-payment-link="twelveMonths">Vælg 12 måneder</a>
         </article>
+      </div>
+
+      <div class="pricing-includes reveal">
+        <h3>Det får du</h3>
+        <ul class="checklist">
+          <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Indtal tilbud på mobilen</span></li>
+          <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tilbud bygget med dine egne priser</span></li>
+          <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>SMS-link og godkendelse med ét tryk</span></li>
+          <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Besked når kunden åbner og godkender</span></li>
+          <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Handlinger og opfølgning</span></li>
+          <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Pipeline og kundeoversigt</span></li>
+          <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Mester Insights</span></li>
+        </ul>
       </div>
     </section>
 
-    <section class="lead-capture-section reveal" aria-label="Ring mig op">
-      <div class="lead-capture-inner">
-        <h2 class="lead-capture-title">Vil du se det før du beslutter dig?</h2>
-        <p class="lead-capture-sub">Skriv dit nummer. Mathias ringer dig op — ingen salgssnak, bare en kort gennemgang.</p>
-        <input id="phone-input" class="lead-capture-input" type="tel" placeholder="Dit mobilnummer" />
-        <button id="ring-btn" type="button" class="lead-capture-button" onclick="ringMigOp()">Ring mig op</button>
-        <p class="lead-capture-note">Vi ringer normalt tilbage samme dag</p>
+    <section id="faq" aria-labelledby="faq-heading">
+      <div class="section-head reveal">
+        <h2 id="faq-heading">Spørgsmål og svar</h2>
+      </div>
+      <div class="faq-list reveal">
+        <details class="faq-item">
+          <summary>Er Mesterpakken kun til anlægsgartnere og brolæggere?</summary>
+          <p>Den er bygget til dem. Du kan lave tilbud på alle typer opgaver, men de færdige beregninger er lavet til anlæg og belægning.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Bruger tilbuddet mine egne priser?</summary>
+          <p>Ja. Du lægger dine priser ind én gang, og du kan altid rette et tilbud, før det sendes.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Skal min kunde hente en app eller logge ind?</summary>
+          <p>Nej. Kunden får et link på SMS og godkender med ét tryk.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Er opfølgnings-beskederne skrevet af en robot?</summary>
+          <p>Nej. Du skriver selv teksten under Indstillinger. Mesterpakken sørger bare for, at den er klar, når du skal bruge den.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Kan jeg bruge det på både mobil og computer?</summary>
+          <p>Ja. Mobilen til pladsen, computeren til overblikket.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Er der binding?</summary>
+          <p>Ikke på månedsprisen. Vælger du 6 eller 12 måneder, betaler du forud for perioden.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="kom-i-gang" class="band final-cta" aria-labelledby="final-heading">
+      <div class="band-inner reveal">
+        <h2 id="final-heading">Send tilbuddet, mens du stadig står på pladsen.</h2>
+        <a class="btn btn-accent btn-lg" href="#priser">Kom i gang – fra 299 kr./md.</a>
+
+        <div class="lead-capture-inner" role="group" aria-labelledby="lead-heading">
+          <h3 id="lead-heading" class="lead-capture-title">Vil du hellere tale med et menneske først?</h3>
+          <p class="lead-capture-sub">Skriv dit nummer. Mathias ringer dig op — ingen salgssnak, bare en kort gennemgang.</p>
+          <input id="phone-input" class="lead-capture-input" type="tel" placeholder="Dit mobilnummer" aria-label="Dit mobilnummer" />
+          <button id="ring-btn" type="button" class="lead-capture-button" onclick="ringMigOp()">Ring mig op</button>
+          <p class="lead-capture-note">Vi ringer normalt tilbage samme dag</p>
+        </div>
       </div>
     </section>
   </main>
@@ -1821,36 +1216,25 @@
     </div>
   </footer>
 
+  <div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+    <a class="btn btn-accent" href="#priser" tabindex="-1">Kom i gang – fra 299 kr./md.</a>
+  </div>
+
+  <script src="config.js"></script>
   <script>
     (function () {
-      var TYPE_TEXT = "Professionelle tilbud på 2 minutter";
-      var TYPE_SPEED = 80;
-
       function onScrollNav() {
         var header = document.getElementById("site-header");
         if (!header) return;
         header.classList.toggle("is-solid", window.scrollY > 40);
       }
 
-      function typeWriter() {
-        var el = document.getElementById("type-target");
-        var cursor = document.getElementById("type-cursor");
-        if (!el) return;
-        var i = 0;
-        function tick() {
-          if (i < TYPE_TEXT.length) {
-            el.textContent += TYPE_TEXT.charAt(i);
-            i++;
-            setTimeout(tick, TYPE_SPEED);
-          } else if (cursor) {
-            cursor.classList.add("is-done");
-          }
-        }
-        tick();
-      }
-
       function setupReveal() {
         var els = document.querySelectorAll(".reveal");
+        if (!("IntersectionObserver" in window)) {
+          els.forEach(function (el) { el.classList.add("is-visible"); });
+          return;
+        }
         var obs = new IntersectionObserver(
           function (entries) {
             entries.forEach(function (e) {
@@ -1864,96 +1248,44 @@
         });
       }
 
-      function setupSteps() {
-        var wrap = document.getElementById("steps-grid");
-        if (!wrap) return;
-        var cards = wrap.querySelectorAll(".step-card");
-        var obs = new IntersectionObserver(
-          function (entries) {
-            entries.forEach(function (e) {
-              if (e.isIntersecting) {
-                cards.forEach(function (c) {
-                  c.classList.add("is-visible-step");
-                });
-                obs.disconnect();
-              }
-            });
-          },
-          { threshold: 0.2 }
-        );
-        obs.observe(wrap);
-      }
-
-      function setupNav() {
-        var toggle = document.getElementById("nav-toggle");
-        var links = document.getElementById("nav-links");
-        var backdrop = document.getElementById("nav-backdrop");
-        function close() {
-          if (links) links.classList.remove("is-open");
-          if (backdrop) backdrop.classList.remove("is-open");
-          if (toggle) toggle.setAttribute("aria-expanded", "false");
-        }
-        function openMenu() {
-          if (links) links.classList.add("is-open");
-          if (backdrop) backdrop.classList.add("is-open");
-          if (toggle) toggle.setAttribute("aria-expanded", "true");
-        }
-        if (toggle && links) {
-          toggle.addEventListener("click", function () {
-            if (links.classList.contains("is-open")) close();
-            else openMenu();
-          });
-        }
-        if (backdrop) backdrop.addEventListener("click", close);
-        if (links) {
-          links.querySelectorAll("a").forEach(function (a) {
-            a.addEventListener("click", function () {
-              if (window.matchMedia("(max-width: 767px)").matches) close();
-            });
-          });
-        }
-      }
-
-      function setupSmoothAnchors() {
-        document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-          a.addEventListener("click", function (ev) {
-            var id = a.getAttribute("href");
-            if (id.length < 2) return;
-            var target = document.querySelector(id);
-            if (target) {
-              ev.preventDefault();
-              target.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-          });
+      function setupPaymentLinks() {
+        var config = window.MESTERPAKKEN_CONFIG || {};
+        var links = config.paymentLinks || {};
+        document.querySelectorAll("[data-payment-link]").forEach(function (a) {
+          var url = links[a.getAttribute("data-payment-link")];
+          if (url) a.setAttribute("href", url);
         });
       }
 
-      function setupDemoVideo() {
-        var wrap = document.getElementById("demo-video-wrap");
-        var video = document.getElementById("demo-video");
-        var playBtn = document.getElementById("demo-video-play");
-        if (!wrap || !video || !playBtn) return;
-        function startPlayback() {
-          wrap.classList.add("is-playing");
-          var playPromise = video.play();
-          if (playPromise && typeof playPromise.catch === "function") {
-            playPromise.catch(function () {
-              wrap.classList.remove("is-playing");
-            });
-          }
-        }
-        playBtn.addEventListener("click", startPlayback);
+      function setupStickyCta() {
+        var bar = document.getElementById("sticky-cta");
+        if (!bar || !("IntersectionObserver" in window)) return;
+        var link = bar.querySelector("a");
+        var watched = ["top", "priser", "kom-i-gang"]
+          .map(function (id) { return document.getElementById(id); })
+          .filter(Boolean);
+        var inView = {};
+        var obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            inView[e.target.id] = e.isIntersecting;
+          });
+          var show = !watched.some(function (el) { return inView[el.id]; });
+          bar.classList.toggle("is-visible", show);
+          bar.setAttribute("aria-hidden", show ? "false" : "true");
+          if (link) link.setAttribute("tabindex", show ? "0" : "-1");
+        });
+        watched.forEach(function (el) {
+          inView[el.id] = true;
+          obs.observe(el);
+        });
       }
 
       document.addEventListener("DOMContentLoaded", function () {
         onScrollNav();
         window.addEventListener("scroll", onScrollNav, { passive: true });
-        typeWriter();
         setupReveal();
-        setupSteps();
-        setupNav();
-        setupSmoothAnchors();
-        setupDemoVideo();
+        setupPaymentLinks();
+        setupStickyCta();
       });
     })();
   </script>

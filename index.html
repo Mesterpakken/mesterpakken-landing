@@ -395,13 +395,24 @@
       font-size: 0.9375rem;
       line-height: 1.25;
     }
-    .video-note {
-      max-width: 640px;
-      margin: 1.25rem auto 0;
-      text-align: center;
-      color: var(--muted);
+    .sms-why {
+      max-width: 720px;
+      margin: 1.5rem auto 0;
+      padding: 1.1rem 1.25rem;
+      background: rgba(25, 167, 206, 0.1);
+      border: 1px solid rgba(25, 167, 206, 0.35);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+    }
+    .sms-why h3 {
+      font-size: 1rem;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+    .sms-why p {
+      color: var(--soft);
       font-size: 0.9375rem;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     /* Numbered step rows (Sådan kommer du i gang) */
@@ -1090,7 +1101,7 @@
             muted
             playsinline
             preload="none"
-            poster="assets/landing/video-poster.jpg"
+            poster="assets/landing/video-poster.jpg?v=2"
             width="1920"
             height="1080"
             aria-label="Video: Sådan virker Mesterpakken"
@@ -1101,10 +1112,13 @@
         <ol class="step-pills reveal">
           <li><span class="step-num" aria-hidden="true">1</span>Indtal eller skriv opgaven</li>
           <li><span class="step-num" aria-hidden="true">2</span>Gennemgå og ret tilbuddet</li>
-          <li><span class="step-num" aria-hidden="true">3</span>Send på SMS eller e-mail</li>
+          <li><span class="step-num" aria-hidden="true">3</span>Send på SMS eller e-mail, eller hent som PDF</li>
           <li><span class="step-num" aria-hidden="true">4</span>Se kundens svar. Følg op ved behov.</li>
         </ol>
-        <p class="video-note reveal">Vi sender som udgangspunkt tilbuddet på SMS, fordi SMS'er typisk bliver set hurtigere end e-mails, der kan drukne i indbakken. Kunden kan også få tilbuddet på e-mail.</p>
+        <aside class="sms-why reveal" aria-labelledby="sms-why-heading">
+          <h3 id="sms-why-heading">Hvorfor SMS?</h3>
+          <p>Vi anbefaler at sende tilbuddet på SMS, fordi SMS'er bliver åbnet langt oftere end e-mails, der drukner i indbakken. Et tilbud, der ikke bliver set, bliver ikke vundet. Vil du hellere gøre, som du plejer, sender du det på e-mail eller henter det som PDF.</p>
+        </aside>
       </div>
     </section>
 
@@ -1262,6 +1276,7 @@
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Indtal tilbud på mobilen</span></li>
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tilbud bygget med dine egne priser fra materialekataloget</span></li>
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>SMS-link og godkendelse med ét tryk</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Send også på e-mail, eller hent tilbuddet som PDF</span></li>
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Besked når kunden åbner og godkender</span></li>
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Handlinger og opfølgning</span></li>
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Pipeline og kundeoversigt</span></li>
@@ -1346,6 +1361,10 @@
         <details class="faq-item">
           <summary>Koster SMS'erne ekstra?</summary>
           <p>Nej. SMS'er til dine kunder er med i prisen.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Skal jeg sende mine tilbud på SMS?</summary>
+          <p>Nej. Vi anbefaler SMS, fordi SMS'er bliver åbnet langt oftere end e-mails. Men du kan også sende tilbuddet på e-mail eller hente det som PDF og sende det, som du plejer.</p>
         </details>
       </div>
 

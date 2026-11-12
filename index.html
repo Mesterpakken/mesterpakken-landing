@@ -387,6 +387,7 @@
       display: flex;
       align-items: center;
       gap: 0.6rem;
+      min-height: 3.5rem;
       background: var(--bg);
       border: 1px solid rgba(25, 167, 206, 0.2);
       border-radius: 12px;
@@ -395,53 +396,35 @@
       font-size: 0.9375rem;
       line-height: 1.25;
     }
-    .step-pill--sms { border-color: var(--accent); }
-    .step-branch {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.4rem;
-      margin: 0.5rem 0 0 0.9rem;
-      color: var(--soft);
-      font-size: 0.875rem;
-      line-height: 1.4;
-    }
-    .step-branch svg { flex-shrink: 0; width: 18px; height: 18px; margin-top: 1px; }
+    .step-pill--sms { border-bottom-color: var(--accent); }
     .step-connector { display: none; }
     .sms-why {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.85rem;
       max-width: 960px;
-      margin: 1.25rem auto 0;
-      padding: 1.1rem 1.25rem;
+      margin: 2rem auto 0;
+      padding: 1.25rem 1.35rem;
       background: rgba(25, 167, 206, 0.1);
       border: 1px solid var(--accent);
       border-radius: 12px;
     }
-    .sms-why-marker { background: var(--accent); color: var(--bg); }
+    .sms-why-head {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+    .sms-why-head svg { flex-shrink: 0; width: 28px; height: 28px; }
     .sms-why h3 {
-      font-size: 1.0625rem;
-      line-height: 1.3;
-      margin: 0.3rem 0 0.35rem;
+      font-size: clamp(1.25rem, 3.6vw, 1.5rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
     }
     .sms-why p {
       color: var(--soft);
       font-size: 0.9375rem;
       line-height: 1.55;
     }
-    .open-note {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      max-width: 960px;
-      margin: 1rem auto 0;
-      color: var(--white);
-      font-weight: 600;
-      font-size: 0.9375rem;
-      line-height: 1.4;
-    }
-    .open-note svg { flex-shrink: 0; width: 20px; height: 20px; }
+    .sms-why p strong { color: var(--white); }
 
     /* Numbered timeline (Sådan kommer du i gang) */
     .timeline {
@@ -538,6 +521,16 @@
       align-items: center;
     }
     .compare-visual .phone-frame { max-width: 230px; }
+    .compare-insight {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+      color: var(--muted);
+      font-size: 0.875rem;
+      line-height: 1.45;
+    }
+    .compare-insight svg { flex-shrink: 0; width: 18px; height: 18px; margin-top: 1px; }
     .sms-bubble {
       position: relative;
       z-index: 1;
@@ -597,23 +590,6 @@
     .shot-link { display: block; cursor: zoom-in; border-radius: 12px; }
     .shot-link .browser-frame img { width: 100%; max-width: 1800px; }
     .ov-tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
-    .insights-line {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      max-width: 1180px;
-      margin: 1.75rem auto 0;
-      padding: 1rem 1.15rem;
-      background: var(--bg);
-      border: 1px solid rgba(25, 167, 206, 0.25);
-      border-left: 4px solid var(--accent);
-      border-radius: 12px;
-      color: var(--soft);
-      font-size: 0.9375rem;
-      line-height: 1.5;
-    }
-    .insights-line svg { flex-shrink: 0; width: 24px; height: 24px; }
-    .insights-line strong { color: var(--white); }
     @media (max-width: 899px) {
       /* On phones the enlarged screenshot is wider than the screen and can be panned. Never above its natural 1400px. */
       .lightbox[open] {
@@ -723,37 +699,26 @@
       line-height: 1.05;
       margin: 0.2rem 0;
     }
-    .payback-line--strong {
-      font-size: clamp(1.4rem, 5vw, 2.25rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-top: 1rem;
-    }
     .payback-inner {
       max-width: 1080px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 1.75rem;
       align-items: center;
     }
-    .payback-bars {
-      width: 100%;
-      max-width: 460px;
-      margin: 0 auto;
-      text-align: left;
+    .payback-day-big {
+      font-size: clamp(2rem, 8vw, 3.25rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
     }
-    .payback-bar + .payback-bar { margin-top: 1.1rem; }
-    .payback-bar-label { font-weight: 700; font-size: 0.9375rem; margin-bottom: 0.4rem; }
-    .payback-bar-track {
-      height: 22px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.15);
-      overflow: hidden;
+    .payback-day-sub {
+      font-size: clamp(1.0625rem, 3.6vw, 1.25rem);
+      font-weight: 600;
+      line-height: 1.35;
+      margin-top: 0.6rem;
     }
-    .payback-bar-fill { display: block; height: 100%; border-radius: 6px; }
-    .payback-bar-fill--mp { background: var(--bg); }
-    .payback-bar-fill--job { background: var(--white); }
     .pricing-inner {
       max-width: 1180px;
       margin: 0 auto;
@@ -1083,10 +1048,11 @@
     }
     @media (min-width: 900px) {
       .step-pills { grid-template-columns: repeat(4, 1fr); }
+      .step-pill { min-height: 4rem; }
       .step-connector {
         display: block;
         flex: 1;
-        min-height: 1.25rem;
+        min-height: 2rem;
         width: 2px;
         margin-left: calc(0.8rem + 16px);
         background: var(--accent);
@@ -1105,10 +1071,8 @@
       .timeline h3 { margin-top: 0.85rem; }
       .founder-inner { flex-direction: row; align-items: center; gap: 2.5rem; text-align: left; }
       .founder-photo { width: 160px; height: 160px; }
-      .payback-inner { grid-template-columns: 1.1fr 1fr; gap: 3rem; }
-      .payback-text { text-align: left; }
-      .payback-text .payback-line { margin: 0; }
-      .payback-text .payback-line--strong { margin-top: 1rem; }
+      .payback-inner { grid-template-columns: 1fr 1fr; gap: 3rem; text-align: left; }
+      .payback-inner .payback-line { margin: 0; }
       .overview.is-enhanced {
         display: grid;
         grid-template-columns: 240px 1fr;
@@ -1231,29 +1195,25 @@
             <li><div class="step-pill"><span class="step-num" aria-hidden="true">1</span>Indtal eller skriv opgaven</div></li>
             <li><div class="step-pill"><span class="step-num" aria-hidden="true">2</span>Gennemgå og ret tilbuddet</div></li>
             <li>
-              <div class="step-pill step-pill--sms"><span class="step-num" aria-hidden="true">3</span>Send på SMS eller e-mail, eller hent som PDF</div>
+              <div class="step-pill step-pill--sms"><span class="step-num" aria-hidden="true">3</span>Send tilbuddet på SMS</div>
               <span class="step-connector" aria-hidden="true"></span>
             </li>
-            <li>
-              <div class="step-pill"><span class="step-num" aria-hidden="true">4</span>Kunden godkender med ét klik</div>
-              <p class="step-branch"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 3v8a4 4 0 0 0 4 4h9m0 0-4-4m4 4-4 4" stroke="#19a7ce" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Svarer kunden ikke? Mesterpakken viser dig, hvem du skal følge op på.</span></p>
-            </li>
+            <li><div class="step-pill"><span class="step-num" aria-hidden="true">4</span>Kunden godkender med ét klik</div></li>
           </ol>
           <aside class="sms-why" aria-labelledby="sms-why-heading">
-            <span class="step-num sms-why-marker" aria-hidden="true">3</span>
-            <div>
-              <h3 id="sms-why-heading">Et tilbud, der ikke bliver set, bliver ikke vundet.</h3>
-              <p>SMS bliver typisk åbnet hurtigere og oftere end e-mails, der kan drukne i indbakken. Derfor anbefaler vi SMS. Du kan også sende tilbuddet på e-mail eller hente det som PDF.</p>
+            <div class="sms-why-head">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-5 4v-4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z" stroke="#19a7ce" stroke-width="2" stroke-linejoin="round"/></svg>
+              <h3 id="sms-why-heading">Hvorfor tilbud på SMS?</h3>
             </div>
+            <p><strong>Et tilbud, der ikke bliver set, bliver ikke vundet.</strong> SMS bliver typisk åbnet hurtigere og oftere end e-mails, der kan drukne i indbakken. Derfor anbefaler vi SMS. Du kan også sende tilbuddet på e-mail eller hente det som PDF, som du plejer.</p>
           </aside>
-          <p class="open-note"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" stroke="#19a7ce" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="#19a7ce" stroke-width="2"/></svg><span>Du får besked, når kunden åbner selve tilbuddet.</span></p>
         </div>
       </div>
     </section>
 
     <section aria-labelledby="compare-heading">
       <div class="section-head reveal">
-        <h2 id="compare-heading">To ting koster dig job</h2>
+        <h2 id="compare-heading">To ting koster dig tid og job</h2>
       </div>
       <div class="compare-grid">
         <article class="compare-card reveal">
@@ -1267,6 +1227,7 @@
               </div>
             </div>
           </div>
+          <p class="compare-insight"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V16h5.2v-.2c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z" stroke="#19a7ce" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Mester Insights viser undervejs, hvordan tilbuddet ligger i forhold til dine tidligere tilbud.</span></p>
         </article>
         <article class="compare-card reveal">
           <h3>Tilbud, ingen følger op på</h3>
@@ -1287,7 +1248,7 @@
     <section class="band" aria-labelledby="system-heading">
       <div class="band-inner">
         <div class="section-head reveal">
-          <h2 id="system-heading">Og du har styr på resten</h2>
+          <h2 id="system-heading">Et kig ind i systemet</h2>
         </div>
         <div class="overview reveal" data-overview>
           <div class="ov-item is-open">
@@ -1339,7 +1300,6 @@
             </div>
           </div>
         </div>
-        <p class="insights-line reveal"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V16h5.2v-.2c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z" stroke="#19a7ce" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Mester Insights:</strong> Mens du laver tilbuddet, kan du se, hvordan det ligger i forhold til dine egne tidligere tilbud og deres udfald.</span></p>
         <p class="system-note reveal">Virker på mobilen ude på pladsen og på computeren hjemme.</p>
       </div>
     </section>
@@ -1349,7 +1309,7 @@
         <img class="founder-photo" src="assets/landing/mathias.jpg" alt="Mathias" width="320" height="320" loading="lazy" decoding="async" />
         <div class="founder-text">
           <h2 id="founder-heading">Hvem står bag?</h2>
-          <p>Jeg hedder Mathias. Jeg er ikke håndværker. Jeg har arbejdet med salg til håndværkere i over otte år og talt med tusindvis af dem.</p>
+          <p>Jeg hedder Mathias. Jeg har arbejdet med håndværkere i over otte år og talt med tusindvis af dem.</p>
           <p>Det samme går igen: Tilbud tager for lang tid, og opfølgningen bliver glemt. Godt håndværk er ikke nok, hvis tilbuddet aldrig bliver fulgt op.</p>
           <p>Derfor har jeg bygget Mesterpakken.</p>
           <p class="founder-contact">Er du i tvivl, så skriv til <a href="mailto:kontakt@mesterpakken.dk">kontakt@mesterpakken.dk</a>, eller <a href="#lead-heading">lad mig ringe dig op</a>.</p>
@@ -1360,19 +1320,10 @@
     <section id="priser" class="pricing-section" aria-labelledby="pricing-heading">
       <div class="payback">
         <div class="payback-inner">
-          <div class="payback-text">
-            <p class="payback-line reveal">Mesterpakken koster <span class="payback-num">3.588 kr.</span> om året ekskl. moms.</p>
-            <p class="payback-line payback-line--strong reveal">Ét ekstra vundet job, og den er tjent hjem.</p>
-          </div>
-          <div class="payback-bars reveal">
-            <div class="payback-bar">
-              <p class="payback-bar-label">Mesterpakken i et år: 3.588 kr.</p>
-              <div class="payback-bar-track" aria-hidden="true"><span class="payback-bar-fill payback-bar-fill--mp" style="width: 11.96%"></span></div>
-            </div>
-            <div class="payback-bar">
-              <p class="payback-bar-label">Ét job, for eksempel: 30.000 kr.</p>
-              <div class="payback-bar-track" aria-hidden="true"><span class="payback-bar-fill payback-bar-fill--job" style="width: 100%"></span></div>
-            </div>
+          <p class="payback-line reveal">Mesterpakken koster <span class="payback-num">3.588 kr.</span> om året ekskl. moms.</p>
+          <div class="payback-day reveal">
+            <p class="payback-day-big">Under 10 kr. om dagen.</p>
+            <p class="payback-day-sub">Ét ekstra vundet job, og den er tjent hjem.</p>
           </div>
         </div>
       </div>

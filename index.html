@@ -669,6 +669,38 @@
       cursor: pointer;
     }
 
+    /* Founder */
+    main section.founder { padding-top: 3rem; padding-bottom: 3rem; }
+    .founder-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      text-align: center;
+    }
+    .founder-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2px solid rgba(25, 167, 206, 0.45);
+    }
+    .founder-text h2 {
+      font-size: clamp(1.4rem, 4vw, 1.75rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .founder-text p { color: var(--soft); font-size: 0.9375rem; line-height: 1.55; }
+    .founder-text p + p { margin-top: 0.6rem; }
+    .founder-text .founder-contact { color: var(--white); font-weight: 600; margin-top: 0.9rem; }
+    .founder-contact a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    #lead-heading { scroll-margin-top: calc(var(--header-h) + 1rem); }
+
     /* Payback band */
     .pricing-section { max-width: none !important; padding: 0 !important; }
     .payback {
@@ -1071,6 +1103,8 @@
         height: 2px;
       }
       .timeline h3 { margin-top: 0.85rem; }
+      .founder-inner { flex-direction: row; align-items: center; gap: 2.5rem; text-align: left; }
+      .founder-photo { width: 160px; height: 160px; }
       .payback-inner { grid-template-columns: 1.1fr 1fr; gap: 3rem; }
       .payback-text { text-align: left; }
       .payback-text .payback-line { margin: 0; }
@@ -1310,6 +1344,19 @@
       </div>
     </section>
 
+    <section class="founder" aria-labelledby="founder-heading">
+      <div class="founder-inner reveal">
+        <img class="founder-photo" src="assets/landing/mathias.jpg" alt="Mathias" width="320" height="320" loading="lazy" decoding="async" />
+        <div class="founder-text">
+          <h2 id="founder-heading">Hvem står bag?</h2>
+          <p>Jeg hedder Mathias. Jeg er ikke håndværker. Jeg har arbejdet med salg til håndværkere i over otte år og talt med tusindvis af dem.</p>
+          <p>Det samme går igen: Tilbud tager for lang tid, og opfølgningen bliver glemt. Godt håndværk er ikke nok, hvis tilbuddet aldrig bliver fulgt op.</p>
+          <p>Derfor har jeg bygget Mesterpakken.</p>
+          <p class="founder-contact">Er du i tvivl, så skriv til <a href="mailto:kontakt@mesterpakken.dk">kontakt@mesterpakken.dk</a>, eller <a href="#lead-heading">lad mig ringe dig op</a>.</p>
+        </div>
+      </div>
+    </section>
+
     <section id="priser" class="pricing-section" aria-labelledby="pricing-heading">
       <div class="payback">
         <div class="payback-inner">
@@ -1489,7 +1536,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <p class="name">Mesterpakken</p>
-          <p class="tagline">Frigør tid til håndværket. Vind flere opgaver.</p>
+          <p class="tagline">Mere tid til håndværket. Flere vundne opgaver.</p>
         </div>
         <div class="footer-links">
           <a href="https://mesterpakken.dk">Log ind</a>

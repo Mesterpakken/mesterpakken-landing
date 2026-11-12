@@ -172,8 +172,11 @@
     }
     .band {
       max-width: none !important;
-      background: var(--bg-band);
+      background: #112b4a;
+      border-top: 1px solid rgba(25, 167, 206, 0.18);
+      border-bottom: 1px solid rgba(25, 167, 206, 0.18);
     }
+    .band .step-item { background: var(--bg); }
     .band > .band-inner {
       max-width: 1180px;
       margin: 0 auto;
@@ -259,13 +262,6 @@
       position: relative;
     }
     .phone-screen img { width: 100%; }
-    .phone-screen--sms img {
-      border-radius: 14px;
-    }
-    .phone-screen--sms {
-      background: #ffffff;
-      padding: 28px 10px 12px;
-    }
 
     /* Hero */
     .hero {
@@ -322,6 +318,18 @@
       max-width: 34rem;
       margin: 0 auto 1.75rem;
     }
+    .hero-ticks {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1.25rem;
+      margin: 0 auto 1.75rem;
+      font-weight: 600;
+      font-size: 0.9375rem;
+    }
+    .hero-ticks li { display: inline-flex; align-items: center; gap: 0.4rem; }
+    .hero-ticks .check-icon { margin-top: 0; }
     .hero-cta {
       display: flex;
       flex-direction: column;
@@ -367,34 +375,28 @@
       aspect-ratio: 16 / 9;
       background: #000;
     }
-    .video-figure { max-width: 960px; margin: 0 auto; }
-    .video-caption {
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.9375rem;
-      margin-top: 0.85rem;
-    }
-
-    /* Problem */
-    .problem-grid {
+    .step-pills {
+      list-style: none;
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      max-width: 960px;
+      margin: 1.5rem auto 0;
     }
-    .pain-card {
-      background: var(--bg-elevated);
-      border-left: 4px solid var(--red);
-      border-radius: 0 12px 12px 0;
-      padding: 1.35rem 1.4rem;
+    .step-pills li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--bg);
+      border: 1px solid rgba(25, 167, 206, 0.2);
+      border-radius: 12px;
+      padding: 0.7rem 0.8rem;
+      font-weight: 700;
+      font-size: 0.9375rem;
+      line-height: 1.25;
     }
-    .pain-card h3 {
-      font-size: 1.125rem;
-      line-height: 1.35;
-      margin-bottom: 0.5rem;
-    }
-    .pain-card p { color: var(--muted); font-size: 0.9375rem; }
 
-    /* Numbered step rows (Sådan virker det, Sådan kommer du i gang) */
+    /* Numbered step rows (Sådan kommer du i gang) */
     .step-row {
       list-style: none;
       display: grid;
@@ -443,174 +445,152 @@
       text-underline-offset: 2px;
     }
 
-    /* Quote argument */
-    .quote-inner {
+    /* Before / with Mesterpakken */
+    .compare-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2.5rem;
-      align-items: center;
+      gap: 1.5rem;
+      max-width: 1040px;
+      margin: 0 auto;
     }
-    .quote-text h2 {
-      font-size: clamp(1.6rem, 4.5vw, 2.4rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
+    .compare-card {
+      background: var(--bg-elevated);
+      border: 1px solid rgba(25, 167, 206, 0.15);
+      border-radius: 16px;
+      padding: 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .compare-card h3 {
+      font-size: 1.25rem;
+      line-height: 1.25;
       margin-bottom: 1rem;
     }
-    .quote-text > p {
-      color: var(--soft);
-      font-size: 1.0625rem;
-      line-height: 1.65;
-      max-width: 36rem;
-    }
-    .quote-visual .phone-frame { max-width: 260px; }
-
-    /* Follow-up */
-    .followup {
-      border-top: 1px solid rgba(25, 167, 206, 0.2);
-      border-bottom: 1px solid rgba(25, 167, 206, 0.2);
-    }
-    .followup-inner {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-      align-items: center;
-    }
-    .followup h2 {
-      font-size: clamp(1.75rem, 5vw, 2.75rem);
+    .compare-line { font-size: 0.9375rem; line-height: 1.45; color: var(--muted); }
+    .compare-line + .compare-line { margin-top: 0.65rem; }
+    .compare-line--with { color: var(--white); }
+    .compare-label {
+      display: block;
+      font-size: 0.75rem;
       font-weight: 800;
-      letter-spacing: -0.025em;
-      line-height: 1.15;
-      margin-bottom: 1.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.15rem;
     }
-    .followup-text p {
-      color: var(--soft);
-      font-size: 1.0625rem;
-      line-height: 1.65;
-      max-width: 36rem;
-    }
-    .followup-visual {
+    .compare-line--with .compare-label { color: var(--accent); }
+    .compare-visual {
+      margin-top: auto;
+      padding-top: 1.75rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.5rem;
     }
-    .followup-visual .phone-frame { max-width: 250px; margin: 0; }
-    .followup-visual .phone-frame--sms { max-width: 260px; }
+    .compare-visual .phone-frame { max-width: 230px; }
+    .sms-bubble {
+      position: relative;
+      z-index: 1;
+      width: min(92%, 290px);
+      margin-top: -4.5rem;
+      align-self: flex-end;
+      border-radius: 16px;
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.45),
+        0 4px 12px rgba(0, 0, 0, 0.25);
+    }
 
-    /* System overview */
-    .system-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+    /* System screenshots */
+    .shots {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      margin: 0 -1.25rem;
+      padding: 0.25rem 1.25rem 1rem;
     }
-    .system-item {
-      background: var(--bg-elevated);
-      border: 1px solid rgba(25, 167, 206, 0.15);
-      border-radius: 14px;
-      padding: 1.25rem;
+    .shots li { flex: 0 0 84%; scroll-snap-align: center; }
+    .shot-link { display: block; cursor: zoom-in; border-radius: 12px; }
+    .shot-link .browser-frame img {
+      aspect-ratio: 1400 / 780;
+      object-fit: cover;
+      object-position: top;
     }
-    .system-item h3 { font-size: 1.125rem; margin-bottom: 0.35rem; }
-    .system-item p { color: var(--muted); font-size: 0.9375rem; }
-    .system-item .browser-frame { margin-top: 1.1rem; }
+    .shot-link:hover .browser-frame { box-shadow: 0 0 0 2px var(--accent), 0 20px 50px rgba(0, 0, 0, 0.4); }
+    .shot-label {
+      display: block;
+      text-align: center;
+      font-weight: 700;
+      margin-top: 0.65rem;
+    }
     .system-note {
       text-align: center;
       color: var(--soft);
       font-weight: 600;
-      margin-top: 2rem;
+      margin-top: 1.5rem;
+    }
+    .lightbox {
+      border: 0;
+      padding: 0;
+      background: transparent;
+      max-width: 96vw;
+      max-height: 94vh;
+      margin: auto;
+      overflow: visible;
+    }
+    .lightbox::backdrop { background: rgba(6, 15, 30, 0.9); }
+    .lightbox img {
+      max-width: 96vw;
+      max-height: 84vh;
+      width: auto;
+      border-radius: 10px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -54px;
+      right: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 0;
+      background: var(--white);
+      color: var(--bg);
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
     }
 
-    /* Mester Insights */
-    .insights-inner {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      align-items: center;
+    /* Payback band */
+    .pricing-section { max-width: none !important; padding: 0 !important; }
+    .payback {
+      background: var(--primary);
+      text-align: center;
+      padding: 3rem 1.25rem;
     }
-    .insights-title {
-      font-size: clamp(1.6rem, 4.5vw, 2.25rem);
+    .payback-line {
+      font-size: clamp(1.25rem, 4.2vw, 1.75rem);
+      font-weight: 700;
+      line-height: 1.3;
+      max-width: 30ch;
+      margin: 0 auto;
+    }
+    .payback-num {
+      display: block;
+      font-size: clamp(2.75rem, 12vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin: 0.2rem 0;
+    }
+    .payback-line--strong {
+      font-size: clamp(1.4rem, 5vw, 2.25rem);
       font-weight: 800;
       letter-spacing: -0.02em;
-      line-height: 1.2;
-    }
-    .insights-body {
-      color: var(--muted);
-      font-size: 1.0625rem;
-      line-height: 1.65;
       margin-top: 1rem;
-      max-width: 42ch;
     }
-    .insights-shot {
-      width: 100%;
-      max-width: 460px;
+    .pricing-inner {
+      max-width: 1180px;
       margin: 0 auto;
-    }
-    .insights-shot img {
-      width: 100%;
-      border-radius: 14px;
-      box-shadow:
-        0 16px 40px rgba(0, 0, 0, 0.28),
-        0 4px 12px rgba(0, 0, 0, 0.18);
-    }
-    .insights-shot figcaption {
-      color: var(--muted);
-      font-size: 0.875rem;
-      margin-top: 0.6rem;
-      text-align: center;
-    }
-    .insights-examples {
-      margin-top: 3rem;
-      text-align: center;
-    }
-    .insights-examples h3 {
-      font-size: 1.125rem;
-      margin-bottom: 1rem;
-    }
-    .insight-points {
-      list-style: none;
-      margin-top: 1.25rem;
-      max-width: 42ch;
-    }
-    .insight-points li {
-      color: var(--soft);
-      font-size: 0.9375rem;
-      line-height: 1.45;
-      padding: 0.35rem 0 0.35rem 1rem;
-      position: relative;
-    }
-    .insight-points li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.75rem;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
-    .insights-example {
-      max-width: 420px;
-      margin: 0 auto;
-      width: 100%;
-    }
-    .example-label {
-      display: inline-block;
-      margin-bottom: 0.6rem;
-      padding: 0.25rem 0.75rem;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--soft);
-    }
-    .insights-example img {
-      width: 100%;
-      border-radius: 16px;
-      box-shadow:
-        0 16px 40px rgba(0, 0, 0, 0.28),
-        0 4px 12px rgba(0, 0, 0, 0.18);
+      padding: 4rem 1.25rem 4.5rem;
     }
 
     /* Pricing */
@@ -673,16 +653,14 @@
     .price-vat { font-size: 0.875rem; color: var(--muted); }
     .pricing-terms-block {
       list-style: none;
-      max-width: 1000px;
+      max-width: 760px;
       margin: 1.75rem auto 0;
-      padding: 1.25rem 1.5rem;
-      border: 1px solid rgba(138, 172, 187, 0.25);
-      border-radius: 12px;
-      color: var(--soft);
-      font-size: 0.875rem;
-      line-height: 1.55;
+      color: var(--muted);
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      text-align: center;
     }
-    .pricing-terms-block li + li { margin-top: 0.5rem; }
+    .pricing-terms-block li + li { margin-top: 0.35rem; }
     .price-main {
       font-size: clamp(2rem, 6vw, 2.5rem);
       font-weight: 800;
@@ -769,7 +747,12 @@
     }
 
     /* Final CTA */
-    .final-cta { text-align: center; }
+    .final-cta {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 3.5rem;
+      border-top: 1px solid rgba(138, 172, 187, 0.2);
+    }
     .final-cta h2 {
       font-size: clamp(1.75rem, 5vw, 2.6rem);
       font-weight: 800;
@@ -778,7 +761,7 @@
       max-width: 22ch;
       margin: 0 auto 1.5rem;
     }
-    .final-cta > .band-inner > .btn { width: 100%; max-width: 22rem; }
+    .final-cta > .btn { width: 100%; max-width: 22rem; }
 
     /* Lead capture */
     .lead-capture-inner {
@@ -921,17 +904,15 @@
     }
     @media (min-width: 640px) {
       .step-row { grid-template-columns: repeat(2, 1fr); }
-      .followup-visual {
-        flex-direction: row;
-        justify-content: center;
-        align-items: flex-end;
-        gap: 1rem;
-      }
+      .shots li { flex-basis: 46%; }
     }
     @media (min-width: 768px) {
       main section { padding: 5.5rem 1.5rem; }
-      .problem-grid { grid-template-columns: repeat(3, 1fr); }
-      .system-grid { grid-template-columns: repeat(2, 1fr); align-items: start; }
+      .step-pills { grid-template-columns: repeat(4, 1fr); }
+      .compare-grid { grid-template-columns: repeat(2, 1fr); }
+      .compare-card { padding: 1.75rem 1.75rem 2rem; }
+      .pricing-inner { padding: 5rem 1.5rem 5.5rem; }
+      .payback { padding: 3.5rem 1.5rem; }
       .checklist { grid-template-columns: repeat(2, 1fr); }
       .pricing-includes { padding: 1.75rem 2rem; }
       .footer-top { grid-template-columns: 1fr 1fr; align-items: start; }
@@ -940,9 +921,13 @@
     }
     @media (min-width: 900px) {
       .step-row { grid-template-columns: repeat(4, 1fr); }
-      .quote-inner { grid-template-columns: 1.2fr 1fr; gap: 3rem; }
-      .followup-inner { grid-template-columns: 1fr 1fr; gap: 3rem; }
-      .insights-inner { grid-template-columns: 1fr 1fr; }
+      .shots {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        overflow: visible;
+        margin: 0;
+        padding: 0;
+      }
       .pricing-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
@@ -957,6 +942,7 @@
       .hero-inner { grid-template-columns: 1fr 1.1fr; gap: 3rem; }
       .hero-copy { text-align: left; }
       .hero-sub { margin-left: 0; }
+      .hero-ticks { justify-content: flex-start; }
       .hero-cta { justify-content: flex-start; }
     }
   </style>
@@ -982,11 +968,16 @@
       <div class="hero-inner">
         <div class="hero-copy">
           <p class="eyebrow">Til anlægsgartnere og brolæggere</p>
-          <h1 id="hero-heading">Du er anlægsgartner. Ikke sælger.</h1>
-          <p class="hero-sub">Indtal opgaven på pladsen. Mesterpakken bygger tilbuddet med dine egne priser, sender det til kunden på SMS og husker opfølgningen. Så tilbuddet kommer ud samme dag, og ingen kunde bliver glemt.</p>
+          <h1 id="hero-heading">Send tilbuddet, før du kører fra pladsen.</h1>
+          <p class="hero-sub">Indtal opgaven. Mesterpakken laver tilbuddet med dine priser, sender det på SMS og husker opfølgningen.</p>
+          <ul class="hero-ticks">
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Slut med tilbud om aftenen</li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Besked, når kunden åbner</li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Opfølgning med ét tryk</li>
+          </ul>
           <div class="hero-cta">
             <a class="btn btn-accent btn-lg" href="#priser">Kom i gang – fra 299 kr./md.</a>
-            <a class="btn btn-outline btn-lg" href="#saadan-virker-det">Se hvordan det virker</a>
+            <a class="btn btn-outline btn-lg" href="#video">Se hvordan det virker</a>
           </div>
         </div>
         <div class="hero-visual">
@@ -1003,29 +994,12 @@
       </div>
     </section>
 
-    <section class="reveal" aria-label="Problemet">
-      <div class="problem-grid">
-        <div class="pain-card">
-          <h3>Det er 22:40, og du skriver stadig tilbud.</h3>
-          <p>Tilbuddene bliver lavet om aftenen, når dagen burde være slut.</p>
+    <section id="video" class="band" aria-labelledby="video-heading">
+      <div class="band-inner">
+        <div class="section-head reveal">
+          <h2 id="video-heading">Se det på 71 sekunder</h2>
         </div>
-        <div class="pain-card">
-          <h3>Han lovede at sende et tilbud. Det gjorde han aldrig.</h3>
-          <p>Kunden vælger ham, der svarer først.</p>
-        </div>
-        <div class="pain-card">
-          <h3>Du har sendt 12 tilbud. Hvor mange fik du fulgt op på?</h3>
-          <p>Tilbud uden opfølgning er job, du har regnet på gratis.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="saadan-virker-det" aria-labelledby="how-heading">
-      <div class="section-head reveal">
-        <h2 id="how-heading">Sådan virker det</h2>
-      </div>
-      <figure class="video-figure reveal">
-        <div class="video-card">
+        <div class="video-card reveal">
           <video
             controls
             muted
@@ -1039,200 +1013,153 @@
             <source src="assets/landing/mesterpakken-video.mp4" type="video/mp4" />
           </video>
         </div>
-        <figcaption class="video-caption">Se det hele på 71 sekunder</figcaption>
-      </figure>
-      <ol class="step-row">
-        <li class="step-item reveal">
-          <span class="step-num" aria-hidden="true">1</span>
-          <div>
-            <h3>Indtal opgaven</h3>
-            <p>Stå på pladsen og sig, hvad der skal laves. Ingen skemaer.</p>
-          </div>
-        </li>
-        <li class="step-item reveal">
-          <span class="step-num" aria-hidden="true">2</span>
-          <div>
-            <h3>Tilbuddet er bygget</h3>
-            <p>Mængder, materialer og arbejdsløn er regnet ud. Der ligger standardpriser fra start, som du retter til dine egne. Du kan altid rette et tilbud, før det sendes.</p>
-          </div>
-        </li>
-        <li class="step-item reveal">
-          <span class="step-num" aria-hidden="true">3</span>
-          <div>
-            <h3>Kunden godkender med ét tryk</h3>
-            <p>Kunden får et SMS-link, ser et tydeligt tilbud og godkender. Ingen login. Tilbuddet kan også sendes på e-mail.</p>
-          </div>
-        </li>
-        <li class="step-item reveal">
-          <span class="step-num" aria-hidden="true">4</span>
-          <div>
-            <h3>Du får besked</h3>
-            <p>Du får en SMS, når kunden åbner tilbuddet, og når kunden godkender.</p>
-          </div>
-        </li>
-      </ol>
+        <ol class="step-pills reveal">
+          <li><span class="step-num" aria-hidden="true">1</span>Indtal opgaven</li>
+          <li><span class="step-num" aria-hidden="true">2</span>Ret og send</li>
+          <li><span class="step-num" aria-hidden="true">3</span>Kunden godkender</li>
+          <li><span class="step-num" aria-hidden="true">4</span>Følg op</li>
+        </ol>
+      </div>
     </section>
 
-    <section aria-labelledby="quote-heading">
-      <div class="quote-inner reveal">
-        <div class="quote-text">
-          <h2 id="quote-heading">Tilbuddet er ikke papirarbejde. Det er dér, du vinder jobbet.</h2>
-          <p>Kunden vælger ofte den, der svarer først og tydeligst. Med Mesterpakken får kunden et tilbud, der er til at forstå: hvad der bliver lavet, hvad det koster, og hvordan de siger ja.</p>
-          <ul class="insight-points">
-            <li>Sendt samme dag, mens kunden stadig er interesseret</li>
-            <li>Tydelig pris og tydelige betingelser</li>
-            <li>Godkendes med ét tryk</li>
+    <section aria-labelledby="compare-heading">
+      <div class="section-head reveal">
+        <h2 id="compare-heading">To ting koster dig job</h2>
+      </div>
+      <div class="compare-grid">
+        <article class="compare-card reveal">
+          <h3>Tilbud, der kommer for sent</h3>
+          <p class="compare-line"><span class="compare-label">Før</span>Skrevet om aftenen. Gamle skabeloner. Frem og tilbage på mail.</p>
+          <p class="compare-line compare-line--with"><span class="compare-label">Med Mesterpakken</span>Indtalt på pladsen. Regnet ud med dine priser. Sendt samme dag.</p>
+          <div class="compare-visual">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="assets/landing/mobil-kundens-tilbud.jpg" alt="Kundens tilbud åbnet på mobilen" width="640" height="1063" loading="lazy" decoding="async" />
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="compare-card reveal">
+          <h3>Tilbud, ingen følger op på</h3>
+          <p class="compare-line"><span class="compare-label">Før</span>Du glemmer at ringe. Kunden vælger en anden.</p>
+          <p class="compare-line compare-line--with"><span class="compare-label">Med Mesterpakken</span>Du får besked, når kunden åbner. Du ser, hvem du skal ringe til. Beskeden er klar med din egen tekst.</p>
+          <div class="compare-visual">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="assets/landing/mobil-handlinger.jpg" alt="Handlinger i dag: vundne job der mangler en aftale og tilbud der venter på svar" width="640" height="1146" loading="lazy" decoding="async" />
+              </div>
+            </div>
+            <img class="sms-bubble" src="assets/landing/mobil-opfoelgning-sms.jpg" alt="Opfølgnings-SMS skrevet på forhånd, klar til at sende" width="730" height="320" loading="lazy" decoding="async" />
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="system-heading">
+      <div class="band-inner">
+        <div class="section-head reveal">
+          <h2 id="system-heading">Og du har styr på resten</h2>
+        </div>
+        <ul class="shots reveal">
+          <li>
+            <a class="shot-link" href="assets/landing/screen-overblik.jpg" data-lightbox>
+              <div class="browser-frame">
+                <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+                <img src="assets/landing/screen-overblik.jpg" alt="Overblik over åbne tilbud, vundet omsætning og handlinger" width="1400" height="715" loading="lazy" decoding="async" />
+              </div>
+              <span class="shot-label">Overblik</span>
+            </a>
+          </li>
+          <li>
+            <a class="shot-link" href="assets/landing/screen-handlinger.jpg" data-lightbox>
+              <div class="browser-frame">
+                <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+                <img src="assets/landing/screen-handlinger.jpg" alt="Handlinger: listen over tilbud og kunder, der skal følges op" width="1400" height="715" loading="lazy" decoding="async" />
+              </div>
+              <span class="shot-label">Handlinger</span>
+            </a>
+          </li>
+          <li>
+            <a class="shot-link" href="assets/landing/screen-pipeline.jpg" data-lightbox>
+              <div class="browser-frame">
+                <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+                <img src="assets/landing/screen-pipeline.jpg" alt="Pipeline med alle tilbud og deres status" width="1400" height="841" loading="lazy" decoding="async" />
+              </div>
+              <span class="shot-label">Pipeline</span>
+            </a>
+          </li>
+          <li>
+            <a class="shot-link" href="assets/landing/screen-kunder.jpg" data-lightbox>
+              <div class="browser-frame">
+                <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+                <img src="assets/landing/screen-kunder.jpg" alt="Kundeoversigt med alle kunder, antal tilbud og vundet værdi" width="1400" height="841" loading="lazy" decoding="async" />
+              </div>
+              <span class="shot-label">Kunder</span>
+            </a>
+          </li>
+        </ul>
+        <p class="system-note reveal">Virker på mobilen ude på pladsen og på computeren hjemme.</p>
+      </div>
+    </section>
+
+    <section id="priser" class="pricing-section" aria-labelledby="pricing-heading">
+      <div class="payback">
+        <p class="payback-line reveal">Mesterpakken koster <span class="payback-num">3.588 kr.</span> om året ekskl. moms.</p>
+        <p class="payback-line payback-line--strong reveal">Ét ekstra vundet job, og den er tjent hjem.</p>
+      </div>
+      <div class="pricing-inner">
+        <div class="section-head reveal">
+          <h2 id="pricing-heading">Én pakke. Alt er med.</h2>
+        </div>
+        <div class="pricing-grid">
+          <article class="pricing-card reveal" aria-labelledby="pricing-1m">
+            <p id="pricing-1m" class="pricing-tier">1 måned</p>
+            <div class="price-row">
+              <span class="price-main">399 kr.</span><span class="price-sub">/md.</span><span class="price-vat">ekskl. moms</span>
+            </div>
+            <p class="pricing-terms">Ingen binding</p>
+            <a class="btn btn-outline" href="#priser" data-payment-link="monthly">Vælg 1 måned</a>
+          </article>
+
+          <article class="pricing-card reveal" aria-labelledby="pricing-6m">
+            <p id="pricing-6m" class="pricing-tier">6 måneder</p>
+            <div class="price-row">
+              <span class="price-main">349 kr.</span><span class="price-sub">/md.</span><span class="price-vat">ekskl. moms</span>
+            </div>
+            <p class="pricing-terms">2.094 kr. betales forud</p>
+            <a class="btn btn-outline" href="#priser" data-payment-link="sixMonths">Vælg 6 måneder</a>
+          </article>
+
+          <article class="pricing-card pricing-card--featured reveal" aria-labelledby="pricing-12m">
+            <span class="pricing-badge">Laveste pris</span>
+            <p id="pricing-12m" class="pricing-tier">12 måneder</p>
+            <div class="price-row">
+              <span class="price-main">299 kr.</span><span class="price-sub">/md.</span><span class="price-vat">ekskl. moms</span>
+            </div>
+            <p class="pricing-terms">3.588 kr. betales forud</p>
+            <a class="btn btn-accent" href="#priser" data-payment-link="twelveMonths">Vælg 12 måneder</a>
+          </article>
+        </div>
+
+        <ul class="pricing-terms-block reveal" aria-label="Betingelser">
+          <li>Priserne er ekskl. moms. Virksomheder med CVR-nummer afregner selv momsen (omvendt betalingspligt).</li>
+          <li>Abonnementet fornyes automatisk for samme periode, indtil du opsiger.</li>
+          <li>Du opsiger ved at skrive til <a href="mailto:kontakt@mesterpakken.dk">kontakt@mesterpakken.dk</a>. Opsigelsen gælder fra udløbet af den periode, du har betalt for.</li>
+          <li>SMS'er til dine kunder er med i prisen.</li>
+        </ul>
+
+        <div class="pricing-includes reveal">
+          <h3>Det får du</h3>
+          <ul class="checklist">
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Indtal tilbud på mobilen</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tilbud bygget med dine egne priser fra materialekataloget</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>SMS-link og godkendelse med ét tryk</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Besked når kunden åbner og godkender</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Handlinger og opfølgning</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Pipeline og kundeoversigt</span></li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Mester Insights</span></li>
           </ul>
         </div>
-        <div class="quote-visual">
-          <div class="phone-frame">
-            <div class="phone-screen">
-              <img src="assets/landing/mobil-kundens-tilbud.jpg" alt="Kundens tilbud åbnet på mobilen" width="640" height="1063" loading="lazy" decoding="async" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="band followup" aria-labelledby="followup-heading">
-      <div class="band-inner followup-inner reveal">
-        <div class="followup-text">
-          <p class="eyebrow">Opfølgning</p>
-          <h2 id="followup-heading">De fleste taber ikke på prisen. De taber på opfølgningen.</h2>
-          <p>Opfølgning skal ikke afhænge af, om du husker det. Mesterpakken viser hver dag, hvilke tilbud der venter på svar, og hvilke vundne job der mangler en aftale. Du ringer op eller sender en SMS med ét tryk. Beskeden er skrevet på forhånd med din egen tekst, som du selv sætter op under Indstillinger.</p>
-        </div>
-        <div class="followup-visual">
-          <div class="phone-frame">
-            <div class="phone-screen">
-              <img src="assets/landing/mobil-handlinger.jpg" alt="Handlinger i dag: vundne job der mangler en aftale og tilbud der venter på svar" width="640" height="1146" loading="lazy" decoding="async" />
-            </div>
-          </div>
-          <div class="phone-frame phone-frame--sms">
-            <div class="phone-screen phone-screen--sms">
-              <img src="assets/landing/mobil-opfoelgning-sms.jpg" alt="Opfølgnings-SMS skrevet på forhånd, klar til at sende" width="730" height="320" loading="lazy" decoding="async" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section aria-labelledby="system-heading">
-      <div class="section-head reveal">
-        <h2 id="system-heading">Styr på tilbud, opfølgning og kunder</h2>
-      </div>
-      <div class="system-grid">
-        <div class="system-item reveal">
-          <h3>Overblik</h3>
-          <p>Åbne tilbud, vundet omsætning og hvad der haster i dag.</p>
-          <div class="browser-frame">
-            <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-            <img src="assets/landing/screen-overblik.jpg" alt="Overblik over åbne tilbud, vundet omsætning og handlinger" width="1400" height="715" loading="lazy" decoding="async" />
-          </div>
-        </div>
-        <div class="system-item reveal">
-          <h3>Handlinger</h3>
-          <p>Din to-do-liste for opfølgning.</p>
-          <div class="browser-frame">
-            <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-            <img src="assets/landing/screen-handlinger.jpg" alt="Handlinger: listen over tilbud og kunder, der skal følges op" width="1400" height="715" loading="lazy" decoding="async" />
-          </div>
-        </div>
-        <div class="system-item reveal">
-          <h3>Pipeline</h3>
-          <p>Alle tilbud og deres status: kladde, sendt, åbnet, vundet eller tabt.</p>
-          <div class="browser-frame">
-            <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-            <img src="assets/landing/screen-pipeline.jpg" alt="Pipeline med alle tilbud og deres status" width="1400" height="841" loading="lazy" decoding="async" />
-          </div>
-        </div>
-        <div class="system-item reveal">
-          <h3>Kunder</h3>
-          <p>Alle kunder og deres tilbud samlet ét sted.</p>
-          <div class="browser-frame">
-            <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-            <img src="assets/landing/screen-kunder.jpg" alt="Kundeoversigt med alle kunder, antal tilbud og vundet værdi" width="1400" height="841" loading="lazy" decoding="async" />
-          </div>
-        </div>
-      </div>
-      <p class="system-note reveal">Virker på mobilen ude på pladsen og på computeren hjemme.</p>
-    </section>
-
-    <section class="band" aria-labelledby="insights-heading">
-      <div class="band-inner">
-        <div class="insights-inner reveal">
-          <div>
-            <p class="eyebrow">Mester Insights</p>
-            <h2 id="insights-heading" class="insights-title">Mester Insights: gode råd, mens du laver tilbuddet</h2>
-            <p class="insights-body">Mester Insights dukker op i selve tilbuddet, før du sender det. Den sammenligner din pris med dine egne tidligere tilbud, så du kan se, om du ligger, hvor du plejer. Jo flere tilbud du har lavet og fået svar på, jo mere har den at gå ud fra.</p>
-          </div>
-          <figure class="insights-shot">
-            <img src="assets/landing/mester-insights-i-tilbuddet.jpg" alt="Mester Insights i et tilbud: prisen på betonfliser sammenlignet med tidligere belægningstilbud" width="828" height="420" loading="lazy" decoding="async" />
-            <figcaption>Sådan ser det ud i tilbuddet.</figcaption>
-          </figure>
-        </div>
-        <div class="insights-examples reveal">
-          <h3>Eksempler på, hvad den kan vise</h3>
-          <figure class="insights-example">
-            <figcaption class="example-label">Eksempel</figcaption>
-            <img src="assets/landing/mester-insights-eksempel.jpg" alt="Eksempel på Mester Insights for en belægningsopgave" width="760" height="766" loading="lazy" decoding="async" />
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section id="priser" aria-labelledby="pricing-heading">
-      <div class="section-head reveal">
-        <h2 id="pricing-heading">Én pakke. Alt er med.</h2>
-        <p>Vælg, hvor længe du vil betale for ad gangen.</p>
-      </div>
-      <div class="pricing-grid">
-        <article class="pricing-card reveal" aria-labelledby="pricing-1m">
-          <p id="pricing-1m" class="pricing-tier">1 måned</p>
-          <div class="price-row">
-            <span class="price-main">399 kr.</span><span class="price-sub">/md.</span><span class="price-vat">ekskl. moms</span>
-          </div>
-          <p class="pricing-terms">Ingen binding</p>
-          <a class="btn btn-outline" href="#priser" data-payment-link="monthly">Vælg 1 måned</a>
-        </article>
-
-        <article class="pricing-card reveal" aria-labelledby="pricing-6m">
-          <p id="pricing-6m" class="pricing-tier">6 måneder</p>
-          <div class="price-row">
-            <span class="price-main">349 kr.</span><span class="price-sub">/md.</span><span class="price-vat">ekskl. moms</span>
-          </div>
-          <p class="pricing-terms">2.094 kr. betales forud</p>
-          <a class="btn btn-outline" href="#priser" data-payment-link="sixMonths">Vælg 6 måneder</a>
-        </article>
-
-        <article class="pricing-card pricing-card--featured reveal" aria-labelledby="pricing-12m">
-          <span class="pricing-badge">Laveste pris</span>
-          <p id="pricing-12m" class="pricing-tier">12 måneder</p>
-          <div class="price-row">
-            <span class="price-main">299 kr.</span><span class="price-sub">/md.</span><span class="price-vat">ekskl. moms</span>
-          </div>
-          <p class="pricing-terms">3.588 kr. betales forud</p>
-          <a class="btn btn-accent" href="#priser" data-payment-link="twelveMonths">Vælg 12 måneder</a>
-        </article>
-      </div>
-
-      <ul class="pricing-terms-block reveal" aria-label="Betingelser">
-        <li>Priserne er ekskl. moms. Virksomheder med CVR-nummer afregner selv momsen (omvendt betalingspligt).</li>
-        <li>Abonnementet fornyes automatisk for samme periode, indtil du opsiger.</li>
-        <li>Du opsiger ved at skrive til <a href="mailto:kontakt@mesterpakken.dk">kontakt@mesterpakken.dk</a>. Opsigelsen gælder fra udløbet af den periode, du har betalt for.</li>
-        <li>SMS'er til dine kunder er med i prisen.</li>
-      </ul>
-
-      <div class="pricing-includes reveal">
-        <h3>Det får du</h3>
-        <ul class="checklist">
-          <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Indtal tilbud på mobilen</span></li>
-          <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tilbud bygget med dine egne priser fra materialekataloget</span></li>
-          <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>SMS-link og godkendelse med ét tryk</span></li>
-          <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Besked når kunden åbner og godkender</span></li>
-          <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Handlinger og opfølgning</span></li>
-          <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Pipeline og kundeoversigt</span></li>
-          <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Mester Insights</span></li>
-        </ul>
       </div>
     </section>
 
@@ -1246,28 +1173,28 @@
             <span class="step-num" aria-hidden="true">1</span>
             <div>
               <h3>Vælg periode og betal</h3>
-              <p>Det tager to minutter. Du skal bruge dit CVR-nummer.</p>
+              <p>To minutter. Hav dit CVR-nummer klar.</p>
             </div>
           </li>
           <li class="step-item reveal">
             <span class="step-num" aria-hidden="true">2</span>
             <div>
               <h3>Opret din konto</h3>
-              <p>Du får en e-mail med et link med det samme. Klik på det, og opret dit login.</p>
+              <p>Du får et link på e-mail.</p>
             </div>
           </li>
           <li class="step-item reveal">
             <span class="step-num" aria-hidden="true">3</span>
             <div>
               <h3>Sæt dit firma op</h3>
-              <p>Vælg branche, og udfyld timepris, logo og transportgebyr. Det gør du én gang.</p>
+              <p>Branche, timepris, logo og transportgebyr.</p>
             </div>
           </li>
           <li class="step-item reveal">
             <span class="step-num" aria-hidden="true">4</span>
             <div>
               <h3>Lav dit første tilbud</h3>
-              <p>Ret standardpriserne til dine egne, og indtal din første opgave.</p>
+              <p>Ret priserne til dine egne, og indtal opgaven.</p>
             </div>
           </li>
         </ol>
@@ -1313,10 +1240,8 @@
           <p>Nej. SMS'er til dine kunder er med i prisen.</p>
         </details>
       </div>
-    </section>
 
-    <section id="kom-i-gang" class="band final-cta" aria-labelledby="final-heading">
-      <div class="band-inner reveal">
+      <div id="kom-i-gang" class="final-cta reveal">
         <h2 id="final-heading">Send tilbuddet, mens du stadig står på pladsen.</h2>
         <a class="btn btn-accent btn-lg" href="#priser">Kom i gang – fra 299 kr./md.</a>
 
@@ -1351,6 +1276,11 @@
       <p class="footer-copy">© 2026 Mesterpakken · Alle rettigheder forbeholdes</p>
     </div>
   </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Skærmbillede">
+    <button type="button" class="lightbox-close" aria-label="Luk">&times;</button>
+    <img src="" alt="" />
+  </dialog>
 
   <div class="sticky-cta" id="sticky-cta" aria-hidden="true">
     <a class="btn btn-accent" href="#priser" tabindex="-1">Kom i gang – fra 299 kr./md.</a>
@@ -1416,12 +1346,29 @@
         });
       }
 
+      function setupLightbox() {
+        var box = document.getElementById("lightbox");
+        if (!box || typeof box.showModal !== "function") return;
+        var img = box.querySelector("img");
+        document.querySelectorAll("[data-lightbox]").forEach(function (a) {
+          a.addEventListener("click", function (ev) {
+            ev.preventDefault();
+            var thumb = a.querySelector("img");
+            img.src = a.getAttribute("href");
+            img.alt = thumb ? thumb.alt : "";
+            box.showModal();
+          });
+        });
+        box.addEventListener("click", function () { box.close(); });
+      }
+
       document.addEventListener("DOMContentLoaded", function () {
         onScrollNav();
         window.addEventListener("scroll", onScrollNav, { passive: true });
         setupReveal();
         setupPaymentLinks();
         setupStickyCta();
+        setupLightbox();
       });
     })();
   </script>

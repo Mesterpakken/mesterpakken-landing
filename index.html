@@ -378,8 +378,8 @@
     .step-pills {
       list-style: none;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.75rem;
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
       max-width: 960px;
       margin: 1.5rem auto 0;
     }
@@ -394,6 +394,14 @@
       font-weight: 700;
       font-size: 0.9375rem;
       line-height: 1.25;
+    }
+    .video-note {
+      max-width: 640px;
+      margin: 1.25rem auto 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9375rem;
+      line-height: 1.5;
     }
 
     /* Numbered step rows (Sådan kommer du i gang) */
@@ -498,29 +506,80 @@
         0 4px 12px rgba(0, 0, 0, 0.25);
     }
 
-    /* System screenshots */
-    .shots {
-      list-style: none;
+    /* System overview: accordion on mobile, list + panel on desktop.
+       Panels are only collapsed once JS adds .is-enhanced. */
+    .overview {
+      max-width: 1180px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(138, 172, 187, 0.25);
+    }
+    .ov-item { border-bottom: 1px solid rgba(138, 172, 187, 0.25); }
+    .ov-tab {
+      width: 100%;
+      min-height: 56px;
       display: flex;
+      align-items: center;
+      justify-content: space-between;
       gap: 1rem;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      margin: 0 -1.25rem;
-      padding: 0.25rem 1.25rem 1rem;
-    }
-    .shots li { flex: 0 0 84%; scroll-snap-align: center; }
-    .shot-link { display: block; cursor: zoom-in; border-radius: 12px; }
-    .shot-link .browser-frame img {
-      aspect-ratio: 1400 / 780;
-      object-fit: cover;
-      object-position: top;
-    }
-    .shot-link:hover .browser-frame { box-shadow: 0 0 0 2px var(--accent), 0 20px 50px rgba(0, 0, 0, 0.4); }
-    .shot-label {
-      display: block;
-      text-align: center;
+      padding: 0.9rem 0.25rem;
+      background: none;
+      border: 0;
+      color: var(--white);
+      font: inherit;
+      font-size: 1.0625rem;
       font-weight: 700;
-      margin-top: 0.65rem;
+      text-align: left;
+      cursor: pointer;
+    }
+    .ov-tab::after {
+      content: "+";
+      flex-shrink: 0;
+      font-size: 1.5rem;
+      font-weight: 400;
+      line-height: 1;
+      color: var(--accent);
+      transition: transform 0.2s;
+    }
+    .ov-item.is-open .ov-tab::after { transform: rotate(45deg); }
+    .ov-panel { padding: 0 0 1.5rem; }
+    .overview.is-enhanced .ov-item:not(.is-open) .ov-panel { display: none; }
+    .ov-text {
+      color: var(--soft);
+      font-size: 1rem;
+      line-height: 1.55;
+      max-width: 62ch;
+      margin-bottom: 1rem;
+    }
+    .shot-link { display: block; cursor: zoom-in; border-radius: 12px; }
+    .shot-link .browser-frame img { width: 100%; max-width: 1400px; }
+    .ov-insight {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--bg);
+      border: 1px solid rgba(25, 167, 206, 0.2);
+      border-radius: 14px;
+      padding: 1.25rem;
+    }
+    .ov-insight svg { flex-shrink: 0; width: 40px; height: 40px; }
+    .ov-insight .ov-text { margin-bottom: 0; }
+    @media (max-width: 899px) {
+      /* On phones the enlarged screenshot is wider than the screen and can be panned. Never above its natural 1400px. */
+      .lightbox[open] {
+        width: 100vw;
+        height: 100vh;
+        max-width: none;
+        max-height: none;
+        overflow: auto;
+        background: rgba(6, 15, 30, 0.96);
+      }
+      .lightbox[open] img {
+        width: 1000px;
+        max-width: none;
+        max-height: none;
+        margin: 72px 16px 24px;
+      }
+      .lightbox[open] .lightbox-close { position: fixed; top: 14px; right: 14px; z-index: 2; }
     }
     .system-note {
       text-align: center;
@@ -904,7 +963,7 @@
     }
     @media (min-width: 640px) {
       .step-row { grid-template-columns: repeat(2, 1fr); }
-      .shots li { flex-basis: 46%; }
+      .step-pills { grid-template-columns: repeat(2, 1fr); }
     }
     @media (min-width: 768px) {
       main section { padding: 5.5rem 1.5rem; }
@@ -921,11 +980,37 @@
     }
     @media (min-width: 900px) {
       .step-row { grid-template-columns: repeat(4, 1fr); }
-      .shots {
+      .overview.is-enhanced {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        overflow: visible;
-        margin: 0;
+        grid-template-columns: 240px 1fr;
+        grid-template-rows: repeat(5, auto) 1fr;
+        column-gap: 2.5rem;
+        row-gap: 0.4rem;
+        border-top: 0;
+      }
+      .overview.is-enhanced .ov-item { display: contents; }
+      .overview.is-enhanced .ov-item:nth-child(1) .ov-tab { grid-row: 1; }
+      .overview.is-enhanced .ov-item:nth-child(2) .ov-tab { grid-row: 2; }
+      .overview.is-enhanced .ov-item:nth-child(3) .ov-tab { grid-row: 3; }
+      .overview.is-enhanced .ov-item:nth-child(4) .ov-tab { grid-row: 4; }
+      .overview.is-enhanced .ov-item:nth-child(5) .ov-tab { grid-row: 5; }
+      .overview.is-enhanced .ov-tab {
+        grid-column: 1;
+        padding: 0.8rem 1rem;
+        border-radius: 12px;
+        border-left: 3px solid transparent;
+        color: var(--muted);
+      }
+      .overview.is-enhanced .ov-tab::after { content: none; }
+      .overview.is-enhanced .ov-tab:hover { color: var(--white); }
+      .overview.is-enhanced .ov-item.is-open .ov-tab {
+        background: rgba(25, 167, 206, 0.14);
+        border-left-color: var(--accent);
+        color: var(--white);
+      }
+      .overview.is-enhanced .ov-panel {
+        grid-column: 2;
+        grid-row: 1 / -1;
         padding: 0;
       }
       .pricing-grid {
@@ -968,11 +1053,11 @@
       <div class="hero-inner">
         <div class="hero-copy">
           <p class="eyebrow">Til anlægsgartnere og brolæggere</p>
-          <h1 id="hero-heading">Send tilbuddet, før du kører fra pladsen.</h1>
-          <p class="hero-sub">Indtal opgaven. Mesterpakken laver tilbuddet med dine priser, sender det på SMS og husker opfølgningen.</p>
+          <h1 id="hero-heading">Flere opgaver i kalenderen. Mindre tid på tilbud.</h1>
+          <p class="hero-sub">Indtal eller skriv opgaven. Mesterpakken laver tilbuddet med dine egne priser, sender det til kunden og hjælper dig med at følge op. Fra mobilen eller kontoret.</p>
           <ul class="hero-ticks">
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Slut med tilbud om aftenen</li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Besked, når kunden åbner</li>
+            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Besked, når kunden åbner tilbuddet</li>
             <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#19a7ce" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Opfølgning med ét tryk</li>
           </ul>
           <div class="hero-cta">
@@ -1014,11 +1099,12 @@
           </video>
         </div>
         <ol class="step-pills reveal">
-          <li><span class="step-num" aria-hidden="true">1</span>Indtal opgaven</li>
-          <li><span class="step-num" aria-hidden="true">2</span>Ret og send</li>
-          <li><span class="step-num" aria-hidden="true">3</span>Kunden godkender</li>
-          <li><span class="step-num" aria-hidden="true">4</span>Følg op</li>
+          <li><span class="step-num" aria-hidden="true">1</span>Indtal eller skriv opgaven</li>
+          <li><span class="step-num" aria-hidden="true">2</span>Gennemgå og ret tilbuddet</li>
+          <li><span class="step-num" aria-hidden="true">3</span>Send på SMS eller e-mail</li>
+          <li><span class="step-num" aria-hidden="true">4</span>Se kundens svar. Følg op ved behov.</li>
         </ol>
+        <p class="video-note reveal">Vi sender som udgangspunkt tilbuddet på SMS, fordi SMS'er typisk bliver set hurtigere end e-mails, der kan drukne i indbakken. Kunden kan også få tilbuddet på e-mail.</p>
       </div>
     </section>
 
@@ -1060,44 +1146,65 @@
         <div class="section-head reveal">
           <h2 id="system-heading">Og du har styr på resten</h2>
         </div>
-        <ul class="shots reveal">
-          <li>
-            <a class="shot-link" href="assets/landing/screen-overblik.jpg" data-lightbox>
-              <div class="browser-frame">
-                <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-                <img src="assets/landing/screen-overblik.jpg" alt="Overblik over åbne tilbud, vundet omsætning og handlinger" width="1400" height="715" loading="lazy" decoding="async" />
+        <div class="overview reveal" data-overview>
+          <div class="ov-item is-open">
+            <button type="button" class="ov-tab" id="ov-tab-overblik" aria-controls="ov-panel-overblik" aria-expanded="true">Overblik</button>
+            <div class="ov-panel" id="ov-panel-overblik" role="region" aria-labelledby="ov-tab-overblik">
+              <p class="ov-text">Åbne tilbud, vundet omsætning og hvad der haster i dag.</p>
+              <a class="shot-link" href="assets/landing/screen-overblik.jpg" data-lightbox>
+                <div class="browser-frame">
+                  <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <img src="assets/landing/screen-overblik.jpg" alt="Overblik over åbne tilbud, vundet omsætning og handlinger" width="1400" height="715" loading="lazy" decoding="async" />
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="ov-item">
+            <button type="button" class="ov-tab" id="ov-tab-handlinger" aria-controls="ov-panel-handlinger" aria-expanded="false">Handlinger</button>
+            <div class="ov-panel" id="ov-panel-handlinger" role="region" aria-labelledby="ov-tab-handlinger">
+              <p class="ov-text">Tilbud, der venter på svar, og vundne job, der mangler en aftale. Ring op eller send SMS med ét tryk.</p>
+              <a class="shot-link" href="assets/landing/screen-handlinger.jpg" data-lightbox>
+                <div class="browser-frame">
+                  <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <img src="assets/landing/screen-handlinger.jpg" alt="Handlinger: listen over tilbud og kunder, der skal følges op" width="1400" height="715" loading="lazy" decoding="async" />
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="ov-item">
+            <button type="button" class="ov-tab" id="ov-tab-pipeline" aria-controls="ov-panel-pipeline" aria-expanded="false">Pipeline</button>
+            <div class="ov-panel" id="ov-panel-pipeline" role="region" aria-labelledby="ov-tab-pipeline">
+              <p class="ov-text">Alle tilbud og deres status: kladde, sendt, åbnet, vundet eller tabt.</p>
+              <a class="shot-link" href="assets/landing/screen-pipeline.jpg" data-lightbox>
+                <div class="browser-frame">
+                  <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <img src="assets/landing/screen-pipeline.jpg" alt="Pipeline med alle tilbud og deres status" width="1400" height="841" loading="lazy" decoding="async" />
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="ov-item">
+            <button type="button" class="ov-tab" id="ov-tab-kunder" aria-controls="ov-panel-kunder" aria-expanded="false">Kunder</button>
+            <div class="ov-panel" id="ov-panel-kunder" role="region" aria-labelledby="ov-tab-kunder">
+              <p class="ov-text">Alle kunder og deres tilbud samlet ét sted.</p>
+              <a class="shot-link" href="assets/landing/screen-kunder.jpg" data-lightbox>
+                <div class="browser-frame">
+                  <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <img src="assets/landing/screen-kunder.jpg" alt="Kundeoversigt med alle kunder, antal tilbud og vundet værdi" width="1400" height="841" loading="lazy" decoding="async" />
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="ov-item">
+            <button type="button" class="ov-tab" id="ov-tab-insights" aria-controls="ov-panel-insights" aria-expanded="false">Mester Insights</button>
+            <div class="ov-panel" id="ov-panel-insights" role="region" aria-labelledby="ov-tab-insights">
+              <div class="ov-insight">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V16h5.2v-.2c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z" stroke="#19a7ce" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <p class="ov-text">Dukker op i tilbuddet, mens du laver det, og sammenligner med dine egne tidligere tilbud og deres udfald. Jo flere tilbud du har lavet, jo mere har den at gå ud fra.</p>
               </div>
-              <span class="shot-label">Overblik</span>
-            </a>
-          </li>
-          <li>
-            <a class="shot-link" href="assets/landing/screen-handlinger.jpg" data-lightbox>
-              <div class="browser-frame">
-                <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-                <img src="assets/landing/screen-handlinger.jpg" alt="Handlinger: listen over tilbud og kunder, der skal følges op" width="1400" height="715" loading="lazy" decoding="async" />
-              </div>
-              <span class="shot-label">Handlinger</span>
-            </a>
-          </li>
-          <li>
-            <a class="shot-link" href="assets/landing/screen-pipeline.jpg" data-lightbox>
-              <div class="browser-frame">
-                <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-                <img src="assets/landing/screen-pipeline.jpg" alt="Pipeline med alle tilbud og deres status" width="1400" height="841" loading="lazy" decoding="async" />
-              </div>
-              <span class="shot-label">Pipeline</span>
-            </a>
-          </li>
-          <li>
-            <a class="shot-link" href="assets/landing/screen-kunder.jpg" data-lightbox>
-              <div class="browser-frame">
-                <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-                <img src="assets/landing/screen-kunder.jpg" alt="Kundeoversigt med alle kunder, antal tilbud og vundet værdi" width="1400" height="841" loading="lazy" decoding="async" />
-              </div>
-              <span class="shot-label">Kunder</span>
-            </a>
-          </li>
-        </ul>
+            </div>
+          </div>
+        </div>
         <p class="system-note reveal">Virker på mobilen ude på pladsen og på computeren hjemme.</p>
       </div>
     </section>
@@ -1110,6 +1217,7 @@
       <div class="pricing-inner">
         <div class="section-head reveal">
           <h2 id="pricing-heading">Én pakke. Alt er med.</h2>
+          <p>Vælg, hvor længe du vil betale for ad gangen.</p>
         </div>
         <div class="pricing-grid">
           <article class="pricing-card reveal" aria-labelledby="pricing-1m">
@@ -1346,6 +1454,31 @@
         });
       }
 
+      function setupOverview() {
+        var root = document.querySelector("[data-overview]");
+        if (!root) return;
+        var items = Array.prototype.slice.call(root.querySelectorAll(".ov-item"));
+        var desktop = window.matchMedia("(min-width: 900px)");
+        function setOpen(target) {
+          items.forEach(function (item) {
+            var open = item === target;
+            item.classList.toggle("is-open", open);
+            item.querySelector(".ov-tab").setAttribute("aria-expanded", open ? "true" : "false");
+          });
+        }
+        items.forEach(function (item) {
+          item.querySelector(".ov-tab").addEventListener("click", function () {
+            var isOpen = item.classList.contains("is-open");
+            setOpen(isOpen && !desktop.matches ? null : item);
+          });
+        });
+        function ensureOneOpenOnDesktop() {
+          if (desktop.matches && !root.querySelector(".ov-item.is-open")) setOpen(items[0]);
+        }
+        if (desktop.addEventListener) desktop.addEventListener("change", ensureOneOpenOnDesktop);
+        root.classList.add("is-enhanced");
+      }
+
       function setupLightbox() {
         var box = document.getElementById("lightbox");
         if (!box || typeof box.showModal !== "function") return;
@@ -1359,7 +1492,9 @@
             box.showModal();
           });
         });
-        box.addEventListener("click", function () { box.close(); });
+        box.addEventListener("click", function (ev) {
+          if (ev.target === box || ev.target.closest(".lightbox-close")) box.close();
+        });
       }
 
       document.addEventListener("DOMContentLoaded", function () {
@@ -1368,6 +1503,7 @@
         setupReveal();
         setupPaymentLinks();
         setupStickyCta();
+        setupOverview();
         setupLightbox();
       });
     })();
